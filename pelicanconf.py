@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Erik Taubeneck'
 SITENAME = 'skien.cc'
-SITEURL = ''
+SITEURL = 'https://skien.cc'
 THEME = 'pneumatic'
 ICONS_PATH = 'images/icons'
 STATIC_PATHS = [
