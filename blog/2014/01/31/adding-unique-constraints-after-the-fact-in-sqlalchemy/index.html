@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Adding Unique Constraints After the Fact in SQLAlchemy | skien.cc</title>
+	<meta name="description" content="In a previous post, I wrote about writing a get_one_or_create() function for SQLAlchemy. Turns out that I had inadvertently created a race condition while horizontally scaling on Heroku. That post explains, in detail, the solution I came up with for moving forward, however I still had duplicate objects in my …">
+	<meta name="author" content="Erik Taubeneck">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="Adding Unique Constraints After the Fact in SQLAlchemy">
+	<meta property="og:description" content="In a previous post, I wrote about writing a get_one_or_create() function for SQLAlchemy. Turns out that I had inadvertently created a race condition while horizontally scaling on Heroku. That post explains, in detail, the solution I came up with for moving forward, however I still had duplicate objects in my …">
+	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2014/01/31/adding-unique-constraints-after-the-fact-in-sqlalchemy/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?2af86252" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">skien.cc</a></div>
+			<div id="bio">a mathematician, economist, and statistician by schooling, data scientist/python hacker by trade, and a homebrewer by night, skien.cc |skīəns| is my blog aimed to track explorations in all of the above.</div>
+
+
+			<div id="social">
+				<a href="http://github.com/eriktaubeneck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.facebook.com/erik.taubeneck" title="Facebook" class="icon fa fa-facebook"></a>
+				<a href="https://www.instagram.com/taubeneck/" title="Instagram" class="icon fa fa-instagram"></a>
+				<a href="http://twitter.com/taubeneck" title="Twitter" class="icon fa fa-twitter"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2014/01/31/adding-unique-constraints-after-the-fact-in-sqlalchemy/" title="Permalink to Adding Unique Constraints After the Fact in SQLAlchemy">Adding Unique Constraints After the Fact in SQLAlchemy</a></h1>
+	<time class="date" datetime="2014-01-31 16:40:00-05:00">2014-01-31</time>
+	<div class="content">
+		<p>In a <a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/">previous post</a>, I wrote about writing a <code>get_one_or_create()</code> function for SQLAlchemy. Turns out that I had inadvertently created a race condition while horizontally scaling on Heroku. That post explains, in detail, the solution I came up with for moving forward, however I still had duplicate objects in my database that needed to remove. Since I'm on Heroku, I'm using Postgres (although I'm highly opinionated towards using Postgres often), so some of this may be Postgres specific, and I will do my best to note when that's the case.</p>
+<p>I'll use the same example models that I used in my previous post. We had <code>Game</code> and <code>GameBeat</code> models:</p>
+<!-- more -->
+
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Game</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span>  <span class="o">=</span> <span class="s1">&#39;games&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">provider_game_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+    <span class="n">provider_game_name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+    <span class="n">provider_game_category</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">GameBeat</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;game_beats&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">game_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;games.id&#39;</span><span class="p">))</span>
+    <span class="n">game</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Game&quot;</span><span class="p">,</span>
+                           <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;beats&quot;</span><span class="p">,</span>
+                           <span class="n">lazy</span><span class="o">=</span><span class="s2">&quot;joined&quot;</span><span class="p">,</span>
+                           <span class="n">innerjoin</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;users.id&#39;</span><span class="p">))</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">,</span>
+                           <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;game_beats&quot;</span><span class="p">,</span>
+                           <span class="n">lazy</span><span class="o">=</span><span class="s2">&quot;joined&quot;</span><span class="p">,</span>
+                           <span class="n">innerjoin</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">beat_at</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DateTime</span><span class="p">())</span>
+</pre></div>
+
+
+<p>but had accidentally created multiple <code>Game</code> objects with the same <code>provider_game_id</code> attribute. At the very least, we would rather have the class definition and database representation put a unique constraint on this attribute so that if we ever attempted to create such a duplicate <code>Game</code> object, we'll end up raising a <code>IntegrityError</code> and the duplicate won't actually get added to the datastore. (Again, a <a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/">previous post</a> discusses how to handle this).</p>
+<p>The class definition updates to:</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Game</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">__tablename__</span>  <span class="o">=</span> <span class="s1">&#39;games&#39;</span>
+    <span class="nx">id</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">Integer</span><span class="p">,</span> <span class="nx">primary_key</span><span class="o">=</span><span class="nx">True</span><span class="p">)</span>
+    <span class="nx">provider_game_id</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="nx">unique</span><span class="o">=</span><span class="nx">True</span><span class="p">)</span>
+    <span class="nx">provider_game_name</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+    <span class="nx">provider_game_category</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+</pre></div>
+
+
+<p>We still, however need to make the update to our datastore (Postgres, in our case), along with finding and eliminating the duplicates we introduced into the system.</p>
+<h2>Using <code>alembic</code> to update the datastore</h2>
+<p>If you're not using <a href="http://alembic.readthedocs.org/en/latest/"><code>alembic</code></a> with <code>SQLAlchemy</code>, you're doing it wrong. OK - that's a bit harsh (and if you're doing it some other way, let me know!), but if you ever plan to change your data model, you'll need to change your datastore along with it, and <code>alembic</code> is an excellent tool to help you along. It's version control for your database schema; think Git for your class models.</p>
+<p><code>alembic</code> provides the useful <code>autogenerate</code> option that can be used like so:</p>
+<div class="codehilite"><pre><span></span>$ alembic --autogenerate -m <span class="s2">&quot;add unique constraint to Game.provider_game_id&quot;</span>
+</pre></div>
+
+
+<p>(Some <a href="http://alembic.readthedocs.org/en/latest/tutorial.html#auto-generating-migrations">setup</a> is required to get this option to work.) You should now have a new file in your <code>alembic/versions</code> directory with the name something like <code>10f2a956bad5_add_unique_constrain.py</code>. (Your hash at the beginning is going to almost certainly be different.) If you look at the file, you'll notice that it is mostly empty. Unfortunately, <code>alembic</code> isn't able to identify newly added unique constraints automatically, so we will have to fill it in.</p>
+<p>I found the <a href="http://alembic.readthedocs.org/en/rel_0_1/ops.html#alembic.op.create_unique_constraint">documentation</a> on adding a unique constraint a bit confusing at first. The function we want to use is <code>op.create_unique_constraint()</code>, which takes arguments <code>name</code>, <code>source</code>, and <code>local_cols</code>. At first, I thought <code>name</code> was the name of the column which I wanted to make unique, however it's actually the name of the constraint. In my setup (with Postgres), I was able to let <code>name = None</code> and have SQLAlchemy and Postgres sort it out. The <code>source</code> is just a string of the name of the table, and <code>local_cols</code> is where we specify what we want to make unique. The somewhat tricky part here is that we can make a constraint where <code>(col1,col2)</code> needs to be unique (not individually unique, but the combination of the two), so this parameter takes a list. In our case, the list will only have a single member, <code>provider_game_id</code>. Within the <code>upgrade</code> function in our migration file, we can add:</p>
+<div class="codehilite"><pre><span></span>def upgrade():
+    op.create_unique_constraint(None,
+                                &quot;games&quot;,
+                                [&quot;provider_game_id&quot;])
+</pre></div>
+
+
+<p>and under the <code>downgrade</code> function, we can add:</p>
+<div class="codehilite"><pre><span></span>def downgrade():
+    op.drop_contraint(&quot;provider_game_id&quot;,
+                      &quot;games&quot;,
+                       &quot;unique&quot;)
+</pre></div>
+
+
+<p>If there are any existing duplicates and we run this, however, we are going to get an <code>IntegrityError</code>. So it's time to seek and destroy.</p>
+<h2>Finding Duplicate Entries</h2>
+<p>As we're debugging the situation, one of the first things we'll want see how many duplicates we have of our object along the <code>provider_game_id</code>. I wrote this function do do just that:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">func</span>
+
+<span class="k">def</span> <span class="nf">n_dups</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">attr</span><span class="p">))</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">attr</span><span class="p">))</span><span class="o">.</span>\
+            <span class="n">having</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">attr</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Running this, we'll use <code>n_dups(Game, 'provider_game_id')</code> and likely see something more than zero. All this tells us, however, is how many dups we have along that attribute. We now need to iterate though each duplicated <code>provider_game_id</code> and collect all the objects with said <code>provider_game_id</code>. Getting the duplicated <code>provider_game_ids</code> is similar to above:</p>
+<div class="codehilite"><pre><span></span>def get_duplicated_attrs(session, cls, attr):
+    return session.query(getattr(cls,attr)).group_by(getattr(cls,attr)).\
+            having(func.count(getattr(cls,attr)) &gt; 1).all()
+</pre></div>
+
+
+<p>So now we can get the duplicated objects:</p>
+<div class="codehilite"><pre><span></span>def get_duplicated_objs(session, cls, attr, attr_value, order_by_attr):
+    return session.query(cls).filter(getattr(cls,attr) == attr_value)).\
+            order_by(order_by_attr).all()
+</pre></div>
+
+
+<p>The <code>order_by_attr</code> is going to come in handy in the next decision when we decide which duplicated objects get the axe.</p>
+<h2>Eliminating Duplicate Entries</h2>
+<p>While there are a few caveats explained below, our alembic migration file is a good place to identify and eliminate any duplicates, for a few reasons:</p>
+<ol>
+<li>If our database has duplicates on a row we are asking it to add a unique constraint to, we will get an <code>IntegrityError</code>, so we are required to do this before the command in the migration that adds the constraint is applied. Adding it here means that we always know it will be run before we try to migrate.</li>
+<li>I generally don't like to clutter my applications with scripts that are (ideally) only run once, however I also do not want to run something like this in a REPL because you then loose the history of what was run. Adding it here means that we'll not only retain the history, but the exact point in which it was run.</li>
+<li>It's already built into my build process (which is just a nice perk for me, but running <code>alembic</code> in your built process helps you to never forget running your migrations.)</li>
+</ol>
+<p>When we delete the duplicate entries in our database, we have to decide on a rule for which one's to delete, and which <em>one</em> to keep. (You could also delete all, and then recreate them with your new protections against creating duplicates.) I decided to keep the oldest entry (not for any particularly good reason, except that I had originally created my objects with <code>created_at</code> attributes. Our example doesn't have these, so I'll use <code>id</code> which is effectively the same thing assuming the <code>id</code> is auto incremented.) Inside my alembic migration file, I added the following function</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">func</span>
+
+<span class="k">def</span> <span class="nf">remove_duplicates</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+    <span class="n">duplicates</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">attr</span><span class="p">))</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">attr</span><span class="p">))</span><span class="o">.</span>
+                  <span class="n">having</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">n_dups</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">duplicates</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">&#39;{}.{}: {} duplicates found&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">n_dups</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">duplicate</span> <span class="ow">in</span> <span class="n">duplicates</span><span class="p">:</span>
+        <span class="n">objs</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span><span class="o">.</span>
+                <span class="nb">filter</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">attr</span><span class="p">)</span> <span class="o">==</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">duplicate</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span><span class="o">.</span>
+                <span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="nb">map</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">,</span> <span class="n">objs</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s1">&#39;{}.{}: {} duplicates removed&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">n_dups</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Before we can call this function, however, there are a few caveats (which I just ran into the hard way.) First, we will need to import the <code>db</code> object and the <code>Game</code> object. Typically in Python, we only import things at the top of the file, but in order for things like <code>alembic history</code> to work correctly, we need to import these within the <code>upgrade()</code> function. That way, they will only be loaded with a migration is being run, and not when the migration file is inspected for things like the version number by other tools.</p>
+<p>Second, if you are doing a "dry run" <code>alembic upgrade head</code> (i.e. from a newly created DB with no schema), alembic works through all the migration files and issues one SQL statement at the end of the process. This is a problem if you attempt to query on the <code>Game</code> object, who's table doesn't exist yet. We can safely assume, however, that if the table doesn't exist yet, it doesn't have any duplicates. Luckily, SQLAlchemy has an <code>Inspector</code> object that allows reflection into the existing tables from and engine, and using</p>
+<div class="codehilite"><pre><span></span>inspector = Inspector.from_engine(db.engine)
+existing_tables = inspector.get_table_names()
+</pre></div>
+
+
+<p>will do the the trick. Now, within the <code>upgrade()</code> function we call our <code>remove_duplicates</code> function for the objects and their attributes with duplicates like so:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.engine.reflection</span> <span class="kn">import</span> <span class="n">Inspector</span>
+
+<span class="k">def</span> <span class="nf">upgrade</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">db</span>
+    <span class="kn">from</span> <span class="nn">app.models</span> <span class="kn">import</span> <span class="n">Game</span>
+
+    <span class="n">inspector</span> <span class="o">=</span> <span class="n">Inspector</span><span class="o">.</span><span class="n">from_engine</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+    <span class="n">existing_tables</span> <span class="o">=</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_table_names</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">Game</span><span class="o">.</span><span class="n">__tablename__</span> <span class="ow">in</span> <span class="n">existing_tables</span><span class="p">:</span>
+        <span class="n">remove_duplicates</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">Game</span><span class="p">,</span> <span class="s1">&#39;provider_game_id&#39;</span><span class="p">)</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">create_unique_constraint</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                                <span class="s2">&quot;games&quot;</span><span class="p">,</span>
+                                <span class="p">[</span><span class="s2">&quot;provider_game_id&quot;</span><span class="p">])</span>
+</pre></div>
+
+
+<p>and our <code>downgrade</code> function stays the same as above:</p>
+<div class="codehilite"><pre><span></span>def downgrade():
+    op.drop_contraint(&quot;provider_game_id&quot;,
+                      &quot;games&quot;,
+                       &quot;unique&quot;)
+</pre></div>
+
+
+<p>(Note: the import statements that happen outside of the functions can just be placed at the top of the migration file. They shouldn't cause any conflicts.)</p>
+<p>Woo! That's it. There are certainly a few <em>hacks</em> in here, so as usual, throw some feedback in the comments.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up-on-commits-and-flushes/" id="next-neighbour">&laquo; SQLAlchemy and Race Conditions: Follow Up on Commits and Flushes</a>
+		<a href="/blog/2014/01/23/on-markdown/" id="prev-neighbour">On Markdown &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2014/01/31/adding-unique-constraints-after-the-fact-in-sqlalchemy/';
+		this.page.identifier = 'blog/2014/01/31/adding-unique-constraints-after-the-fact-in-sqlalchemy/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

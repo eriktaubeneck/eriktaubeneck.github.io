@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>SQLAlchemy and Race Conditions: Implementing `get_one_or_create()` | skien.cc</title>
+	<meta name="description" content="Note: Examples here are built with respect to Flask SQLAlchemy, and while some notation may match that convention, the concepts should apply to use of SQLAlchemy in general. Motivation Suppose we have a Flask app that interacts with an API on a site that hosts webgames. Our users have OAuth'ed …">
+	<meta name="author" content="Erik Taubeneck">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="SQLAlchemy and Race Conditions: Implementing `get_one_or_create()`">
+	<meta property="og:description" content="Note: Examples here are built with respect to Flask SQLAlchemy, and while some notation may match that convention, the concepts should apply to use of SQLAlchemy in general. Motivation Suppose we have a Flask app that interacts with an API on a site that hosts webgames. Our users have OAuth'ed …">
+	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing-get_one_or_create/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?2af86252" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">skien.cc</a></div>
+			<div id="bio">a mathematician, economist, and statistician by schooling, data scientist/python hacker by trade, and a homebrewer by night, skien.cc |skīəns| is my blog aimed to track explorations in all of the above.</div>
+
+
+			<div id="social">
+				<a href="http://github.com/eriktaubeneck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.facebook.com/erik.taubeneck" title="Facebook" class="icon fa fa-facebook"></a>
+				<a href="https://www.instagram.com/taubeneck/" title="Instagram" class="icon fa fa-instagram"></a>
+				<a href="http://twitter.com/taubeneck" title="Twitter" class="icon fa fa-twitter"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing-get_one_or_create/" title="Permalink to SQLAlchemy and Race Conditions: Implementing `get_one_or_create()`">SQLAlchemy and Race Conditions: Implementing `get_one_or_create()`</a></h1>
+	<time class="date" datetime="2014-01-15 13:57:00-05:00">2014-01-15</time>
+	<div class="content">
+		<p>Note: Examples here are built with respect to <a href="http://pythonhosted.org/Flask-SQLAlchemy/">Flask SQLAlchemy</a>, and while some notation may match that convention, the concepts should apply to use of <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> in general.</p>
+<h2>Motivation</h2>
+<p>Suppose we have a <a href="http://flask.pocoo.org/">Flask</a> app that interacts with an API on a site that hosts webgames. Our users have OAuth'ed our application into the API so we can see their activity, and we want to track which games they have beat. (We'll assume that users only beat a game once or more generally we are only concerned with the first time they beat it.) We create the <code>Game</code> and <code>GameBeat</code> models like so:</p>
+<!-- more -->
+
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Game</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span>  <span class="o">=</span> <span class="s1">&#39;games&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">provider_game_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+    <span class="n">provider_game_name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+    <span class="n">provider_game_category</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">GameBeat</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;game_beats&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">game_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;games.id&#39;</span><span class="p">))</span>
+    <span class="n">game</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Game&quot;</span><span class="p">,</span>
+                           <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;beats&quot;</span><span class="p">,</span>
+                           <span class="n">lazy</span><span class="o">=</span><span class="s2">&quot;joined&quot;</span><span class="p">,</span>
+                           <span class="n">innerjoin</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;users.id&#39;</span><span class="p">))</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">,</span>
+                           <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;game_beats&quot;</span><span class="p">,</span>
+                           <span class="n">lazy</span><span class="o">=</span><span class="s2">&quot;joined&quot;</span><span class="p">,</span>
+                           <span class="n">innerjoin</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">beat_at</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DateTime</span><span class="p">())</span>
+</pre></div>
+
+
+<p>A few notes on these models. This assumes that each <code>Game</code> object coming from the API has an <code>id</code>, <code>name</code>, and <code>category</code> attribute, and anytime a game is beat by a user, you can get the datetime of when it was beat. One other convention is using <code>db.String(255)</code> for <code>provider_game_id</code> (rather than <code>db.Integer</code>). You will often see this with APIs where the <code>ids</code> can be very large integers (think of the number of Tweets on Twitter for example), and while Python handles big ints well, unless you want to use big ints for actually doing math, a string will be much more efficient (and you'll be less likely to have an issue with your backend datastore).</p>
+<h2>Implementing a basic <code>get_one_or_create()</code></h2>
+<p>NOTE: The original implementation I used was first inspired from <a href="http://stackoverflow.com/questions/2546207/does-sqlalchemy-have-an-equivalent-of-djangos-get-or-create">this Stack Overflow</a> question.</p>
+<p>If you've ever played around with <a href="https://www.djangoproject.com/">Django</a>, you've probably seen the <code>get_or_create()</code> function, but if not the concept is straight forward. First look for an object given a set of constraints, and if it doesn't exist, create it. The usefulness here is pretty obvious in our above example. Without it, given a list of <code>game_beats</code> from the API and a <code>user</code>, we'd have to do something like</p>
+<div class="codehilite"><pre><span></span>for game_beat_data in game_beat_data_list:
+    if db.session.query(Game).filter(Game.provider_game_id == game_beat_data[&#39;game&#39;][&#39;game_id&#39;]).count() == 0:
+        game = Game(provider_game_id = game_beat_data[&#39;game&#39;][&#39;game_id&#39;],
+                    provider_game_name = game_beat_data[&#39;game&#39;][&#39;game_name&#39;],
+                    provider_game_category = game_beat_data[&#39;game&#39;][&#39;game_category&#39;]
+                    )
+    else:
+        game = db.session.query(Game).filter(Game.provider_game_id == game_beat_data[&#39;game&#39;][&#39;game_id&#39;]).one()
+    if db.session.query(GameBeat).filter(GameBeat.game == game).filter(GameBeat.user == user).count() == 0:
+        game_beat = GameBeat(game = game,
+                             user = user,
+                             beat_at = game_beat_data[&#39;beat_at&#39;]
+                             )
+    else:
+        game_beat = db.session.query(GameBeat).filter(GameBeat.game == game).filter(GameBeat.user == user).one()
+    db.session.add(game_beat)
+db.session.commit()
+</pre></div>
+
+
+<p>This is quite verbose, and the logic is repeated twice, so it seems like a perfect place to write a function. Here's a first attempt, (and we'll build from here):</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.orm.exc</span> <span class="kn">import</span> <span class="n">NoResultFound</span>
+
+<span class="k">def</span> <span class="nf">get_one_or_create</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+                      <span class="n">model</span><span class="p">,</span>
+                      <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+   <span class="k">try</span><span class="p">:</span>
+       <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+   <span class="k">except</span> <span class="n">NoResultFound</span><span class="p">:</span>
+       <span class="k">return</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+
+
+<p>There are a couple small differences here. Most obvious is the change to a <code>try/except</code> block rather than getting the <code>count()</code> explicitly. The advantage here is that if the object exists, we only have to make one call to the datastore. The other is the use of <code>filter_by()</code>, which is just a version of <code>filter</code> that uses keyword arguments.</p>
+<p>Using this function, our above example now becomes:</p>
+<div class="codehilite"><pre><span></span>for game_beat_data in game_beat_data_list:
+    game = get_one_or_create(
+        db.session,
+        Game,
+        provider_game_id = game_beat_data[&#39;game&#39;][&#39;game_id&#39;]
+    )
+    game_beat = get_one_or_create(
+        db.session,
+        GameBeat,
+        game = game,
+        user = user,
+        beat_at = game_beat_data[&#39;beat_at&#39;]
+    )
+    db.session.add(game_beat)
+db.session.commit()
+</pre></div>
+
+
+<p>Now, since I've broken the inputs into our function onto multiple lines, we've only dropped from 17 lines to 15, however I'd still argue this is a HUGE decrease in complexity. We can now actually fit in under 80 characters without having to use <code>\</code> for newlines, but more generally, it's simply more readable.</p>
+<h2>A small modification</h2>
+<p>I'm not going to motivate this, but sometimes you'll want to know if the object you're getting back was newly created or pulled from the datastore, so we can easily return a <code>bool</code> as well by updating our function to</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.orm.exc</span> <span class="kn">import</span> <span class="n">NoResultFound</span>
+
+<span class="k">def</span> <span class="nf">get_one_or_create</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+                      <span class="n">model</span><span class="p">,</span>
+                      <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+   <span class="k">try</span><span class="p">:</span>
+       <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">(),</span> <span class="bp">True</span>
+   <span class="k">except</span> <span class="n">NoResultFound</span><span class="p">:</span>
+       <span class="k">return</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> <span class="bp">False</span>
+</pre></div>
+
+
+<p>and now we just have to remember that when we use it, to unpack into two variables</p>
+<div class="codehilite"><pre><span></span>obj, exists = get_one_or_create( … )
+</pre></div>
+
+
+<p>or else we will end up with a <code>tuple</code> where we expected <code>obj</code>.</p>
+<h2>The <code>@classmethod</code> decorator</h2>
+<p>One of my favorite Python patterns is using the <code>@classmethod</code> decorator with a creator function. In our above example, suppose we want to be able to create a <code>Game</code> object, but we may or may not have the <code>provider_game_name</code> and <code>provider_game_category</code> immediately available. We can update our model definition (assuming we have a <code>get_game_data_from_api</code> function from our API):</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Game</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">__tablename__</span>  <span class="o">=</span> <span class="s1">&#39;games&#39;</span>
+    <span class="nx">id</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">Integer</span><span class="p">,</span> <span class="nx">primary_key</span><span class="o">=</span><span class="nx">True</span><span class="p">)</span>
+    <span class="nx">provider_game_id</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+    <span class="nx">provider_game_name</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+    <span class="nx">provider_game_category</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+
+    <span class="kd">@classmethod</span>
+    <span class="nx">create_from_provider_game_id</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">provider_game_id</span><span class="p">,</span><span class="o">**</span><span class="nx">kwargs</span><span class="p">)</span><span class="o">:</span>
+        <span class="nx">provider_game_name</span> <span class="o">=</span> <span class="nx">kwargs</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;provider_game_name&#39;</span><span class="p">,</span> <span class="nx">None</span><span class="p">)</span>
+        <span class="nx">provider_game_category</span> <span class="o">=</span> <span class="nx">kwargs</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;provider_game_category&#39;</span><span class="p">,</span> <span class="nx">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">not</span> <span class="nx">provider_game_name</span> <span class="nx">and</span> <span class="nx">provider_game_category</span>:
+            <span class="kt">game_data</span> <span class="o">=</span> <span class="nx">get_game_data_from_api</span><span class="p">(</span><span class="nx">provider_game_id</span><span class="p">)</span>
+            <span class="nx">provider_game_name</span> <span class="o">=</span> <span class="nx">game_data</span><span class="p">[</span><span class="s1">&#39;provider_game_name&#39;</span><span class="p">]</span>
+            <span class="nx">provider_game_category</span> <span class="o">=</span> <span class="nx">game_data</span><span class="p">[</span><span class="s1">&#39;provider_game_category&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nx">cls</span><span class="p">(</span><span class="nx">provider_game_id</span> <span class="o">=</span> <span class="nx">provider_game_id</span><span class="p">,</span>
+                   <span class="nx">provider_game_name</span> <span class="o">=</span> <span class="nx">provider_game_name</span><span class="p">,</span>
+                   <span class="nx">provider_game_category</span> <span class="o">=</span> <span class="nx">provider_game_category</span><span class="p">)</span>
+</pre></div>
+
+
+<p>now if we do</p>
+<div class="codehilite"><pre><span></span>game = Game.create_from_provider_game_id(provider_game_id = game_beat_data[&#39;game&#39;][&#39;id&#39;])
+</pre></div>
+
+
+<p>we get a new <code>Game</code> object which will ping the API in order to get the other data to fill it out. But, if we already have the data (or we <em>maybe</em> have the data), we can do the following:</p>
+<div class="codehilite"><pre><span></span>game = Game.create_from_provider_game_id(
+           provider_game_id = game_beat_data[&#39;game&#39;][&#39;id&#39;],
+           provider_game_name = game_beat_data[&#39;game&#39;].get(&#39;name&#39;, None),
+           provider_game_category = game_beat_data[&#39;game&#39;].get(&#39;category&#39;, None)
+       )
+</pre></div>
+
+
+<p>I like to think of writing code like this as being <em>fault tolerant</em>. If you've played with external APIs before, their behavior can often change slightly. Moreover, writing code like this gives me a consistent pattern, so if in one case I have a collection of <code>dict</code>s from an API with all the relevant game data, and in another case I only have a collection of the <code>provider_game_id</code>s, I can use the same pattern. If I have all the data, I can save myself <code>n</code> calls to the API, and if I'm not sure (or maybe the API is inconsistent - yes it happens), it will still work.</p>
+<h2>Updating <code>get_one_or_create</code></h2>
+<p>It's quickly obvious that our current implementation of <code>get_one_or_create()</code> won't handle such pattern for creating model instances. But this is programming, we are the creators. Let's update our function:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.orm.exc</span> <span class="kn">import</span> <span class="n">NoResultFound</span>
+
+<span class="k">def</span> <span class="nf">get_one_or_create</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+                      <span class="n">model</span><span class="p">,</span>
+                      <span class="n">create_method</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                      <span class="n">create_method_kwargs</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                      <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">(),</span> <span class="bp">True</span>
+    <span class="k">except</span> <span class="n">NoResultFound</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">create_method_kwargs</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">create_method</span><span class="p">,</span> <span class="n">model</span><span class="p">)(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> <span class="bp">False</span>
+</pre></div>
+
+
+<p>The reason for adding this <code>create_method_kwargs</code> <code>dict</code> is fairly straight forward: consider a case where we need to hand a <code>user</code> to our API method <code>get_game_data_from_api</code>, but we don't store a <code>user</code> on the <code>Game</code> object and certainly don't want to include it in the <code>filter_by</code>.</p>
+<p>At this point, we have a pretty robust <code>get_one_or_create()</code> function that worked quite well for me, until it didn't.</p>
+<h2>An Unexpected Exception</h2>
+<p>By using my newly minted <code>get_one_or_create()</code> wherever I create objects, you can imagine my surprise when <code>MultipleResultsFound</code> exceptions starting being raised when trying to <code>get_one_or_create()</code> a <code>Game</code>. I scoured my code for any place that I created a <code>Game</code>; luckily <code>grep</code> makes this easy. Nothing. I expanded my test so that I was mocking a scan for 100 users. Nothing. Maybe there was a unicode issue where the <em>get</em> part was trying to match to a unicode to string (and failing) but the <em>create</em> part was then creating the attribute as a string. A new test quickly disproved this. Nothing.</p>
+<p>I was lost. I was writing tests <em>hoping</em> that they would fail just so I could figure out what was going wrong. And it was 4am. I <em>hate</em> going to sleep at a point like this. (I use <em>sleep</em> loosely here - I generally don't sleep well and lay awake trying to figure out how to fix my problem.) I'm not sure if it was that night or the next morning (or even when you draw the line going to bed at 4am for that matter…), but I eventually realized why I was getting duplicate objects in my datastore.</p>
+<p>During the time between the <em>get</em> call when the object doesn't exist and the call to <code>db.session.commit()</code>, the object was created somewhere else. I was using Celery to batch the update and it was a brand new scan, so a lot of stuff was being created. Since the <code>db.session.commit()</code> comes at the end of the loop, there can actually be a fair amount of time between these calls. But even if a <code>db.session.commit()</code> happened sooner, we want to be <em>sure</em> that another matching object didn't get created between the <em>get</em> and <em>create</em> parts of a function.</p>
+<h2>Celery "async" and Race Conditions</h2>
+<h3><code>@celery.task()</code></h3>
+<p>I use quotes here in the way I'd use air quotes if we were talking: the <a href="http://www.celeryproject.org/">Celery</a> async task model isn't true async in the way that <a href="http://twistedmatrix.com/trac/">Twisted</a> or <a href="http://docs.python.org/3.4/library/asyncio.html"><code>asyncio</code></a> is. Instead it uses an external messaging system (I use <a href="http://redis.io/">Redis</a> - mostly due to the price on <a href="https://www.heroku.com/">Heroku</a>). Functions and their inputs (remember that in Python, functions, like everything else, are objects) are JSONified, stored in the message system, and then deJSONified and executed in a completely separate process.</p>
+<p>It does become more complicated if you care about the result of a function call, but often you call functions only for their side effects. Sometimes you'll want to kick off a job of a few such function calls as a result of a web request. If the job takes awhile (anything more than a second) you certainly do not wish to wait (or can't, eventually you'll timeout) for that function to complete before responding. Celery makes this pattern straight forward, if not easy, to accomplish with a synchronous web framework like Flask.</p>
+<p>Celery also makes it really easy to horizontally scale a batch of jobs. Suppose we want to update the <code>GameBeat</code>s for all our users. We could create a celery task like so</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">celery</span><span class="p">,</span> <span class="n">db</span>
+<span class="kn">from</span> <span class="nn">app.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">app.provider_apis</span> <span class="kn">import</span> <span class="n">get_provider_api</span>
+
+<span class="nd">@celery.task</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">update_game_beats_for_user_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="n">api</span> <span class="o">=</span> <span class="n">get_provider_api</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">game_beat_data_list</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_game_beats</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">game_beat_data</span> <span class="ow">in</span> <span class="n">game_beat_data_list</span><span class="p">:</span>
+        <span class="err">…</span>
+</pre></div>
+
+
+<p>where the <code>…</code> completes the pattern above showing the usage of <code>get_one_or_create()</code>. We can now create a task for each user by running</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">app.tasks</span> <span class="kn">import</span> <span class="n">update_game_beats_for_user_id</span>
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="kn">from</span> <span class="nn">app.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span>
+    <span class="n">update_game_beats_for_user_id</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This makes it possible to spin up a number of Celery workers (Heroku for this is as easy as scrolling a slider on a web interface and clicking "Apply", or a single short bash command) and get all these tasks done quickly.</p>
+<h3>Race Conditions</h3>
+<p>Whenever you have multiple concurrent processes interacting with an external service, you have to be concerned about race conditions, e.g. from the perspective of any process, the state of that external service may change at anytime without any interaction from that process. Luckily, Celery is designed to handle this and maps jobs out in a way that no two processes will receive the same message.</p>
+<p>SQLAlchemy even has some protection against this, although I'm not sure exactly how it's implemented. I do know that if I have an <code>ipython</code> shell open with a transition pending, a query in another process will stall. This goes out the window, however, when we're working with Celery workers on separate Heroku instances or even separate web instances. So we certainly want to protect against this type of thing in production.</p>
+<p>In our example, since we plan to look up <code>Game</code> objects by <code>provider_game_id</code> and expect only one instance, we should have defined that column with a unique constraint like so:</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Game</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="err">…</span>
+    <span class="nx">provider_game_id</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="nx">unique</span><span class="o">=</span><span class="nx">True</span><span class="p">)</span>
+    <span class="err">…</span>
+</pre></div>
+
+
+<p>Luckily we can make this change after the fact (which I won't show here, but I plan to write about next). Had we done this originally, we would never have gotten the <code>MultipleResultsFound</code> exception, but instead would have gotten a <code>IntegrityError</code> when trying to execute <code>db.session.commit()</code> of an transition that would <em>create</em> our duplicated item. This is desirable since the exception comes <em>before</em> the duplicate is introduced into the datastore. However, it would be best for our <code>get_one_or_create</code> function to take care of this as well.</p>
+<h2>A "final" <code>get_one_or_create()</code></h2>
+<p>Again, think air quotes. As a developer, I never think or anything as final. Or maybe I always think an implementation is final, and I'm always wrong. Regardless, of the concerns I've reached so far, here is a "final" version:</p>
+<div class="codehilite"><pre><span></span>def get_one_or_create(session,
+                      model,
+                      create_method=&#39;&#39;,
+                      create_method_kwargs=None,
+                      **kwargs):
+    try:
+        return session.query(model).filter_by(**kwargs).one(), True
+    except NoResultFound:
+        kwargs.update(create_method_kwargs or {})
+        created = getattr(model, create_method, model)(**kwargs)
+        try:
+            session.add(created)
+            session.commit()
+            return created, False
+        except IntegrityError:
+            session.rollback()
+            return session.query(model).filter_by(**kwargs).one(), True
+</pre></div>
+
+
+<p>Here's what's happening. It tries to find the right object, and if it finds it, it returns it. If not, it creates it, adds it to the session, and attempts to commit. In the mean time, if another process has created and committed an object with the same details we filtered by, an <code>IntegrityError</code> raises and is caught. This means we should be able to get the newly created object, so we now get that and return it.</p>
+<p>You'll notice one major difference from our earlier versions: <code>session.commit()</code> is now in the function. I've avoided doing this thus far due to the recommended usage in the SQLAlchemy documentations on <a href="http://docs.sqlalchemy.org/en/latest/orm/session.html#when-do-i-construct-a-session-when-do-i-commit-it-and-when-do-i-close-it">sessions</a>:</p>
+<blockquote>
+<p>As a general rule, keep the lifecycle of the session separate and external from functions and objects that access and/or manipulate database data.</p>
+</blockquote>
+<p>The reason we must add this into our function call here, is that if we do the <code>db.session.commit()</code> after making several calls to <code>get_one_or_create()</code> and the <code>IntegrityError</code> was raised, we'd have no idea which created object caused it and we'd have to start the entire transaction over (and we'd have to write logic outside the function to handle all this). Since our <code>get_one_or_create()</code> function is written generally for any model and unique keywords, rather than specific logic tied to a specific model, I don't think it seriously conflicts with the SQLAlchemy philosophy.</p>
+<p><strong>UPDATE:</strong> I have recanted here and decided that using <code>session.flush()</code> is superior to <code>session.commit()</code> for line 13 of the function. See my <a href="http://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up/">newer blog post</a> for a detailed explanation of why.</p>
+<p><strong>UPDATE 2:</strong> I've updated using a <code>{}</code> as a default value in the function as this is typical Python gotcha. Thanks for the <a href="http://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up/#comment-1371570667">comment</a>, Nigel! If your curious about this gotcha, check out this <a href="http://stackoverflow.com/questions/5712904/empty-dictionary-as-default-value-for-keyword-argument-in-python-function-dicti">StackOverflow question</a> and <a href="http://pythonconquerstheuniverse.wordpress.com/category/python-gotchas/">this blog post</a>.</p>
+<h2>Final Thoughts</h2>
+<p>Race conditions and asynchronous programing are difficult, especially when working in a framework that doesn't force you to work or think that way. Flask and certainly Flask-SQLAlchemy aren't extremely well suited to handle this, but also with Flask's synchronous handling of requests, it doesn't become a issue often. When scaling, however, you being to increase the probability of such occurrences happen.</p>
+<p>How does this work in Tornado or Twisted? My friend and former colleague <a href="https://github.com/bmuller">Brian Muller</a> wrote <a href="http://findingscience.com/twistar/">Twistar</a>, a Python implementation of a nonblocking active record pattern interface to relational databases (built to use with Twisted). It's been on my list of packages to read. To some extent, building a webapp in Twisted has a high upfront cost, but it also has this added value of forcing you to think deeper and see these problems before you have a few hundred duplicated entries in your database.</p>
+<p>I love Flask and the community, and it has all been very good to me as being quite new to web app development, but part of me wants to start playing around with the JS template systems like <a href="http://facebook.github.io/react/">React</a>. This also makes sense as you start getting into the realm of iOS and Android apps. At some point you have many different "front ends" and your backend is really just serving up data to fill it. At that point, a centralized template system like Jinja makes less sense, and moving from Flask to Twisted makes more sense.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2014/01/23/on-markdown/" id="next-neighbour">&laquo; On Markdown</a>
+		<a href="/blog/2013/06/26/flask-twitter-oembedder-and-flask-extension-testing/" id="prev-neighbour">Flask-Twitter-OEmbedder and Flask Extension Testing &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing-get_one_or_create/';
+		this.page.identifier = 'blog/2014/01/15/sqlalchemy-and-race-conditions-implementing-get_one_or_create/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

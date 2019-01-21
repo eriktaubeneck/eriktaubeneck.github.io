@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>skien.cc - misc</title><link href="https://skien.cc/" rel="alternate"></link><link href="https://skien.cc/feeds/misc.atom.xml" rel="self"></link><id>https://skien.cc/</id><updated>2014-11-10T12:00:00-08:00</updated><entry><title>Behind the Scenes of the Startup Podcast</title><link href="https://skien.cc/blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/" rel="alternate"></link><published>2014-11-10T12:00:00-08:00</published><updated>2014-11-10T12:00:00-08:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2014-11-10:/blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/</id><summary type="html">&lt;p&gt;I'm a huge fan of podcasts: I never miss an episode of &lt;a href="http://www.marketplace.org/"&gt;Marketplace&lt;/a&gt;; I am near giddy when a new episode of &lt;a href="http://www.radiolab.org/"&gt;Radiolab&lt;/a&gt; is released; I credit &lt;a href="http://www.npr.org/blogs/money/"&gt;Planet Money&lt;/a&gt; with preparing me for a successful first interview out of college at Freddie Mac. The hottest new podcast is undoubtedly &lt;a href="http://www.hearstartup.com"&gt;Startup …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm a huge fan of podcasts: I never miss an episode of &lt;a href="http://www.marketplace.org/"&gt;Marketplace&lt;/a&gt;; I am near giddy when a new episode of &lt;a href="http://www.radiolab.org/"&gt;Radiolab&lt;/a&gt; is released; I credit &lt;a href="http://www.npr.org/blogs/money/"&gt;Planet Money&lt;/a&gt; with preparing me for a successful first interview out of college at Freddie Mac. The hottest new podcast is undoubtedly &lt;a href="http://www.hearstartup.com"&gt;Startup&lt;/a&gt; (&lt;a href="http://serialpodcast.org/"&gt;Serial&lt;/a&gt; is a close second.) Created and narrated by Alex Blumberg (of Planet Money and &lt;a href="http://www.thisamericanlife.org/"&gt;This American Life&lt;/a&gt;), it tracks Alex and his cofounder Matt Lieber on their journey to launch Gimlet Media, a podcasting company.&lt;/p&gt;
+&lt;p&gt;This podcast offers a rare look into the startup/VC/Silicon Valley tech scene and the process of launching a company from the ground up. While popularity of this topic has certainly grown in recent years, rarely do we get to see such a raw and personal take on it. Certainly, any method of storytelling that condenses months of work into half hour pieces cannot escape an editorial aspect, but Alex manages to capture his story in an unsensational yet insightful way.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/176185715&amp;color=ff5500"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;In this &lt;a href="http://hearstartup.com/episodes/how-listeners-become-owners"&gt;most recent episode&lt;/a&gt; of Startup, Alex and Matt announce their crowdfunding deal on &lt;a href="https://alphaworks.net/c/gimlet-media"&gt;Alphaworks&lt;/a&gt;. This is particularly exciting for me as I've been working with Alphaworks for the last few months. We've been working hard to create an excellent experience for potential Gimlet Media investors, one that's interactive, full of audio content (appropriately), and presents their pitch deck and deal terms. Engineers (software or otherwise) can often get lost in abstract, technical challenges; solving these is a cherished opportunity. More exciting, however, is the realization of a team's work coming together to run a campaign (and even better: for a company I am personally excited about!)&lt;/p&gt;
+&lt;p&gt;This episode has a bit of a call back to Alex's Planet Money days by discussing the JOBS act, the law that allows early stage crowdfunded equity markets to exist. One particular point that they address is the issue of an accredited investor, and how the SEC has delayed writing rules regarding the changes to this classification in the JOBS act for the last year. This is a tricky issue. To some extent, all investments are risky and even with established stocks there is always risk of declining value. Early stage investments amplify this risk (but also the reward), and the chance that an investment is fraudulent increases. Alphaworks takes an interesting approach to this problem: all deals are sponsored by an established venture capital group which sponsors the deal. This doesn't mean the deal is an automatic home run, mind you, but it does allow smaller and inexperienced investors assurance that some diligence has occurred.&lt;/p&gt;
+&lt;p&gt;The Startup Podcast is admittedly meta (a podcast about starting a podcast company) and their fundraising page on Alphaworks takes that one level deeper. It's a look directly into how Gimlet Media is presenting itself to a large group of investors, and as such I invite all the Startup Podcast fans to take a &lt;a href="https://www.alphaworks.net/c/gimlet-media"&gt;look behind the scenes!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;DISCLAIMER: All opinions and statements in this post (and in my blog in general) are my own. They are not intended to nor do they represent those of Alphaworks, Betaworks, Gimlet Media, or any other people or organization.&lt;/em&gt;&lt;/p&gt;</content></entry><entry><title>Unpythonic Python</title><link href="https://skien.cc/blog/2014/04/09/unpythonic-python/" rel="alternate"></link><published>2014-04-09T03:09:54-04:00</published><updated>2014-04-09T03:09:54-04:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2014-04-09:/blog/2014/04/09/unpythonic-python/</id><summary type="html">&lt;h2&gt;FizzBuzz&lt;/h2&gt;
+&lt;p&gt;When I applied to &lt;a href="http://www.hackerschool.com"&gt;Hacker School&lt;/a&gt;, one of the application question was FizzBuzz:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Write a program that prints out the numbers 1 to 100 (inclusive). If the number is divisible by 3, print &lt;em&gt;Fizz&lt;/em&gt; instead of the number. If it's divisible by 5, print &lt;em&gt;Buzz&lt;/em&gt;. If it's divisible by …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;h2&gt;FizzBuzz&lt;/h2&gt;
+&lt;p&gt;When I applied to &lt;a href="http://www.hackerschool.com"&gt;Hacker School&lt;/a&gt;, one of the application question was FizzBuzz:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Write a program that prints out the numbers 1 to 100 (inclusive). If the number is divisible by 3, print &lt;em&gt;Fizz&lt;/em&gt; instead of the number. If it's divisible by 5, print &lt;em&gt;Buzz&lt;/em&gt;. If it's divisible by both 3 and 5, print &lt;em&gt;FizzBuzz&lt;/em&gt;. You can use any language.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(Hacker School has since updated the question slightly, likely to make it more difficult to solve via Google. I've left out the updated version intentionally to minimize my effect on Googlability.)&lt;/p&gt;
+&lt;p&gt;This problem is fairly straight forward, and a good bite size problem to use as an example for different languages and programming styles; it's similar to "Hello, World!" and "Fibonacci".&lt;/p&gt;
+&lt;h2&gt;Some Unpythonic Python&lt;/h2&gt;
+&lt;p&gt;I looked at this problem today while showing a friend the Hacker School application, and started thinking about the many ways to tackle the problem just in Python alone. Python, specifically with &lt;a href="http://legacy.python.org/dev/peps/pep-0008/"&gt;PEP 8&lt;/a&gt;, lays out the ideal way to write &lt;em&gt;Pythonic Python&lt;/em&gt;. But Python doesn't enforce &lt;em&gt;Pythonic Python&lt;/em&gt;, so I started thinking, what other kinds of Python could I write this in.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warning: Very Unpythonic Python ahead.&lt;/strong&gt; However, all code should work (with Python 2.7.5).&lt;/p&gt;
+&lt;p&gt;Feel free to &lt;a href="https://twitter.com/taubeneck"&gt;tweet me&lt;/a&gt; or comment with suggested fixes, or new additions.
+&lt;!-- more --&gt;&lt;/p&gt;
+&lt;h3&gt;Pythonic Python&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fizzbuzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;fizzbuzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Lispy Python&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;fizzbuzz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;fizz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;buzz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;fizz_andor_maybenot_buzz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;fizzbuzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;fizz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;buzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="nb"&gt;reduce&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fizz_andor_maybenot_buzz&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Javacious Python&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Value&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;getValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getValue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__str__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;FizzBuzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Value&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;getValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;FizzBuzzRunner&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setN&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setN&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;FizzBuzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getValue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;FizzBuzzRunner&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;C-ly Python&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Clojurly Python&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fizzbuzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;FizzBuzz&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fizz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Fizz&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;buzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Buzz&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fizz_andor_maybenot_buzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;fizzbuzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;fizz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;buzz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fizz_andor_maybenot_buzz&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>SQLAlchemy and Race Conditions: Follow Up on Commits and Flushes</title><link href="https://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up-on-commits-and-flushes/" rel="alternate"></link><published>2014-02-06T12:30:13-05:00</published><updated>2014-02-06T12:30:13-05:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2014-02-06:/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up-on-commits-and-flushes/</id><summary type="html">&lt;p&gt;In an &lt;a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/"&gt;earlier post&lt;/a&gt;, I talked about my adventures in creating a &lt;code&gt;get_one_or_create()&lt;/code&gt; function for SQLAlchemy to use with Flask and Postgres.&lt;/p&gt;
+&lt;p&gt;There was an &lt;a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/#comment-1202518666"&gt;excellent question&lt;/a&gt; asked in the comments about weather &lt;code&gt;session.flush()&lt;/code&gt; could be used on line 13 instead of &lt;code&gt;session.commit()&lt;/code&gt;. I didn't fully understand the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In an &lt;a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/"&gt;earlier post&lt;/a&gt;, I talked about my adventures in creating a &lt;code&gt;get_one_or_create()&lt;/code&gt; function for SQLAlchemy to use with Flask and Postgres.&lt;/p&gt;
+&lt;p&gt;There was an &lt;a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/#comment-1202518666"&gt;excellent question&lt;/a&gt; asked in the comments about weather &lt;code&gt;session.flush()&lt;/code&gt; could be used on line 13 instead of &lt;code&gt;session.commit()&lt;/code&gt;. I didn't fully understand the answer, but explained that I had landed on this for safety of efficiency. The author of SQLAlchemy also echoed that it's not a simple answer. I spent some time with a small test app on Heroku to figure out how this all works, and what the best approach really was.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;For quick reference, the solution I landed on was:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_one_or_create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;create_method&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;create_method_kwargs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;NoResultFound&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;create_method_kwargs&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;{})&lt;/span&gt;
+        &lt;span class="n"&gt;created&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;create_method&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;created&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;commit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;created&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;IntegrityError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rollback&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Important Note:&lt;/strong&gt; The app that I used for testing can be referenced in &lt;a href="https://github.com/eriktaubeneck/heroku-test"&gt;this repo on GitHub&lt;/a&gt;, and I am using Python 2.7.4, with Flask 0.10.1, Flask-SQLAlchemy 1.0, SQLAlchemy 0.9.2, and Postgres 9.3.2 running on Heroku. Many of the ways in which SQLAlchemy works rely heavily on the configuration, so if you are using a different se up, I urge you to take this with a grain of salt and as useful ideas for testing your own setup.&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;session.commit()&lt;/code&gt; vs &lt;code&gt;session.flush()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;At the surface, the difference between these two operations is fairly straight forward.&lt;/p&gt;
+&lt;p&gt;A call to &lt;code&gt;session.commit()&lt;/code&gt; takes any new objects or changes to existing objects in the &lt;code&gt;session&lt;/code&gt; and attempts to write them to the database. If a new object has a key or other attribute that the database creates, that is created during the write and in turn populated on the object in the session.&lt;/p&gt;
+&lt;p&gt;A call to &lt;code&gt;session.flush()&lt;/code&gt; however, &lt;em&gt;only&lt;/em&gt; populates our objects, but does not write to the datastore yet. (I've italicized &lt;em&gt;only&lt;/em&gt; because I am about to show that it actually does more than that.)&lt;/p&gt;
+&lt;p&gt;So what happens if I have an object with a unique constraint on an attribute, and in two different sessions/processes/Heroku dynos create the object with the same value for that attribute, and then try call &lt;code&gt;session.flush()&lt;/code&gt;? Since neither value has been written to the database, we don't expect an &lt;code&gt;IntegrityError&lt;/code&gt;. But we also ideally wouldn't want this to roll by without issue. So what does happen?&lt;/p&gt;
+&lt;p&gt;I created a &lt;a href="https://github.com/eriktaubeneck/heroku-test"&gt;small test Flask app&lt;/a&gt; and deployed it to Heroku. I then spun up two sessions of iPython, also on Heroku, imported our &lt;code&gt;Game&lt;/code&gt; object and attempted to violate our unique constraint on &lt;code&gt;provider_game_id&lt;/code&gt;. Check out what happened:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/heroku-testing.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Notice how the first call to &lt;code&gt;session.flush()&lt;/code&gt; (on the left) works just fine. But then the second call (on the right) hangs - note this is a completely different Heroku dyno. The only connection these two have are the Postgres database. So (at least with Postgres), &lt;code&gt;session.flush()&lt;/code&gt; is able to use Postgres to &lt;em&gt;stage&lt;/em&gt; our value, but not write it yet. That's pretty rad.&lt;/p&gt;
+&lt;h2&gt;Changing &lt;code&gt;get_one_or_create()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;This will work with the &lt;code&gt;get_one_or_create()&lt;/code&gt; function above by replacing line 13 (as suggested in the comment) as so&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def get_one_or_create(session,
+                      model,
+                      create_method=&amp;#39;&amp;#39;,
+                      create_method_kwargs=None,
+                      **kwargs):
+    try:
+        return session.query(model).filter_by(**kwargs).one(), True
+    except NoResultFound:
+        kwargs.update(create_method_kwargs or {})
+        created = getattr(model, create_method, model)(**kwargs)
+        try:
+            session.add(created)
+            session.flush()
+            return created, False
+        except IntegrityError:
+            session.rollback()
+            return session.query(model).filter_by(**kwargs).one(), True
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this case, if one process creates an object, and a second process attempts to create the same object (i.e. overlapping in a unique constraint), the second process will stall at the &lt;code&gt;session.flush()&lt;/code&gt;. If the first process eventually calls &lt;code&gt;session.commit()&lt;/code&gt;, the second process will raise the &lt;code&gt;IntegrityError&lt;/code&gt;, as expected, and then be able to actually query the object. If, instead, it dies or or whatever other reason doesn't call &lt;code&gt;session.commit()&lt;/code&gt; but it's session clears, then the second session will resume and return the newly created object.&lt;/p&gt;
+&lt;p&gt;My original fear was that the &lt;code&gt;session.flush()&lt;/code&gt; could pass in both cases before the &lt;code&gt;session.commit()&lt;/code&gt; was called, and then when the second &lt;code&gt;session.commit()&lt;/code&gt; (or a &lt;code&gt;session.flush()&lt;/code&gt;) the &lt;code&gt;IntegrityError&lt;/code&gt; would raise out of the context of the &lt;code&gt;get_one_or_create()&lt;/code&gt; and we wouldn't (easily) know which object to get instead of create. This isn't the case.&lt;/p&gt;
+&lt;p&gt;There is likely interesting economics in the balance between batching your commits (less frequent large commits are generally more efficient than frequent small commits) and the probability of a process stalling on the &lt;code&gt;session.flush()&lt;/code&gt;  (and hence the expected loss of computation from that stalling). Generally, though, I would opt towards committing whenever a new object is created. There are some times, however, that you may want slightly more delicate control, which makes the above approach superior to the originally proposed solution.&lt;/p&gt;
+&lt;p&gt;Consider a new object &lt;code&gt;GameStat&lt;/code&gt;, which for every &lt;code&gt;Game&lt;/code&gt; this object &lt;em&gt;must&lt;/em&gt; exist (it's a pretty contrived example, but in other situations this relation can come up). When doing web programming (or really any program), you should assume that at any point any process could die. If the &lt;code&gt;GameStat&lt;/code&gt; object &lt;em&gt;must&lt;/em&gt; exist for every &lt;code&gt;Game&lt;/code&gt;, then we can delay our call to &lt;code&gt;session.commit()&lt;/code&gt; until both objects are been initialized. In this relatively small amount of time, it's unlikely that we will get an overlap, but if we do, the call to &lt;code&gt;session.flush()&lt;/code&gt; shouldn't stall the process for very long.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; I've updated using a &lt;code&gt;{}&lt;/code&gt; as a default value in the function as this is typical Python gotcha. Thanks for the &lt;a href="http://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up/#comment-1371570667"&gt;comment&lt;/a&gt;, Nigel! If your curious about this gotcha, check out this &lt;a href="http://stackoverflow.com/questions/5712904/empty-dictionary-as-default-value-for-keyword-argument-in-python-function-dicti"&gt;StackOverflow question&lt;/a&gt; and &lt;a href="http://pythonconquerstheuniverse.wordpress.com/category/python-gotchas/"&gt;this blog post&lt;/a&gt;.&lt;/p&gt;</content></entry><entry><title>Adding Unique Constraints After the Fact in SQLAlchemy</title><link href="https://skien.cc/blog/2014/01/31/adding-unique-constraints-after-the-fact-in-sqlalchemy/" rel="alternate"></link><published>2014-01-31T16:40:00-05:00</published><updated>2014-01-31T16:40:00-05:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2014-01-31:/blog/2014/01/31/adding-unique-constraints-after-the-fact-in-sqlalchemy/</id><summary type="html">&lt;p&gt;In a &lt;a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/"&gt;previous post&lt;/a&gt;, I wrote about writing a &lt;code&gt;get_one_or_create()&lt;/code&gt; function for SQLAlchemy. Turns out that I had inadvertently created a race condition while horizontally scaling on Heroku. That post explains, in detail, the solution I came up with for moving forward, however I still had duplicate objects in my …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In a &lt;a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/"&gt;previous post&lt;/a&gt;, I wrote about writing a &lt;code&gt;get_one_or_create()&lt;/code&gt; function for SQLAlchemy. Turns out that I had inadvertently created a race condition while horizontally scaling on Heroku. That post explains, in detail, the solution I came up with for moving forward, however I still had duplicate objects in my database that needed to remove. Since I'm on Heroku, I'm using Postgres (although I'm highly opinionated towards using Postgres often), so some of this may be Postgres specific, and I will do my best to note when that's the case.&lt;/p&gt;
+&lt;p&gt;I'll use the same example models that I used in my previous post. We had &lt;code&gt;Game&lt;/code&gt; and &lt;code&gt;GameBeat&lt;/code&gt; models:&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;__tablename__&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;games&amp;#39;&lt;/span&gt;
+    &lt;span class="nb"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;primary_key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;provider_game_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;provider_game_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;provider_game_category&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;GameBeat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;__tablename__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;game_beats&amp;#39;&lt;/span&gt;
+    &lt;span class="nb"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;primary_key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;game_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ForeignKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;games.id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;game&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relationship&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Game&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;backref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;beats&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;lazy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;joined&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;innerjoin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;user_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ForeignKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;users.id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relationship&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;User&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;backref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;game_beats&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;lazy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;joined&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;innerjoin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;beat_at&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DateTime&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;but had accidentally created multiple &lt;code&gt;Game&lt;/code&gt; objects with the same &lt;code&gt;provider_game_id&lt;/code&gt; attribute. At the very least, we would rather have the class definition and database representation put a unique constraint on this attribute so that if we ever attempted to create such a duplicate &lt;code&gt;Game&lt;/code&gt; object, we'll end up raising a &lt;code&gt;IntegrityError&lt;/code&gt; and the duplicate won't actually get added to the datastore. (Again, a &lt;a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/"&gt;previous post&lt;/a&gt; discusses how to handle this).&lt;/p&gt;
+&lt;p&gt;The class definition updates to:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="nx"&gt;__tablename__&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;games&amp;#39;&lt;/span&gt;
+    &lt;span class="nx"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;primary_key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nx"&gt;provider_game_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nx"&gt;unique&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nx"&gt;provider_game_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nx"&gt;provider_game_category&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We still, however need to make the update to our datastore (Postgres, in our case), along with finding and eliminating the duplicates we introduced into the system.&lt;/p&gt;
+&lt;h2&gt;Using &lt;code&gt;alembic&lt;/code&gt; to update the datastore&lt;/h2&gt;
+&lt;p&gt;If you're not using &lt;a href="http://alembic.readthedocs.org/en/latest/"&gt;&lt;code&gt;alembic&lt;/code&gt;&lt;/a&gt; with &lt;code&gt;SQLAlchemy&lt;/code&gt;, you're doing it wrong. OK - that's a bit harsh (and if you're doing it some other way, let me know!), but if you ever plan to change your data model, you'll need to change your datastore along with it, and &lt;code&gt;alembic&lt;/code&gt; is an excellent tool to help you along. It's version control for your database schema; think Git for your class models.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;alembic&lt;/code&gt; provides the useful &lt;code&gt;autogenerate&lt;/code&gt; option that can be used like so:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ alembic --autogenerate -m &lt;span class="s2"&gt;&amp;quot;add unique constraint to Game.provider_game_id&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(Some &lt;a href="http://alembic.readthedocs.org/en/latest/tutorial.html#auto-generating-migrations"&gt;setup&lt;/a&gt; is required to get this option to work.) You should now have a new file in your &lt;code&gt;alembic/versions&lt;/code&gt; directory with the name something like &lt;code&gt;10f2a956bad5_add_unique_constrain.py&lt;/code&gt;. (Your hash at the beginning is going to almost certainly be different.) If you look at the file, you'll notice that it is mostly empty. Unfortunately, &lt;code&gt;alembic&lt;/code&gt; isn't able to identify newly added unique constraints automatically, so we will have to fill it in.&lt;/p&gt;
+&lt;p&gt;I found the &lt;a href="http://alembic.readthedocs.org/en/rel_0_1/ops.html#alembic.op.create_unique_constraint"&gt;documentation&lt;/a&gt; on adding a unique constraint a bit confusing at first. The function we want to use is &lt;code&gt;op.create_unique_constraint()&lt;/code&gt;, which takes arguments &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;source&lt;/code&gt;, and &lt;code&gt;local_cols&lt;/code&gt;. At first, I thought &lt;code&gt;name&lt;/code&gt; was the name of the column which I wanted to make unique, however it's actually the name of the constraint. In my setup (with Postgres), I was able to let &lt;code&gt;name = None&lt;/code&gt; and have SQLAlchemy and Postgres sort it out. The &lt;code&gt;source&lt;/code&gt; is just a string of the name of the table, and &lt;code&gt;local_cols&lt;/code&gt; is where we specify what we want to make unique. The somewhat tricky part here is that we can make a constraint where &lt;code&gt;(col1,col2)&lt;/code&gt; needs to be unique (not individually unique, but the combination of the two), so this parameter takes a list. In our case, the list will only have a single member, &lt;code&gt;provider_game_id&lt;/code&gt;. Within the &lt;code&gt;upgrade&lt;/code&gt; function in our migration file, we can add:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def upgrade():
+    op.create_unique_constraint(None,
+                                &amp;quot;games&amp;quot;,
+                                [&amp;quot;provider_game_id&amp;quot;])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and under the &lt;code&gt;downgrade&lt;/code&gt; function, we can add:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def downgrade():
+    op.drop_contraint(&amp;quot;provider_game_id&amp;quot;,
+                      &amp;quot;games&amp;quot;,
+                       &amp;quot;unique&amp;quot;)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If there are any existing duplicates and we run this, however, we are going to get an &lt;code&gt;IntegrityError&lt;/code&gt;. So it's time to seek and destroy.&lt;/p&gt;
+&lt;h2&gt;Finding Duplicate Entries&lt;/h2&gt;
+&lt;p&gt;As we're debugging the situation, one of the first things we'll want see how many duplicates we have of our object along the &lt;code&gt;provider_game_id&lt;/code&gt;. I wrote this function do do just that:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;n_dups&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;\
+            &lt;span class="n"&gt;having&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Running this, we'll use &lt;code&gt;n_dups(Game, 'provider_game_id')&lt;/code&gt; and likely see something more than zero. All this tells us, however, is how many dups we have along that attribute. We now need to iterate though each duplicated &lt;code&gt;provider_game_id&lt;/code&gt; and collect all the objects with said &lt;code&gt;provider_game_id&lt;/code&gt;. Getting the duplicated &lt;code&gt;provider_game_ids&lt;/code&gt; is similar to above:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def get_duplicated_attrs(session, cls, attr):
+    return session.query(getattr(cls,attr)).group_by(getattr(cls,attr)).\
+            having(func.count(getattr(cls,attr)) &amp;gt; 1).all()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So now we can get the duplicated objects:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def get_duplicated_objs(session, cls, attr, attr_value, order_by_attr):
+    return session.query(cls).filter(getattr(cls,attr) == attr_value)).\
+            order_by(order_by_attr).all()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;order_by_attr&lt;/code&gt; is going to come in handy in the next decision when we decide which duplicated objects get the axe.&lt;/p&gt;
+&lt;h2&gt;Eliminating Duplicate Entries&lt;/h2&gt;
+&lt;p&gt;While there are a few caveats explained below, our alembic migration file is a good place to identify and eliminate any duplicates, for a few reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If our database has duplicates on a row we are asking it to add a unique constraint to, we will get an &lt;code&gt;IntegrityError&lt;/code&gt;, so we are required to do this before the command in the migration that adds the constraint is applied. Adding it here means that we always know it will be run before we try to migrate.&lt;/li&gt;
+&lt;li&gt;I generally don't like to clutter my applications with scripts that are (ideally) only run once, however I also do not want to run something like this in a REPL because you then loose the history of what was run. Adding it here means that we'll not only retain the history, but the exact point in which it was run.&lt;/li&gt;
+&lt;li&gt;It's already built into my build process (which is just a nice perk for me, but running &lt;code&gt;alembic&lt;/code&gt; in your built process helps you to never forget running your migrations.)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When we delete the duplicate entries in our database, we have to decide on a rule for which one's to delete, and which &lt;em&gt;one&lt;/em&gt; to keep. (You could also delete all, and then recreate them with your new protections against creating duplicates.) I decided to keep the oldest entry (not for any particularly good reason, except that I had originally created my objects with &lt;code&gt;created_at&lt;/code&gt; attributes. Our example doesn't have these, so I'll use &lt;code&gt;id&lt;/code&gt; which is effectively the same thing assuming the &lt;code&gt;id&lt;/code&gt; is auto incremented.) Inside my alembic migration file, I added the following function&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;remove_duplicates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;duplicates&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+                  &lt;span class="n"&gt;having&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;n_dups&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;duplicates&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{}.{}: {} duplicates found&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_dups&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;duplicate&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;duplicates&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;objs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+                &lt;span class="nb"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;duplicate&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+                &lt;span class="n"&gt;order_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;objs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+    &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;commit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{}.{}: {} duplicates removed&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_dups&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Before we can call this function, however, there are a few caveats (which I just ran into the hard way.) First, we will need to import the &lt;code&gt;db&lt;/code&gt; object and the &lt;code&gt;Game&lt;/code&gt; object. Typically in Python, we only import things at the top of the file, but in order for things like &lt;code&gt;alembic history&lt;/code&gt; to work correctly, we need to import these within the &lt;code&gt;upgrade()&lt;/code&gt; function. That way, they will only be loaded with a migration is being run, and not when the migration file is inspected for things like the version number by other tools.&lt;/p&gt;
+&lt;p&gt;Second, if you are doing a "dry run" &lt;code&gt;alembic upgrade head&lt;/code&gt; (i.e. from a newly created DB with no schema), alembic works through all the migration files and issues one SQL statement at the end of the process. This is a problem if you attempt to query on the &lt;code&gt;Game&lt;/code&gt; object, who's table doesn't exist yet. We can safely assume, however, that if the table doesn't exist yet, it doesn't have any duplicates. Luckily, SQLAlchemy has an &lt;code&gt;Inspector&lt;/code&gt; object that allows reflection into the existing tables from and engine, and using&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;inspector = Inspector.from_engine(db.engine)
+existing_tables = inspector.get_table_names()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;will do the the trick. Now, within the &lt;code&gt;upgrade()&lt;/code&gt; function we call our &lt;code&gt;remove_duplicates&lt;/code&gt; function for the objects and their attributes with duplicates like so:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy.engine.reflection&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Inspector&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;upgrade&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Game&lt;/span&gt;
+
+    &lt;span class="n"&gt;inspector&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Inspector&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;from_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;existing_tables&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inspector&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_table_names&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;Game&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__tablename__&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;existing_tables&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;remove_duplicates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;provider_game_id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;op&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create_unique_constraint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                &lt;span class="s2"&gt;&amp;quot;games&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;provider_game_id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and our &lt;code&gt;downgrade&lt;/code&gt; function stays the same as above:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def downgrade():
+    op.drop_contraint(&amp;quot;provider_game_id&amp;quot;,
+                      &amp;quot;games&amp;quot;,
+                       &amp;quot;unique&amp;quot;)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(Note: the import statements that happen outside of the functions can just be placed at the top of the migration file. They shouldn't cause any conflicts.)&lt;/p&gt;
+&lt;p&gt;Woo! That's it. There are certainly a few &lt;em&gt;hacks&lt;/em&gt; in here, so as usual, throw some feedback in the comments.&lt;/p&gt;</content></entry><entry><title>On Markdown</title><link href="https://skien.cc/blog/2014/01/23/on-markdown/" rel="alternate"></link><published>2014-01-23T19:12:29-05:00</published><updated>2014-01-23T19:12:29-05:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2014-01-23:/blog/2014/01/23/on-markdown/</id><summary type="html">&lt;h2&gt;In the beginning, there was LaTeX&lt;/h2&gt;
+&lt;p&gt;As a former mathematics student, I have an unusual soft spot for &lt;a href="http://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;. Despite it's obscenely verbose and quirky syntax, it was more than a breath of fresh air compared to Word's Equation Editor. (It required a highlighting, 4 clicks, and keyboard input to …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;In the beginning, there was LaTeX&lt;/h2&gt;
+&lt;p&gt;As a former mathematics student, I have an unusual soft spot for &lt;a href="http://www.latex-project.org/"&gt;LaTeX&lt;/a&gt;. Despite it's obscenely verbose and quirky syntax, it was more than a breath of fresh air compared to Word's Equation Editor. (It required a highlighting, 4 clicks, and keyboard input to create an exponent, if I remember correctly.) But not only does LaTeX keep your fingers on the keyboard, it's output is &lt;a href="http://www.somethingofthatilk.com/index.php?id=135"&gt;the most beautiful thing I've ever laid eyes on&lt;/a&gt;. I mean, just look at this inequality:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/latex-example.png"&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;Even using a slew of macros and shortcuts, reading LaTeX code is burdensome at best, and this will forever keep it's use out of the main stream. Worse, making formatting changes in LaTeX is onerous. Luckily for math students their are really great one's already created that are perfect for your homework, and journals traditionally provide their own. (My University library did not, however. Spent at least 8 hours and an argument with the librarian working on the Title page with spots for my advisors' signatures'.) Because of this, LaTeX will never be a mainstream word processor.&lt;/p&gt;
+&lt;p&gt;However, I think there is one core design aspect of LaTeX that is far more ideal than traditional word processors: separation of corpus and design.&lt;/p&gt;
+&lt;h2&gt;Enter Markdown&lt;/h2&gt;
+&lt;p&gt;Markdown was created in 2004 with the idea to "make writing simple web pages, and especially weblog entries, as easy as writing an email" (quote from the late Aaron Swartz's &lt;a href="http://www.aaronsw.com/weblog/001189"&gt;blog post announcing the release&lt;/a&gt;.) It has gained a deal of popularity in web culture on sites such as &lt;a href="https://www.reddit.com"&gt;reddit&lt;/a&gt; and &lt;a href="https://www.github.com"&gt;GitHub&lt;/a&gt;, as well with some excellent hacker tools like &lt;a href="http://ipython.org/notebook.html"&gt;iPython Notebook&lt;/a&gt; and &lt;a href="http://octopress.org"&gt;Octopress***&lt;/a&gt;. (This site is powered by Octopress and each post is written in Markdown.)&lt;/p&gt;
+&lt;p&gt;There is a more thorough example on wikipedia &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Wikipedia&lt;/a&gt;, but for example &lt;code&gt;*italics*&lt;/code&gt; renders as &lt;em&gt;italicts&lt;/em&gt;, &lt;code&gt;**bold**&lt;/code&gt; as &lt;strong&gt;bold&lt;/strong&gt;, and &lt;code&gt;[links](http://skien.cc)&lt;/code&gt; as &lt;a href="http://skien.cc"&gt;links&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The really clever thing here is that for &lt;em&gt;most&lt;/em&gt; documents, there is very limited formatting to add. For web documents, like blog posts and comment sections, you mostly need sections, paragraphs, italics, bold, links, inline images, and inline quotes. Developers like the ability to add in text &lt;code&gt;code&lt;/code&gt; and&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;inline code blocks.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Best of all, you don't have to write in HTML (Who want's to write an article in &lt;em&gt;raw&lt;/em&gt; HTML? Ain't nobody got time for that.) and you can achieve a great deal of formatting.&lt;/p&gt;
+&lt;h3&gt;A Business Case&lt;/h3&gt;
+&lt;p&gt;The key is separating the writing of a document from the design of a document, and Markdown achieves this with flying colors. For the author, the marked up text is easy to read and easy to write. For the designer, the CSS likely already exists if you have a website (although they may wish to update it slightly.)&lt;/p&gt;
+&lt;p&gt;A system for sharing these documents like developers share &lt;a href="https://gist.github.com/"&gt;Gists&lt;/a&gt; could easily replace email attachments and grant extra security  (either through obscurity or something stronger.) Authors could also update or take down old documents, whereas an attachment lives on in the receivers inbox forever. (Nothing would would prevent the viewer from saving the content when they see it, but this would require premeditation and would be a rather uncommon event in my opinion.)&lt;/p&gt;
+&lt;p&gt;If you'd like to create PDF's, it's not too painful create a base template in, you guessed it, LaTeX, and then produce PDF's for printed material (or for when you'd really like to send an attachment rather than a link.) And if you &lt;em&gt;really&lt;/em&gt; need to, you can even generate a Word document. After the initial fixed cost of developing these templates, you'll have a dead simple way to generate standardized documents without the variable cost of worrying about format on each one.&lt;/p&gt;
+&lt;p&gt;Many free tools exists to work with Markdown as well. One of my favorites is &lt;a href="http://mouapp.com/"&gt;Mou&lt;/a&gt;, which allows you to view a rendered version of the file side by side with an editor. (I'm using it now.) &lt;a href="http://dillinger.io/"&gt;Dillinger&lt;/a&gt; does the same thing in the browser, and can connect to Dropbox, GitHub, and Google Drive. As more tools like these emerge, I predict a sharp decline in demand for over powered text editors like Microsoft Word.&lt;/p&gt;</content></entry><entry><title>SQLAlchemy and Race Conditions: Implementing `get_one_or_create()`</title><link href="https://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing-get_one_or_create/" rel="alternate"></link><published>2014-01-15T13:57:00-05:00</published><updated>2014-01-15T13:57:00-05:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2014-01-15:/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing-get_one_or_create/</id><summary type="html">&lt;p&gt;Note: Examples here are built with respect to &lt;a href="http://pythonhosted.org/Flask-SQLAlchemy/"&gt;Flask SQLAlchemy&lt;/a&gt;, and while some notation may match that convention, the concepts should apply to use of &lt;a href="http://www.sqlalchemy.org/"&gt;SQLAlchemy&lt;/a&gt; in general.&lt;/p&gt;
+&lt;h2&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Suppose we have a &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; app that interacts with an API on a site that hosts webgames. Our users have OAuth'ed …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Note: Examples here are built with respect to &lt;a href="http://pythonhosted.org/Flask-SQLAlchemy/"&gt;Flask SQLAlchemy&lt;/a&gt;, and while some notation may match that convention, the concepts should apply to use of &lt;a href="http://www.sqlalchemy.org/"&gt;SQLAlchemy&lt;/a&gt; in general.&lt;/p&gt;
+&lt;h2&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Suppose we have a &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; app that interacts with an API on a site that hosts webgames. Our users have OAuth'ed our application into the API so we can see their activity, and we want to track which games they have beat. (We'll assume that users only beat a game once or more generally we are only concerned with the first time they beat it.) We create the &lt;code&gt;Game&lt;/code&gt; and &lt;code&gt;GameBeat&lt;/code&gt; models like so:&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;__tablename__&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;games&amp;#39;&lt;/span&gt;
+    &lt;span class="nb"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;primary_key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;provider_game_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;provider_game_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;provider_game_category&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;GameBeat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;__tablename__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;game_beats&amp;#39;&lt;/span&gt;
+    &lt;span class="nb"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;primary_key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;game_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ForeignKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;games.id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;game&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relationship&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Game&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;backref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;beats&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;lazy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;joined&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;innerjoin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;user_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ForeignKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;users.id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relationship&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;User&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;backref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;game_beats&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;lazy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;joined&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                           &lt;span class="n"&gt;innerjoin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;beat_at&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DateTime&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A few notes on these models. This assumes that each &lt;code&gt;Game&lt;/code&gt; object coming from the API has an &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;name&lt;/code&gt;, and &lt;code&gt;category&lt;/code&gt; attribute, and anytime a game is beat by a user, you can get the datetime of when it was beat. One other convention is using &lt;code&gt;db.String(255)&lt;/code&gt; for &lt;code&gt;provider_game_id&lt;/code&gt; (rather than &lt;code&gt;db.Integer&lt;/code&gt;). You will often see this with APIs where the &lt;code&gt;ids&lt;/code&gt; can be very large integers (think of the number of Tweets on Twitter for example), and while Python handles big ints well, unless you want to use big ints for actually doing math, a string will be much more efficient (and you'll be less likely to have an issue with your backend datastore).&lt;/p&gt;
+&lt;h2&gt;Implementing a basic &lt;code&gt;get_one_or_create()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;NOTE: The original implementation I used was first inspired from &lt;a href="http://stackoverflow.com/questions/2546207/does-sqlalchemy-have-an-equivalent-of-djangos-get-or-create"&gt;this Stack Overflow&lt;/a&gt; question.&lt;/p&gt;
+&lt;p&gt;If you've ever played around with &lt;a href="https://www.djangoproject.com/"&gt;Django&lt;/a&gt;, you've probably seen the &lt;code&gt;get_or_create()&lt;/code&gt; function, but if not the concept is straight forward. First look for an object given a set of constraints, and if it doesn't exist, create it. The usefulness here is pretty obvious in our above example. Without it, given a list of &lt;code&gt;game_beats&lt;/code&gt; from the API and a &lt;code&gt;user&lt;/code&gt;, we'd have to do something like&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for game_beat_data in game_beat_data_list:
+    if db.session.query(Game).filter(Game.provider_game_id == game_beat_data[&amp;#39;game&amp;#39;][&amp;#39;game_id&amp;#39;]).count() == 0:
+        game = Game(provider_game_id = game_beat_data[&amp;#39;game&amp;#39;][&amp;#39;game_id&amp;#39;],
+                    provider_game_name = game_beat_data[&amp;#39;game&amp;#39;][&amp;#39;game_name&amp;#39;],
+                    provider_game_category = game_beat_data[&amp;#39;game&amp;#39;][&amp;#39;game_category&amp;#39;]
+                    )
+    else:
+        game = db.session.query(Game).filter(Game.provider_game_id == game_beat_data[&amp;#39;game&amp;#39;][&amp;#39;game_id&amp;#39;]).one()
+    if db.session.query(GameBeat).filter(GameBeat.game == game).filter(GameBeat.user == user).count() == 0:
+        game_beat = GameBeat(game = game,
+                             user = user,
+                             beat_at = game_beat_data[&amp;#39;beat_at&amp;#39;]
+                             )
+    else:
+        game_beat = db.session.query(GameBeat).filter(GameBeat.game == game).filter(GameBeat.user == user).one()
+    db.session.add(game_beat)
+db.session.commit()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is quite verbose, and the logic is repeated twice, so it seems like a perfect place to write a function. Here's a first attempt, (and we'll build from here):&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy.orm.exc&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NoResultFound&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_one_or_create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+   &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+       &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+   &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;NoResultFound&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+       &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There are a couple small differences here. Most obvious is the change to a &lt;code&gt;try/except&lt;/code&gt; block rather than getting the &lt;code&gt;count()&lt;/code&gt; explicitly. The advantage here is that if the object exists, we only have to make one call to the datastore. The other is the use of &lt;code&gt;filter_by()&lt;/code&gt;, which is just a version of &lt;code&gt;filter&lt;/code&gt; that uses keyword arguments.&lt;/p&gt;
+&lt;p&gt;Using this function, our above example now becomes:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for game_beat_data in game_beat_data_list:
+    game = get_one_or_create(
+        db.session,
+        Game,
+        provider_game_id = game_beat_data[&amp;#39;game&amp;#39;][&amp;#39;game_id&amp;#39;]
+    )
+    game_beat = get_one_or_create(
+        db.session,
+        GameBeat,
+        game = game,
+        user = user,
+        beat_at = game_beat_data[&amp;#39;beat_at&amp;#39;]
+    )
+    db.session.add(game_beat)
+db.session.commit()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, since I've broken the inputs into our function onto multiple lines, we've only dropped from 17 lines to 15, however I'd still argue this is a HUGE decrease in complexity. We can now actually fit in under 80 characters without having to use &lt;code&gt;\&lt;/code&gt; for newlines, but more generally, it's simply more readable.&lt;/p&gt;
+&lt;h2&gt;A small modification&lt;/h2&gt;
+&lt;p&gt;I'm not going to motivate this, but sometimes you'll want to know if the object you're getting back was newly created or pulled from the datastore, so we can easily return a &lt;code&gt;bool&lt;/code&gt; as well by updating our function to&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy.orm.exc&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NoResultFound&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_one_or_create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+   &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+       &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+   &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;NoResultFound&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+       &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and now we just have to remember that when we use it, to unpack into two variables&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;obj, exists = get_one_or_create( … )
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or else we will end up with a &lt;code&gt;tuple&lt;/code&gt; where we expected &lt;code&gt;obj&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;The &lt;code&gt;@classmethod&lt;/code&gt; decorator&lt;/h2&gt;
+&lt;p&gt;One of my favorite Python patterns is using the &lt;code&gt;@classmethod&lt;/code&gt; decorator with a creator function. In our above example, suppose we want to be able to create a &lt;code&gt;Game&lt;/code&gt; object, but we may or may not have the &lt;code&gt;provider_game_name&lt;/code&gt; and &lt;code&gt;provider_game_category&lt;/code&gt; immediately available. We can update our model definition (assuming we have a &lt;code&gt;get_game_data_from_api&lt;/code&gt; function from our API):&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="nx"&gt;__tablename__&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;games&amp;#39;&lt;/span&gt;
+    &lt;span class="nx"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;primary_key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nx"&gt;provider_game_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nx"&gt;provider_game_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nx"&gt;provider_game_category&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="kd"&gt;@classmethod&lt;/span&gt;
+    &lt;span class="nx"&gt;create_from_provider_game_id&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;provider_game_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="nx"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="nx"&gt;provider_game_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;provider_game_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="nx"&gt;provider_game_category&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;provider_game_category&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;not&lt;/span&gt; &lt;span class="nx"&gt;provider_game_name&lt;/span&gt; &lt;span class="nx"&gt;and&lt;/span&gt; &lt;span class="nx"&gt;provider_game_category&lt;/span&gt;:
+            &lt;span class="kt"&gt;game_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;get_game_data_from_api&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;provider_game_id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="nx"&gt;provider_game_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;game_data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;provider_game_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="nx"&gt;provider_game_category&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;game_data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;provider_game_category&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;provider_game_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;provider_game_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                   &lt;span class="nx"&gt;provider_game_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;provider_game_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                   &lt;span class="nx"&gt;provider_game_category&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;provider_game_category&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;now if we do&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;game = Game.create_from_provider_game_id(provider_game_id = game_beat_data[&amp;#39;game&amp;#39;][&amp;#39;id&amp;#39;])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;we get a new &lt;code&gt;Game&lt;/code&gt; object which will ping the API in order to get the other data to fill it out. But, if we already have the data (or we &lt;em&gt;maybe&lt;/em&gt; have the data), we can do the following:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;game = Game.create_from_provider_game_id(
+           provider_game_id = game_beat_data[&amp;#39;game&amp;#39;][&amp;#39;id&amp;#39;],
+           provider_game_name = game_beat_data[&amp;#39;game&amp;#39;].get(&amp;#39;name&amp;#39;, None),
+           provider_game_category = game_beat_data[&amp;#39;game&amp;#39;].get(&amp;#39;category&amp;#39;, None)
+       )
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I like to think of writing code like this as being &lt;em&gt;fault tolerant&lt;/em&gt;. If you've played with external APIs before, their behavior can often change slightly. Moreover, writing code like this gives me a consistent pattern, so if in one case I have a collection of &lt;code&gt;dict&lt;/code&gt;s from an API with all the relevant game data, and in another case I only have a collection of the &lt;code&gt;provider_game_id&lt;/code&gt;s, I can use the same pattern. If I have all the data, I can save myself &lt;code&gt;n&lt;/code&gt; calls to the API, and if I'm not sure (or maybe the API is inconsistent - yes it happens), it will still work.&lt;/p&gt;
+&lt;h2&gt;Updating &lt;code&gt;get_one_or_create&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;It's quickly obvious that our current implementation of &lt;code&gt;get_one_or_create()&lt;/code&gt; won't handle such pattern for creating model instances. But this is programming, we are the creators. Let's update our function:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy.orm.exc&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NoResultFound&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_one_or_create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;create_method&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;create_method_kwargs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;NoResultFound&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;create_method_kwargs&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;{})&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;create_method&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The reason for adding this &lt;code&gt;create_method_kwargs&lt;/code&gt; &lt;code&gt;dict&lt;/code&gt; is fairly straight forward: consider a case where we need to hand a &lt;code&gt;user&lt;/code&gt; to our API method &lt;code&gt;get_game_data_from_api&lt;/code&gt;, but we don't store a &lt;code&gt;user&lt;/code&gt; on the &lt;code&gt;Game&lt;/code&gt; object and certainly don't want to include it in the &lt;code&gt;filter_by&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;At this point, we have a pretty robust &lt;code&gt;get_one_or_create()&lt;/code&gt; function that worked quite well for me, until it didn't.&lt;/p&gt;
+&lt;h2&gt;An Unexpected Exception&lt;/h2&gt;
+&lt;p&gt;By using my newly minted &lt;code&gt;get_one_or_create()&lt;/code&gt; wherever I create objects, you can imagine my surprise when &lt;code&gt;MultipleResultsFound&lt;/code&gt; exceptions starting being raised when trying to &lt;code&gt;get_one_or_create()&lt;/code&gt; a &lt;code&gt;Game&lt;/code&gt;. I scoured my code for any place that I created a &lt;code&gt;Game&lt;/code&gt;; luckily &lt;code&gt;grep&lt;/code&gt; makes this easy. Nothing. I expanded my test so that I was mocking a scan for 100 users. Nothing. Maybe there was a unicode issue where the &lt;em&gt;get&lt;/em&gt; part was trying to match to a unicode to string (and failing) but the &lt;em&gt;create&lt;/em&gt; part was then creating the attribute as a string. A new test quickly disproved this. Nothing.&lt;/p&gt;
+&lt;p&gt;I was lost. I was writing tests &lt;em&gt;hoping&lt;/em&gt; that they would fail just so I could figure out what was going wrong. And it was 4am. I &lt;em&gt;hate&lt;/em&gt; going to sleep at a point like this. (I use &lt;em&gt;sleep&lt;/em&gt; loosely here - I generally don't sleep well and lay awake trying to figure out how to fix my problem.) I'm not sure if it was that night or the next morning (or even when you draw the line going to bed at 4am for that matter…), but I eventually realized why I was getting duplicate objects in my datastore.&lt;/p&gt;
+&lt;p&gt;During the time between the &lt;em&gt;get&lt;/em&gt; call when the object doesn't exist and the call to &lt;code&gt;db.session.commit()&lt;/code&gt;, the object was created somewhere else. I was using Celery to batch the update and it was a brand new scan, so a lot of stuff was being created. Since the &lt;code&gt;db.session.commit()&lt;/code&gt; comes at the end of the loop, there can actually be a fair amount of time between these calls. But even if a &lt;code&gt;db.session.commit()&lt;/code&gt; happened sooner, we want to be &lt;em&gt;sure&lt;/em&gt; that another matching object didn't get created between the &lt;em&gt;get&lt;/em&gt; and &lt;em&gt;create&lt;/em&gt; parts of a function.&lt;/p&gt;
+&lt;h2&gt;Celery "async" and Race Conditions&lt;/h2&gt;
+&lt;h3&gt;&lt;code&gt;@celery.task()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;I use quotes here in the way I'd use air quotes if we were talking: the &lt;a href="http://www.celeryproject.org/"&gt;Celery&lt;/a&gt; async task model isn't true async in the way that &lt;a href="http://twistedmatrix.com/trac/"&gt;Twisted&lt;/a&gt; or &lt;a href="http://docs.python.org/3.4/library/asyncio.html"&gt;&lt;code&gt;asyncio&lt;/code&gt;&lt;/a&gt; is. Instead it uses an external messaging system (I use &lt;a href="http://redis.io/"&gt;Redis&lt;/a&gt; - mostly due to the price on &lt;a href="https://www.heroku.com/"&gt;Heroku&lt;/a&gt;). Functions and their inputs (remember that in Python, functions, like everything else, are objects) are JSONified, stored in the message system, and then deJSONified and executed in a completely separate process.&lt;/p&gt;
+&lt;p&gt;It does become more complicated if you care about the result of a function call, but often you call functions only for their side effects. Sometimes you'll want to kick off a job of a few such function calls as a result of a web request. If the job takes awhile (anything more than a second) you certainly do not wish to wait (or can't, eventually you'll timeout) for that function to complete before responding. Celery makes this pattern straight forward, if not easy, to accomplish with a synchronous web framework like Flask.&lt;/p&gt;
+&lt;p&gt;Celery also makes it really easy to horizontally scale a batch of jobs. Suppose we want to update the &lt;code&gt;GameBeat&lt;/code&gt;s for all our users. We could create a celery task like so&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;celery&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app.provider_apis&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_provider_api&lt;/span&gt;
+
+&lt;span class="nd"&gt;@celery.task&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;update_game_beats_for_user_id&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;user_id&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;user_id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_provider_api&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;game_beat_data_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_game_beats&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;game_beat_data&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;game_beat_data_list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="err"&gt;…&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;where the &lt;code&gt;…&lt;/code&gt; completes the pattern above showing the usage of &lt;code&gt;get_one_or_create()&lt;/code&gt;. We can now create a task for each user by running&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app.tasks&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;update_game_beats_for_user_id&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt;
+
+&lt;span class="n"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;users&lt;/span&gt;
+    &lt;span class="n"&gt;update_game_beats_for_user_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This makes it possible to spin up a number of Celery workers (Heroku for this is as easy as scrolling a slider on a web interface and clicking "Apply", or a single short bash command) and get all these tasks done quickly.&lt;/p&gt;
+&lt;h3&gt;Race Conditions&lt;/h3&gt;
+&lt;p&gt;Whenever you have multiple concurrent processes interacting with an external service, you have to be concerned about race conditions, e.g. from the perspective of any process, the state of that external service may change at anytime without any interaction from that process. Luckily, Celery is designed to handle this and maps jobs out in a way that no two processes will receive the same message.&lt;/p&gt;
+&lt;p&gt;SQLAlchemy even has some protection against this, although I'm not sure exactly how it's implemented. I do know that if I have an &lt;code&gt;ipython&lt;/code&gt; shell open with a transition pending, a query in another process will stall. This goes out the window, however, when we're working with Celery workers on separate Heroku instances or even separate web instances. So we certainly want to protect against this type of thing in production.&lt;/p&gt;
+&lt;p&gt;In our example, since we plan to look up &lt;code&gt;Game&lt;/code&gt; objects by &lt;code&gt;provider_game_id&lt;/code&gt; and expect only one instance, we should have defined that column with a unique constraint like so:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="err"&gt;…&lt;/span&gt;
+    &lt;span class="nx"&gt;provider_game_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nx"&gt;unique&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="err"&gt;…&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Luckily we can make this change after the fact (which I won't show here, but I plan to write about next). Had we done this originally, we would never have gotten the &lt;code&gt;MultipleResultsFound&lt;/code&gt; exception, but instead would have gotten a &lt;code&gt;IntegrityError&lt;/code&gt; when trying to execute &lt;code&gt;db.session.commit()&lt;/code&gt; of an transition that would &lt;em&gt;create&lt;/em&gt; our duplicated item. This is desirable since the exception comes &lt;em&gt;before&lt;/em&gt; the duplicate is introduced into the datastore. However, it would be best for our &lt;code&gt;get_one_or_create&lt;/code&gt; function to take care of this as well.&lt;/p&gt;
+&lt;h2&gt;A "final" &lt;code&gt;get_one_or_create()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Again, think air quotes. As a developer, I never think or anything as final. Or maybe I always think an implementation is final, and I'm always wrong. Regardless, of the concerns I've reached so far, here is a "final" version:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def get_one_or_create(session,
+                      model,
+                      create_method=&amp;#39;&amp;#39;,
+                      create_method_kwargs=None,
+                      **kwargs):
+    try:
+        return session.query(model).filter_by(**kwargs).one(), True
+    except NoResultFound:
+        kwargs.update(create_method_kwargs or {})
+        created = getattr(model, create_method, model)(**kwargs)
+        try:
+            session.add(created)
+            session.commit()
+            return created, False
+        except IntegrityError:
+            session.rollback()
+            return session.query(model).filter_by(**kwargs).one(), True
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here's what's happening. It tries to find the right object, and if it finds it, it returns it. If not, it creates it, adds it to the session, and attempts to commit. In the mean time, if another process has created and committed an object with the same details we filtered by, an &lt;code&gt;IntegrityError&lt;/code&gt; raises and is caught. This means we should be able to get the newly created object, so we now get that and return it.&lt;/p&gt;
+&lt;p&gt;You'll notice one major difference from our earlier versions: &lt;code&gt;session.commit()&lt;/code&gt; is now in the function. I've avoided doing this thus far due to the recommended usage in the SQLAlchemy documentations on &lt;a href="http://docs.sqlalchemy.org/en/latest/orm/session.html#when-do-i-construct-a-session-when-do-i-commit-it-and-when-do-i-close-it"&gt;sessions&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As a general rule, keep the lifecycle of the session separate and external from functions and objects that access and/or manipulate database data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The reason we must add this into our function call here, is that if we do the &lt;code&gt;db.session.commit()&lt;/code&gt; after making several calls to &lt;code&gt;get_one_or_create()&lt;/code&gt; and the &lt;code&gt;IntegrityError&lt;/code&gt; was raised, we'd have no idea which created object caused it and we'd have to start the entire transaction over (and we'd have to write logic outside the function to handle all this). Since our &lt;code&gt;get_one_or_create()&lt;/code&gt; function is written generally for any model and unique keywords, rather than specific logic tied to a specific model, I don't think it seriously conflicts with the SQLAlchemy philosophy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; I have recanted here and decided that using &lt;code&gt;session.flush()&lt;/code&gt; is superior to &lt;code&gt;session.commit()&lt;/code&gt; for line 13 of the function. See my &lt;a href="http://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up/"&gt;newer blog post&lt;/a&gt; for a detailed explanation of why.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE 2:&lt;/strong&gt; I've updated using a &lt;code&gt;{}&lt;/code&gt; as a default value in the function as this is typical Python gotcha. Thanks for the &lt;a href="http://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up/#comment-1371570667"&gt;comment&lt;/a&gt;, Nigel! If your curious about this gotcha, check out this &lt;a href="http://stackoverflow.com/questions/5712904/empty-dictionary-as-default-value-for-keyword-argument-in-python-function-dicti"&gt;StackOverflow question&lt;/a&gt; and &lt;a href="http://pythonconquerstheuniverse.wordpress.com/category/python-gotchas/"&gt;this blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;Race conditions and asynchronous programing are difficult, especially when working in a framework that doesn't force you to work or think that way. Flask and certainly Flask-SQLAlchemy aren't extremely well suited to handle this, but also with Flask's synchronous handling of requests, it doesn't become a issue often. When scaling, however, you being to increase the probability of such occurrences happen.&lt;/p&gt;
+&lt;p&gt;How does this work in Tornado or Twisted? My friend and former colleague &lt;a href="https://github.com/bmuller"&gt;Brian Muller&lt;/a&gt; wrote &lt;a href="http://findingscience.com/twistar/"&gt;Twistar&lt;/a&gt;, a Python implementation of a nonblocking active record pattern interface to relational databases (built to use with Twisted). It's been on my list of packages to read. To some extent, building a webapp in Twisted has a high upfront cost, but it also has this added value of forcing you to think deeper and see these problems before you have a few hundred duplicated entries in your database.&lt;/p&gt;
+&lt;p&gt;I love Flask and the community, and it has all been very good to me as being quite new to web app development, but part of me wants to start playing around with the JS template systems like &lt;a href="http://facebook.github.io/react/"&gt;React&lt;/a&gt;. This also makes sense as you start getting into the realm of iOS and Android apps. At some point you have many different "front ends" and your backend is really just serving up data to fill it. At that point, a centralized template system like Jinja makes less sense, and moving from Flask to Twisted makes more sense.&lt;/p&gt;</content></entry><entry><title>Flask-Twitter-OEmbedder and Flask Extension Testing</title><link href="https://skien.cc/blog/2013/06/26/flask-twitter-oembedder-and-flask-extension-testing/" rel="alternate"></link><published>2013-06-26T15:37:00-04:00</published><updated>2013-06-26T15:37:00-04:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2013-06-26:/blog/2013/06/26/flask-twitter-oembedder-and-flask-extension-testing/</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;Flask&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;Testing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Flask-Twitter-OEmbedder&lt;/h2&gt;
+&lt;p&gt;The Twitter API V1.1 provides an endpoint for easily &lt;a href="https://dev.twitter.com/docs/api/1.1/get/statuses/oembed"&gt;embedding tweets&lt;/a&gt; into your webpages. However, Twitter rate limits this endpoint and requires authorization. Flask Twitter OEmbedder gets your Twitter credentials from your &lt;code&gt;app.config&lt;/code&gt; and exposes the &lt;code&gt;oembed_tweet&lt;/code&gt; function to the Jinja templates. Flask Twitter …&lt;/p&gt;</summary><content type="html">&lt;ul&gt;
+&lt;li&gt;Flask&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;Testing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Flask-Twitter-OEmbedder&lt;/h2&gt;
+&lt;p&gt;The Twitter API V1.1 provides an endpoint for easily &lt;a href="https://dev.twitter.com/docs/api/1.1/get/statuses/oembed"&gt;embedding tweets&lt;/a&gt; into your webpages. However, Twitter rate limits this endpoint and requires authorization. Flask Twitter OEmbedder gets your Twitter credentials from your &lt;code&gt;app.config&lt;/code&gt; and exposes the &lt;code&gt;oembed_tweet&lt;/code&gt; function to the Jinja templates. Flask Twitter OEmbedder also manages the caching of the tweets, given an arbitrary cache using Flask-Cache.&lt;/p&gt;
+&lt;p&gt;You can check it out and fork it on &lt;a href="https://github.com/eriktaubeneck/flask-twitter-oembedder"&gt;GitHub&lt;/a&gt;. Feature requests, issues, and anything else are encouraged! This is very much alpha and I plan to continue working on it.&lt;/p&gt;
+&lt;h2&gt;Flask Extension Testing&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/eriktaubeneck/flask-twitter-oembedder"&gt;Flask-Twitter-OEmbedder&lt;/a&gt; was the first Flask extension I have written (and really the first proper Python package I've ever written). This summer I am lucky enough to be participating in &lt;a href="https://www.hackerschool.com/"&gt;Hacker School&lt;/a&gt; and one of my goals for the batch was to be able to write unit tests for my code that I develop. Since this was my first proper package, I figured it was a great place to start.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;Testing in the abstract seems reflexive and redundent; I wrote code specifically to perform &lt;code&gt;x&lt;/code&gt;, why would I write more code to make sure that it does &lt;code&gt;x&lt;/code&gt;? This was a particularly difficult mental block for me, especially coming to development from mathematics. However, as your code base grows and relies on more and more abstraction, when something breaks, testing helps you find exactly what you broke and where to fix it. It's not uncommon for libraries and extensions to change their API's at times, in which case it may not even be code that you wrote to do &lt;code&gt;x&lt;/code&gt;, and now it does &lt;code&gt;y&lt;/code&gt;. Luckily earlier this year, I attended PyCon and saw &lt;a href="http://pyvideo.org/video/1674/getting-started-with-automated-testing"&gt;this&lt;/a&gt; great presentation on getting starting with automated testing Python.&lt;/p&gt;
+&lt;p&gt;After getting past my mental testing block, I was faced with a few other challanges with getting testing working with my Flask extension. I had broken my extension into a handful of base states which I wanted to test:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the &lt;code&gt;oembed_tweet()&lt;/code&gt; function is avaliable in the Jinja templates&lt;/li&gt;
+&lt;li&gt;the &lt;code&gt;oembed_tweet()&lt;/code&gt; function properly embeds a tweet when given a valid tweet id&lt;/li&gt;
+&lt;li&gt;the &lt;code&gt;oembed_tweet()&lt;/code&gt; function fails properly (depending on the &lt;code&gt;app.debug&lt;/code&gt; and local &lt;code&gt;debug&lt;/code&gt; state) when given an invalid tweet id&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each of these presented their own challanges. The first challange however, was just approaching the problem at hand. The testing documentation for Flask is all based for testing Flask apps, not Flask extensions. However, it quickly became clear that it was sufficent to use &lt;a href="http://pythonhosted.org/Flask-Testing/"&gt;Flask-Testing&lt;/a&gt; to create a "dummy" app which would utilize my extension and be able to test if it worked properly.  Unfortunetly, Flask-Testing doesn't have a method like &lt;code&gt;assertExists&lt;/code&gt;, so I ended up testing&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; assert type(self.get_context_variable(&amp;#39;oembed_tweet&amp;#39;)) is types.FunctionType
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The next challange was being able to run the tests offline. In general, unit tests shouldn't care if external API's are working or not. It is certainly useful and appropriate in some cases to write tests that to check for this, but for this test we just want to know if our code is working as expected, assuming that Twitter's API is working correctly.We(I paired with one of the awesome Hacker School facilitators, &lt;a href="https://github.com/zachallaun"&gt;Zach Allaun&lt;/a&gt;) started with &lt;a href="https://github.com/kevin1024/vcrpy"&gt;vcrpy&lt;/a&gt;, which is a port of the Ruby &lt;a href="https://github.com/vcr/vcr"&gt;vcr&lt;/a&gt; gem, however this didn't work quite right. We then moved onto &lt;a href="https://github.com/uber/cassette"&gt;cassette&lt;/a&gt; but it unfortunetly didn't play nice with HTTPS. Finally we landed on &lt;a href="https://github.com/gabrielfalcao/HTTPretty"&gt;HTTPretty&lt;/a&gt; which did exactly what we needed. We grabbed the actual response from Twitter and dumped it into a JSON, then HTTPretty blocks any out going requests to specific urls and returns the content of the JSON as if the request had gone through normally. It can be used as followed:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;@httpretty.activate
+def test_oembed_tweet_valid_id_debug_off(self):
+    with open(&amp;#39;tests/data/99530515043983360.json&amp;#39;) as f:
+        httpretty.register_uri(httpretty.GET, &amp;#39;https://api.twitter.com/1.1/statuses/oembed.json?id=99530515043983360&amp;#39;,
+            body = f.read())
+    response = self.client.get(&amp;#39;/&amp;#39;)
+    oembed_tweet = self.get_context_variable(&amp;#39;oembed_tweet&amp;#39;)
+    valid = oembed_tweet(&amp;#39;99530515043983360&amp;#39;)
+    assert type(valid) is Markup
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this example, the &lt;code&gt;oembed_tweet&lt;/code&gt; fuction makes a GET request using the &lt;code&gt;requests&lt;/code&gt; package to the &lt;code&gt;uri&lt;/code&gt; that we specified in the &lt;code&gt;httpretty.register_uri()&lt;/code&gt; call, and the response is what we specified as the &lt;code&gt;body&lt;/code&gt; in the same function.&lt;/p&gt;
+&lt;p&gt;One final interesting case is when we wanted to test what happens when we want to test how Flask-Twitter-OEmbedder handles an error from the Twitter API. In a development setting, we likely want this to actually raise an exception so that we can investigate what is causing the error (this could be a number of things: incorrect tweet id, Twitter API outage, deleted tweet, etc), but in production we would likely want it to fail gracefully and just return an empty string. Testing for an exception is fairly straight forward:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;invalid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;oembed_tweet&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;abc&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;except&lt;/span&gt; &lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;KeyError&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There is one little trick here, however, that is easy to overlook. We are expecting the second line to fail, and then we are asserting that the failure is the type that we expect. However, what if the second line doesn't fail? In the context of the test, we would classify this as a failure, since the failure on line 2 is what we want. But in the code above, if line 2 doesn't fail for some reason, the &lt;code&gt;assert&lt;/code&gt; will never happen and the test will pass. We can fix this by adding one line after line 2:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;invalid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;oembed_tweet&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;abc&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;False&lt;/span&gt;
+&lt;span class="n"&gt;except&lt;/span&gt; &lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;KeyError&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The addition of &lt;code&gt;assert False&lt;/code&gt; will force the &lt;code&gt;try&lt;/code&gt; clause to fail, even if line 2 doesn't fail as expected, and since &lt;code&gt;assert False&lt;/code&gt; raises an &lt;code&gt;Assertion Error&lt;/code&gt;, line 5 will fail properly.&lt;/p&gt;</content></entry><entry><title>Unlocking Technology</title><link href="https://skien.cc/blog/2013/05/21/unlocking-technology/" rel="alternate"></link><published>2013-05-21T11:26:00-04:00</published><updated>2013-05-21T11:26:00-04:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2013-05-21:/blog/2013/05/21/unlocking-technology/</id><summary type="html">&lt;p&gt;I recently read an opinion piece on Wired, &lt;a href="http://www.wired.com/opinion/2013/05/dont-let-them/"&gt;Beyond Unlocking: Don't Let Them Kill the First Decent Copyright Reform&lt;/a&gt; by Kyle Wiens. The author touts the bill as "&lt;em&gt;not&lt;/em&gt; a band-aid," but "a solution" because&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[it] would allow all consumers to circumvent the digital locks on their mobile devices. Anyone …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;I recently read an opinion piece on Wired, &lt;a href="http://www.wired.com/opinion/2013/05/dont-let-them/"&gt;Beyond Unlocking: Don't Let Them Kill the First Decent Copyright Reform&lt;/a&gt; by Kyle Wiens. The author touts the bill as "&lt;em&gt;not&lt;/em&gt; a band-aid," but "a solution" because&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[it] would allow all consumers to circumvent the digital locks on their mobile devices. Anyone could access and modify software on their devices, in the same way they already modify and repair hardware.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;On the surface, this seems like pretty clear position. I bought my hardware, I own it, I should be able to take it apart and use it however I want! The only reason tech companies would want to put digital locks on whatever devices they sell is because they want to maintain complete control of their platform and make more money. Those damn corporate fat cats! How could you not want to support such a clear and open policy?&lt;/p&gt;
+&lt;p&gt;But I argue (in homage to &lt;a href="http://www.freakonomics.com/"&gt;Freakonomics&lt;/a&gt;) that there is a hidden side here.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;One of Wiens "side effects" of the current "faulty approach" to copyright is "scientists who can't install Linux on game consoles to build affordable &lt;a href="http://www.syracuse.com/news/index.ssf/2011/03/rome_labs_supercomputer_is_mad.html"&gt;supercomputer&lt;/a&gt; cluster &lt;a href="http://www.joystiq.com/2010/05/12/air-force-disappointed-by-ps3s-other-os-removal/"&gt;for research&lt;/a&gt; purposes." This is my first clue that something is quite wrong here. I've seen some cool stuff with &lt;a href="http://arstechnica.com/security/2012/12/25-gpu-cluster-cracks-every-standard-windows-password-in-6-hours/"&gt;GPU hacking&lt;/a&gt;, but what the hell do these guys need with the controller that comes with each console? For a 25-core system, you'd get 25 disc drives, 25 hdmi ports, and 25 hard drives when you're probably using an entirely separate data store.&lt;/p&gt;
+&lt;p&gt;The answer? Video game consoles are cheaper than the parts inside of them. If you google &lt;a href="https://www.google.com/search?q=video+game+console+lose+money&amp;amp;aq=f&amp;amp;oq=video+game+console+lose+money"&gt;"video game console lose money"&lt;/a&gt;, it's pretty obvious that consoles like the Xbox 360 and Playstation 3 end up at a market price that is well below the cost of the parts and labor required to produce them. This probably shouldn't come as a huge surprise; it's not a secret that these consoles are sold at a loss to generate greater demand for the games.&lt;/p&gt;
+&lt;p&gt;So what about these scientists, who aren't purchasing any games for their PS3s? In economic terms, these uses are receiving a subsidy towards their hardware. The cost of this subsidy is shared between consumers who purchase games and the producers of the consoles (the ratio of which is dependent on the demand elasticity of the console). Gamers should be upset about this. Their games are both more expensive and also receive less R&amp;amp;D funding because others are abusing an arbitrage.&lt;/p&gt;
+&lt;p&gt;I think everyone can agree that generally, stealing is bad. Property law is one of the main functions of government, and intellectual property is difficult. But when someone hacks a PS3 or unlocks their iPhone, they are not only stealing from the likes of Sony or Apple, but also from consumers. So how about a compromise. Require all technology to have the ability to be unlocked, which is available at a market driven price (along with a likely change or loss of warranty). This allows manufacturers to reclaim their losses on consoles that won't be used for their intended use, and still allow anyone to use their technology however they want. But I want to use my iPhone with the app store, and I want to use my XBox 360 to play Mass Effect and Portal, and I want that subsidy because I'm OK playing by the rules. The economic impact of this policy would be a sharp increase in price of all of our devices; that means less people will buy them, less money will be spent on apps (and threaten the emerging cottage industry), and less money will be spent on the R&amp;amp;D on technology as a general.&lt;/p&gt;</content></entry><entry><title>print can be deceiving</title><link href="https://skien.cc/blog/2013/03/19/print-can-be-deceiving/" rel="alternate"></link><published>2013-03-19T11:42:00-04:00</published><updated>2013-03-19T11:42:00-04:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2013-03-19:/blog/2013/03/19/print-can-be-deceiving/</id><summary type="html">&lt;p&gt;This is more of a short musing than a blog post, but maybe some insight that can help a beginner. This is written specifically with respect to Python, but I think some of the basic ideas translate to other object oriented languages.&lt;/p&gt;
+&lt;h2&gt;when &lt;code&gt;print&lt;/code&gt; was your best friend&lt;/h2&gt;
+&lt;p&gt;When someone …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is more of a short musing than a blog post, but maybe some insight that can help a beginner. This is written specifically with respect to Python, but I think some of the basic ideas translate to other object oriented languages.&lt;/p&gt;
+&lt;h2&gt;when &lt;code&gt;print&lt;/code&gt; was your best friend&lt;/h2&gt;
+&lt;p&gt;When someone is new to Python, and more so when new to programming in general, &lt;code&gt;print&lt;/code&gt; is your best friend. Learning a new language is done by comparing what you expect happen and what actually happen. The prototypical example in any language is&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;print &amp;#39;Hello World!&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and a new comer to Python going through something like &lt;a href="http://learnpythonthehardway.org/"&gt;Learn Python the Hard Way&lt;/a&gt; (LPTHW) will spend a number of lessons where a script ends with a &lt;code&gt;print&lt;/code&gt; statement revealing the &lt;em&gt;answer&lt;/em&gt;. This is notable because in a production system, &lt;code&gt;print&lt;/code&gt; isn't used much at all, unless something goes wrong.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2&gt;when &lt;code&gt;print&lt;/code&gt; isn't used&lt;/h2&gt;
+&lt;p&gt;There are varying types of "systems" you can build in Python: (in rough order of rising complexity) scripts, packages, applications, web services/apis. This list is certainly not exhaustive, but except for the most basic scripts that calculate something like a summary statistic, &lt;code&gt;print&lt;/code&gt; is rarely used.&lt;/p&gt;
+&lt;p&gt;Most python "systems" (or really in any language) are used to deal with data structures that are rarely reduced down to one dimension. For example, &lt;a href="http://projecteuler.net/problem=1"&gt;Project Euler, Problem 1&lt;/a&gt; challenges you to find the sum of all the multiples of 3 or 5 below 1000. Python accomplishes this in 1 step:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;print sum([x for x in range(1000) if x % 3 == 0 or x % 5 == 0])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this case, we are looking for the &lt;em&gt;answer&lt;/em&gt; to the problem. However, most "systems" aren't designed to answer a problem, but to &lt;em&gt;solve&lt;/em&gt; it. A python module typically defines certain models and methods for manipulating those methods. A web application models objects like users and is able to pass objects specific to that user to the browser. A web scrapper loads external webpages, allowing you to collect relevant data from the page. You are unlikely to use &lt;code&gt;print&lt;/code&gt; to handle that data. More likely you will store it to a database or a flat file.&lt;/p&gt;
+&lt;h2&gt;when &lt;code&gt;print&lt;/code&gt; can be deceiving&lt;/h2&gt;
+&lt;p&gt;You will never stop using &lt;code&gt;print&lt;/code&gt;, it just will stop to be the intention of your programs. However, when ever working with a new module or framework, often times you are back to Hello World. By now you are able to read the docs and write a small program without any issue. But as you start to explore the more subtle features, often the docs will simply imply the correct implementation.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;print&lt;/code&gt; will again be your best friend when you mess something up and you're trying to figure out where you went wrong. However, &lt;code&gt;print&lt;/code&gt; can often hide important things when you are debugging. For example, in an interactive python session:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;amp;gt;&amp;amp;gt;&amp;amp;gt; print 2
+2
+&amp;amp;gt;&amp;amp;gt;&amp;amp;gt; print &amp;#39;2&amp;#39;
+2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;print&lt;/code&gt; isn't going let you know if the object you are printing here is a &lt;code&gt;int&lt;/code&gt; or a &lt;code&gt;str&lt;/code&gt;. Even more insidious, it could be a custom class with an attribute &lt;code&gt;val = 2&lt;/code&gt; with it's &lt;code&gt;__repr__&lt;/code&gt; method defined as &lt;code&gt;print self.val&lt;/code&gt;. This is roughly the problem I recently ran into.&lt;/p&gt;
+&lt;p&gt;I was working with the &lt;a href="https://github.com/bear/python-twitter"&gt;python-twitter&lt;/a&gt; module and trying to deal with different twitter errors differently. The pseudo-code to figure out the errors:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;twitter_api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;call&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;except&lt;/span&gt; &lt;span class="n"&gt;TwitterError&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The result I got here in one case was &lt;code&gt;[{'message':'error code 1'}]&lt;/code&gt; and in the other &lt;code&gt;error code 2&lt;/code&gt;. Now this is kind of a pain in the ass, and really the result of python-twitter handling different errors with different methods (probably an issue worth fixing), but it's solvable with&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;twitter_api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;call&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;except&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;error code 1&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;whatever&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;need&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+  &lt;span class="n"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;error code 2&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;whatever&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;need&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;raise&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;Errors&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;never&lt;/span&gt; &lt;span class="n"&gt;pass&lt;/span&gt; &lt;span class="n"&gt;silently&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The problem here is that error is not a &lt;code&gt;str&lt;/code&gt; but a instance of the &lt;code&gt;TwitterError&lt;/code&gt; class, which has an attribute &lt;code&gt;message&lt;/code&gt; that is printed when &lt;code&gt;print&lt;/code&gt; is called on the object. This is expect behavior, and quite obviously implied by &lt;code&gt;TwitterError as error&lt;/code&gt;. But easy enough to miss. A find and replace of &lt;code&gt;error&lt;/code&gt; to &lt;code&gt;error.message&lt;/code&gt; on the above code fixes it.&lt;/p&gt;
+&lt;p&gt;One really handy way to help with these types of situations is running &lt;code&gt;python -i your_script.py&lt;/code&gt;. This will open up an interactive session after the script exits upon an error or on completion. In this case, I was able observe the &lt;code&gt;error&lt;/code&gt; variable after the &lt;code&gt;TwitterError&lt;/code&gt; was raised when I thought that it would be captured. So remember, &lt;code&gt;print&lt;/code&gt; doesn't always give you the full picture.&lt;/p&gt;</content></entry><entry><title>Using the Facebook Javascript SDK and jQuery to Create User Accounts with a Flask App</title><link href="https://skien.cc/blog/2013/01/15/using-the-facebook-javascript-sdk-and-jquery-to-create-user-accounts-with-a-flask-app/" rel="alternate"></link><published>2013-01-15T11:51:00-05:00</published><updated>2013-01-15T11:51:00-05:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2013-01-15:/blog/2013/01/15/using-the-facebook-javascript-sdk-and-jquery-to-create-user-accounts-with-a-flask-app/</id><summary type="html">&lt;p&gt;Before we get started, the full code is available on &lt;a href="https://github.com/eriktaubeneck/flask_facebook_login"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Getting Started with &lt;a href="https://developers.facebook.com/"&gt;developers.facebook.com&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To work with any of the Facebook APIs, you need to be a Facebook developer. Just go to &lt;a href="https://developers.facebook.com/"&gt;developers.facebook.com&lt;/a&gt; and sign up with your Facebook account. Once you're signed in, click …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Before we get started, the full code is available on &lt;a href="https://github.com/eriktaubeneck/flask_facebook_login"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Getting Started with &lt;a href="https://developers.facebook.com/"&gt;developers.facebook.com&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To work with any of the Facebook APIs, you need to be a Facebook developer. Just go to &lt;a href="https://developers.facebook.com/"&gt;developers.facebook.com&lt;/a&gt; and sign up with your Facebook account. Once you're signed in, click on Apps and create a new app. In order to actually communicate with the app, you will need to register the app with a domain name where the app will live. One option for this is to use (heroku)[http://www.heroku.com/], although I used AWS on a subdomain of my existing domain. The repo in it's current state isn't set up for heroku, and may require a few changes to run there.&lt;/p&gt;
+&lt;h2&gt;Using the Facebook JavaScript SDK&lt;/h2&gt;
+&lt;p&gt;I should first point out that Facebook has &lt;a href="https://developers.facebook.com/docs/howtos/login/getting-started/"&gt;fantastic documentation&lt;/a&gt; for using this SDK. This section is mostly the same as the their content, with a few Flask specific things.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;We start by inserting the JavaScript SDK initialization snippet after the opening of the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag in &lt;code&gt;layout.html&lt;/code&gt; and &lt;code&gt;index.html&lt;/code&gt;. I put&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;amp;lt;div id=&amp;quot;fb-root&amp;quot;&amp;amp;gt;&amp;amp;lt;/div&amp;amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;in &lt;code&gt;layout.html&lt;/code&gt; and then&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;amp;lt;script&amp;amp;gt;
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : &amp;#39;YOUR_APP_ID&amp;#39;, // App ID
+      channelUrl : &amp;#39;//WWW.YOUR_DOMAIN.COM/channel.html&amp;#39;, // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+    // Additional init code here
+  };
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = &amp;#39;facebook-jssdk&amp;#39;, ref = d.getElementsByTagName(&amp;#39;script&amp;#39;)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(&amp;#39;script&amp;#39;); js.id = id; js.async = true;
+     js.src = &amp;quot;//connect.facebook.net/en_US/all.js&amp;quot;;
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+&amp;amp;lt;/script&amp;amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;in a block called &lt;code&gt;facebook_js&lt;/code&gt; in &lt;code&gt;index.html&lt;/code&gt;, which extends &lt;code&gt;layout.hmtl&lt;/code&gt;. I imagine some of the logic that we are going to build out will vary from page to page, hence making it specific to the &lt;code&gt;index.html&lt;/code&gt; page, rather than in ever page that extends &lt;code&gt;layout.html&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You will need to make two changes specific to your app: the &lt;code&gt;appId&lt;/code&gt; and &lt;code&gt;channelUrl&lt;/code&gt;. I hard coded the &lt;code&gt;channelUrl&lt;/code&gt; to an absolute url, &lt;code&gt;http://my.app.com/channel&lt;/code&gt; (but there are probably better ways to do this). I also added a route in the flask app. In &lt;code&gt;__init__.py&lt;/code&gt;, add&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;@app.route(&amp;#39;/channel&amp;#39;)
+def channel():
+  return render_template(&amp;#39;channel.html&amp;#39;)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and in &lt;code&gt;templates/&lt;/code&gt; add a file called &lt;code&gt;channel.html&lt;/code&gt; with just&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;amp;lt;script src=&amp;quot;//connect.facebook.net/en_US/all.js&amp;quot;&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;in it.  Now we are set up to interface with Facebook. We now will need to check if the user is logged into Facebook and has authorized our app. In the above code block &lt;code&gt;facebook_js&lt;/code&gt;, add the following within the &lt;code&gt;window.fbAsyncInit&lt;/code&gt; function declaration (where we have &lt;code&gt;// Additional init code here&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;FB.getLoginStatus(function(response) {
+  if (response.status === &amp;#39;connected&amp;#39;) {
+    // connected
+  } else if (response.status === &amp;#39;not_authorized&amp;#39;) {
+    // not_authorized
+  } else {
+    // not_logged_in
+  }
+ });
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Right now, this code doesn't actually do anything, but we can now define different actions depending upon three cases: users is logged in to Facebook and has authorized your app, user is logged in to Facebook but not authorized your app, or user is not logged in to Facebook (and hence authorization is unknown).&lt;/p&gt;
+&lt;h2&gt;Six Cases&lt;/h2&gt;
+&lt;p&gt;At this point we will introduce the concept of the app user as well. The idea here is that we will want to store the &lt;code&gt;facebook_id&lt;/code&gt; server side so that we can poll their account info with another part of the application (or another process altogether). After we create or get the user, we will store the user object in the &lt;code&gt;session&lt;/code&gt; variable. Now, when a user comes to our site, this will double the number of possible cases to 6:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;App user is logged in AND user is logged into Facebook and has authorized your app&lt;/li&gt;
+&lt;li&gt;App user is logged in AND user is logged into Facebook but not authorized your app&lt;/li&gt;
+&lt;li&gt;App user is logged in AND user is not logged into Facebook (and hence authorization is unknown)&lt;/li&gt;
+&lt;li&gt;App user is not logged in AND user is logged into Facebook and has authorized your app&lt;/li&gt;
+&lt;li&gt;App user is not logged in AND user is logged into Facebook but not authorized your app&lt;/li&gt;
+&lt;li&gt;App user is not logged in AND user is not logged into Facebook (and hence authorization is unknown)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To handle these cases, we will render the JavaScript in the template differently depending upon if the user object exists:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;FB.getLoginStatus(function(response) {&lt;/span&gt;
+&lt;span class="x"&gt;  if (response.status === &amp;#39;connected&amp;#39;) {&lt;/span&gt;
+&lt;span class="x"&gt;   //user logged in and connected to facebook. case 1.&lt;/span&gt;
+&lt;span class="x"&gt;   console.log(&amp;#39;user logged in and connected to facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;  } else if (response.status === &amp;#39;not_authorized&amp;#39;) {&lt;/span&gt;
+&lt;span class="x"&gt;   //user logged in but app not_authorized on facebook. case 2.&lt;/span&gt;
+&lt;span class="x"&gt;   console.log(&amp;#39;user logged in but app not_authorized on facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;  } else {&lt;/span&gt;
+&lt;span class="x"&gt;   //user logged in but app not_logged_in to facebook. case 3.&lt;/span&gt;
+&lt;span class="x"&gt;   console.log(&amp;#39;user logged in but app not_logged_in to facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;  }&lt;/span&gt;
+&lt;span class="x"&gt;});&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;FB.getLoginStatus(function(response) {&lt;/span&gt;
+&lt;span class="x"&gt;  if (response.status === &amp;#39;connected&amp;#39;) {&lt;/span&gt;
+&lt;span class="x"&gt;    // user not logged in but connected to facebook. case 4.&lt;/span&gt;
+&lt;span class="x"&gt;    console.log(&amp;#39;user not logged in but connected to facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;  } else if (response.status === &amp;#39;not_authorized&amp;#39;) {&lt;/span&gt;
+&lt;span class="x"&gt;    // user not logged in but app not_authorized on facebook. case 5.&lt;/span&gt;
+&lt;span class="x"&gt;    console.log(&amp;#39;user not logged in but app not_authorized on facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;  } else {&lt;/span&gt;
+&lt;span class="x"&gt;    // user not logged in and not_logged_in to facebook. case 6.&lt;/span&gt;
+&lt;span class="x"&gt;    console.log(&amp;#39;user not logged in and not_logged_in to facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;  }&lt;/span&gt;
+&lt;span class="x"&gt;});&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Again, this code doesn't actually do anything, but just sets us up to define what happens in each of these cases. To handle most of these cases, I used modals, provided by &lt;a href="http://foundation.zurb.com/docs/reveal.php"&gt;Foundation 3&lt;/a&gt;. Foundation is much like Twitter Bootstrap, but I found it to be more awesome. (I just came upon it, you'll note that my &lt;a href="http://skien.cc/fractal_game/random"&gt;Fractal Stock Game&lt;/a&gt; was built with Twitter Bootstrap).&lt;/p&gt;
+&lt;p&gt;So now let's go through these case by case. In our first case, if the user is logged in on our site, as well as Facebook and authorized our app, we really don't need to do anything. This is what we want. So we don't need to do anything here. The next two cases assume that the user already exists on the app side, and has either removed the access to the Facebook app, or is not currently logged into Facebook. The fourth case assumes the user has authorized our app, is currently logged into Facebook, but not our app. We will come back to these cases.&lt;/p&gt;
+&lt;p&gt;Let's skip to the case where the user is a new user and has yet to authorize our app. We will either get case 5 or 6, depending upon if the user is currently signed into Facebook. Either way, we will want to prompt the user to login to Facebook (if needed) and authorize our app. This is done by calling the following function from the Facebook JavaScript SDK:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;FB.login(function(response) {
+    if (response.authResponse) {
+        // connected
+        console.log(&amp;#39;login successful&amp;#39;)
+    } else {
+        // cancelled
+        console.log(&amp;#39;login failed &amp;#39;)
+    }
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, this produces a pop-up from Facebook to allow the user to login (if needed) and then authorize the app. Most browsers will block popups like this if they are generated directly upon the page load, so it's better to attach this call to a user action, like clicking a button. So in the body of &lt;code&gt;index.html&lt;/code&gt;, I created a modal with the following:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;amp;lt;div id=&amp;quot;login_modal&amp;quot; class=&amp;quot;reveal-modal&amp;quot;&amp;amp;gt;
+  &amp;amp;lt;h2&amp;amp;gt; Welcome to creeper! &amp;amp;lt;/h2&amp;amp;gt;
+  &amp;amp;lt;p&amp;amp;gt;
+    Creeper requires you to login through your Facebook account.
+  &amp;amp;lt;/p&amp;amp;gt;
+    &amp;amp;lt;a href=&amp;quot;#&amp;quot; id=&amp;quot;facebook_login&amp;quot; class=&amp;quot;button&amp;quot;&amp;amp;gt; Get started. Login with Facebook. &amp;amp;lt;/a&amp;amp;gt;
+  &amp;amp;lt;/p&amp;amp;gt;
+&amp;amp;lt;/div&amp;amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We want this modal to appear in cases 5 and 6, and we want to attach the &lt;code&gt;FB.login()&lt;/code&gt; function to the button in the modal. To accomplish the first, we add following to cases 5 and 6 in the &lt;code&gt;FB.getLoginStatus()&lt;/code&gt; functions:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$(&amp;quot;#login_modal&amp;quot;).reveal();
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It's important to note that the following is called before this chunk of Facebook JavaScript as this action above requires jQuery:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;amp;lt;script src=&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;url_for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;static&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;javascripts/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;&lt;/span&gt;
+&lt;span class="x"&gt;&amp;amp;lt;script src=&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;url_for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;static&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;javascripts/foundation.min.js&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;&lt;/span&gt;
+&lt;span class="x"&gt;&amp;amp;lt;script src=&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;url_for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;static&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;javascripts/app.js&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, we can attach the &lt;code&gt;FB.login()&lt;/code&gt; function to the button in the modal using jQuery as well:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$(function(){
+  $(&amp;#39;a#facebook_login&amp;#39;).bind(&amp;#39;click&amp;#39;, function () {
+      FB.login(function(response) {
+          if (response.authResponse) {
+              // connected
+              console.log(&amp;#39;login successful&amp;#39;)
+          } else {
+              // cancelled
+              console.log(&amp;#39;login failed &amp;#39;)
+          }
+      });
+      return false;
+    });
+  });
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To deal with cases 2 and 3, we include the following 2 modals:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;amp;lt;div id=&amp;quot;user_no_facebook_auth_modal&amp;quot; class=&amp;quot;reveal-modal&amp;quot;&amp;amp;gt;
+  &amp;amp;lt;h2&amp;amp;gt; Whoops! &amp;amp;lt;/h2&amp;amp;gt;
+  &amp;amp;lt;p&amp;amp;gt;
+    It seems that creeper isn&amp;#39;t authorized on your Facebook account anymore.
+  &amp;amp;lt;/p&amp;amp;gt;
+    &amp;amp;lt;a href=&amp;quot;#&amp;quot; id=&amp;quot;facebook_login&amp;quot; class=&amp;quot;button&amp;quot;&amp;amp;gt; Reconnect to Facebook. &amp;amp;lt;/a&amp;amp;gt;
+  &amp;amp;lt;/p&amp;amp;gt;
+&amp;amp;lt;/div&amp;amp;gt;
+
+&amp;amp;lt;div id=&amp;quot;user_no_facebook_login_modal&amp;quot; class=&amp;quot;reveal-modal&amp;quot;&amp;amp;gt;
+  &amp;amp;lt;h2&amp;amp;gt; Whoops! &amp;amp;lt;/h2&amp;amp;gt;
+  &amp;amp;lt;p&amp;amp;gt;
+    It seems that you aren&amp;#39;t logged into Facebook currently. Creeper works closely with
+    your Facebook account.
+  &amp;amp;lt;/p&amp;amp;gt;
+    &amp;amp;lt;a href=&amp;quot;#&amp;quot; id=&amp;quot;facebook_login&amp;quot; class=&amp;quot;button&amp;quot;&amp;amp;gt; Login to Facebook. &amp;amp;lt;/a&amp;amp;gt;
+  &amp;amp;lt;/p&amp;amp;gt;
+&amp;amp;lt;/div&amp;amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and attach to case 2 with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$(&amp;quot;#user_no_facebook_auth_modal&amp;quot;).reveal();
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and attach to case 3 with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$(&amp;quot;#user_no_facebook_login_modal&amp;quot;).reveal();
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Since the &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; tags all have &lt;code&gt;id="facebook_login"&lt;/code&gt;, so the &lt;code&gt;FB.login&lt;/code&gt; function is attached to these buttons as well automatically.&lt;/p&gt;
+&lt;p&gt;The final case, case 4, is fairly simple. The user is logged into Facebook and authorized our app, so we just need to get that user object.&lt;/p&gt;
+&lt;h2&gt;Creating and Getting the App User Object&lt;/h2&gt;
+&lt;p&gt;So far we've only considered if the user object exists, but we haven't talked about creating and fetching it from the Flask app. Luckily we can pass data from the JavaScript response to the Flask app using jQuery. To do this, we make a JavaScript function &lt;code&gt;get_user()&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;get_user() {&lt;/span&gt;
+    &lt;span class="nx"&gt;FB&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;api&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/me&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getJSON&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$SCRIPT_ROOT&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/_get_facebook_login&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;facebook_id&lt;/span&gt;: &lt;span class="kt"&gt;response.id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;response.name&lt;/span&gt; &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                  &lt;span class="nx"&gt;location&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;reload&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In a basic set up, &lt;code&gt;$SCRITP_ROOT&lt;/code&gt; will be an empty string, however the &lt;a href="http://flask.pocoo.org/docs/patterns/jquery/"&gt;Flask docs&lt;/a&gt; recommends using it and setting it to:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;amp;lt;script type=text/javascript&amp;amp;gt;&lt;/span&gt;
+&lt;span class="x"&gt;  $SCRIPT_ROOT = &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;request.script_root&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;tojson&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nf"&gt;safe&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;;&lt;/span&gt;
+&lt;span class="x"&gt;&amp;amp;lt;/script&amp;amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This must be set before it's reference, obviously.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;$.getJSON()&lt;/code&gt; function takes a url, an object, &lt;em&gt;data&lt;/em&gt;, and a function, &lt;em&gt;func&lt;/em&gt;. The function makes a GET request to the url with the contents of the data object as query parameters. Once it gets a response, it calls &lt;em&gt;func&lt;/em&gt; with the response value as an argument.&lt;/p&gt;
+&lt;p&gt;Now, on the Flask app, we render &lt;code&gt;index.html&lt;/code&gt; at &lt;code&gt;/&lt;/code&gt; with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;@app.route(&amp;#39;/&amp;#39;)
+def landing():
+  return render_template(&amp;#39;index.html&amp;#39;, user=session.get(&amp;#39;user&amp;#39;, None))
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is going to pass a &lt;code&gt;user=None&lt;/code&gt; until the user is set. So let's create the user.  First, let's define the &lt;code&gt;Users&lt;/code&gt; class:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Users&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="nx"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;primary_key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="nx"&gt;facebook_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="nx"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+  &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;facebook_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;facebook_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;facebook_id&lt;/span&gt;
+    &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I put this in a separate &lt;code&gt;models.py&lt;/code&gt;, but it can also go in &lt;code&gt;__init__.py&lt;/code&gt; after the app is defined. Now, at &lt;code&gt;/_get_facebook_login&lt;/code&gt; we attach:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;@app.route(&amp;#39;/_get_facebook_login&amp;#39;)
+def get_facebook_login():
+  facebook_id = request.args.get(&amp;#39;facebook_id&amp;#39;, False, type=int)
+  name = request.args.get(&amp;#39;name&amp;#39;, &amp;#39;&amp;#39;, type=str)
+  if facebook_id:
+    user = Users.query.filter_by(facebook_id=facebook_id).first()
+    if not user:
+      user = Users(facebook_id,name)
+      db.session.add(user)
+      db.session.commit()
+    session[&amp;#39;user&amp;#39;] = user
+  return jsonify(result=1)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This function looks for &lt;code&gt;facebook_id&lt;/code&gt; and &lt;code&gt;name&lt;/code&gt; from the request sent by &lt;code&gt;$.getJSON()&lt;/code&gt; function. If we don't get the &lt;code&gt;facebook_id&lt;/code&gt; then it skips getting the user and just returns &lt;code&gt;{"result":"1"}&lt;/code&gt;. If we do, we first try to get a user from our database with that &lt;code&gt;facebook_id&lt;/code&gt;, and if there is none, we create the user and commit it to the database. Either way, we add the user to the session. We could return a different value showing we now have the user, but we don't do anything with that data in the JavaScript. Now that the session has a user object, by returning a result, &lt;em&gt;func&lt;/em&gt; in &lt;code&gt;$.getJSON()&lt;/code&gt; gets called. This triggers &lt;code&gt;location.reload(true);&lt;/code&gt;, which reloads the page.&lt;/p&gt;
+&lt;p&gt;The final thing we need to do is drop in &lt;code&gt;get_user()&lt;/code&gt; in a few places. In the end, the &lt;code&gt;FB.login()&lt;/code&gt; call will look like:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$(function(){
+  $(&amp;#39;a#facebook_login&amp;#39;).bind(&amp;#39;click&amp;#39;, function () {
+    FB.login(function(response) {
+      if (response.authResponse) {
+        // connected
+        console.log(&amp;#39;login successful&amp;#39;)
+        get_user()
+      } else {
+        // cancelled
+        console.log(&amp;#39;login failed &amp;#39;)
+      }
+    });
+return false;
+  });
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and our &lt;code&gt;FB.getLoginStatus()&lt;/code&gt; call will look like:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;   FB.getLoginStatus(function(response) {&lt;/span&gt;
+&lt;span class="x"&gt;     if (response.status === &amp;#39;connected&amp;#39;) {&lt;/span&gt;
+&lt;span class="x"&gt;       //user logged in and connected to facebook&lt;/span&gt;
+&lt;span class="x"&gt;       console.log(&amp;#39;user logged in and connected to facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;     } else if (response.status === &amp;#39;not_authorized&amp;#39;) {&lt;/span&gt;
+&lt;span class="x"&gt;       //user logged in but app not_authorized on facebook&lt;/span&gt;
+&lt;span class="x"&gt;       console.log(&amp;#39;user logged in but app not_authorized on facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;       $(&amp;quot;#user_no_facebook_auth_modal&amp;quot;).reveal();&lt;/span&gt;
+&lt;span class="x"&gt;     } else {&lt;/span&gt;
+&lt;span class="x"&gt;       //user logged in but app not_logged_in to facebook&lt;/span&gt;
+&lt;span class="x"&gt;       console.log(&amp;#39;user logged in but app not_logged_in to facebook&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;       $(&amp;quot;#user_no_facebook_login_modal&amp;quot;).reveal();&lt;/span&gt;
+&lt;span class="x"&gt;     }&lt;/span&gt;
+&lt;span class="x"&gt;    });&lt;/span&gt;
+&lt;span class="x"&gt;  &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;  FB.getLoginStatus(function(response) {&lt;/span&gt;
+&lt;span class="x"&gt;    if (response.status === &amp;#39;connected&amp;#39;) {&lt;/span&gt;
+&lt;span class="x"&gt;      // connected&lt;/span&gt;
+&lt;span class="x"&gt;      console.log(&amp;#39;connected&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;      $(&amp;quot;#no_user_facebook_modal&amp;quot;).reveal()&lt;/span&gt;
+&lt;span class="x"&gt;      get_user()&lt;/span&gt;
+&lt;span class="x"&gt;    } else if (response.status === &amp;#39;not_authorized&amp;#39;) {&lt;/span&gt;
+&lt;span class="x"&gt;      // not_authorized&lt;/span&gt;
+&lt;span class="x"&gt;      console.log(&amp;#39;not authorized&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;      $(&amp;quot;#login_modal&amp;quot;).reveal();&lt;/span&gt;
+&lt;span class="x"&gt;    } else {&lt;/span&gt;
+&lt;span class="x"&gt;      // not_logged_in&lt;/span&gt;
+&lt;span class="x"&gt;      console.log(&amp;#39;not logged in&amp;#39;)&lt;/span&gt;
+&lt;span class="x"&gt;      $(&amp;quot;#login_modal&amp;quot;).reveal();&lt;/span&gt;
+&lt;span class="x"&gt;    }&lt;/span&gt;
+&lt;span class="x"&gt;   });&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And that's about it. The full code is available on &lt;a href="https://github.com/eriktaubeneck/flask_facebook_login"&gt;GitHub&lt;/a&gt;, so fork me!&lt;/p&gt;</content></entry><entry><title>Using Flask with nginx and uWSGI</title><link href="https://skien.cc/blog/2013/01/07/using-flask-with-nginx-and-uwsgi/" rel="alternate"></link><published>2013-01-07T11:49:00-05:00</published><updated>2013-01-07T11:49:00-05:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2013-01-07:/blog/2013/01/07/using-flask-with-nginx-and-uwsgi/</id><summary type="html">&lt;h2&gt;Starting with AWS&lt;/h2&gt;
+&lt;p&gt;I'm using &lt;a href="http://aws.amazon.com"&gt;Amazon Web Services&lt;/a&gt; for hosting my application. It has all sorts of fantastic capabilities, but for small stuff all I'm really using it for is to run a Ubuntu 12.04 Server. (AMI: ubuntu/images/ebs/ubuntu-precise-12.04-amd64-server-20121001 (ami-3d4ff254)). This is on the free tier …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Starting with AWS&lt;/h2&gt;
+&lt;p&gt;I'm using &lt;a href="http://aws.amazon.com"&gt;Amazon Web Services&lt;/a&gt; for hosting my application. It has all sorts of fantastic capabilities, but for small stuff all I'm really using it for is to run a Ubuntu 12.04 Server. (AMI: ubuntu/images/ebs/ubuntu-precise-12.04-amd64-server-20121001 (ami-3d4ff254)). This is on the free tier, so if you're a new account, you can run one of these for free for a year. If not, running it full time will cost you about $15/month. Attach that thing to a elastic IP (they're free as long as you're using it) and connect with SSH.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -i key.pem ubuntu@aws-ip-address
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;One of the first things I do is add my public key to &lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt; on the server so that I can connect without the &lt;code&gt;-i key.pem&lt;/code&gt;.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2&gt;Installing nginx (engine-x)&lt;/h2&gt;
+&lt;p&gt;First, add the correct repo so that you can install the correct version. Create a file &lt;code&gt;/etc/apt/sources.list.d/nginx-lucid.list&lt;/code&gt; and add the following:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://nginx.org/packages/ubuntu/&lt;/span&gt; &lt;span class="kp"&gt;lucid&lt;/span&gt; &lt;span class="kp"&gt;nginx&lt;/span&gt;
+&lt;span class="k"&gt;deb-src&lt;/span&gt; &lt;span class="s"&gt;http://nginx.org/packages/ubuntu/&lt;/span&gt; &lt;span class="kp"&gt;lucid&lt;/span&gt; &lt;span class="kp"&gt;nginx&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We will also add the gpg key to to the apt keyring. From your home directory, run:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget http://nginx.org/keys/nginx_signing.key
+sudo apt-key add nginx_signing.key
+rm nginx_signing.key
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we can install nginx with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update
+sudo apt-get install nginx
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Installing uWSGI&lt;/h2&gt;
+&lt;p&gt;First, we need to install pip, then we can use pip to install uISGI.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install python-dev build-essential python-pip
+sudo pip install uwsgi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We are going to want to un uWSGI in the background, so we will create a uwsgi user:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo useradd -c &amp;#39;uwsgi user,,,&amp;#39; -g nginx -d /nonexistent -s /bin/false uwsgi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, create the file &lt;code&gt;/etc/init/uwsgi.conf&lt;/code&gt; and put the following in it:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;description &amp;quot;uWSGI&amp;quot;
+start on runlevel [2345]
+stop on runlevel [06]
+
+respawn
+
+exec uwsgi --master --processes 4 --die-on-term --uid uwsgi --gid nginx --socket /tmp/uwsgi.sock --chmod-socket 660 --no-site --vhost --logto /var/log/uwsgi.log
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Flask Configuration&lt;/h2&gt;
+&lt;p&gt;We need to set up a Python virtual environment so that we can point uWSGI to the correct python interpreter. If you plan on ever using MySQL with Flask, then you'll need to use the &lt;code&gt;--system-site-packages&lt;/code&gt; option for your virtual environment. For some reason, I was unable to install python-mysqldb so that the virtual environment could use it without this option.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo pip install virtualenv
+sudo virtualenv --system-site-packages /srv/webapps/helloworld/env
+source /srv/webapps/helloworld/env/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You are now using the virtual environment. To install Flask, simply run:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo pip install flask
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, we can deactivate the virtual environment with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For right now, I'm just going to set up the hello world Flask app. Going to &lt;code&gt;aws-ip-address&lt;/code&gt; should simply produce "Hello, world!". We are going to store this in &lt;code&gt;/srv/webapps/helloworld&lt;/code&gt;. It can really go wherever you want, so adjust accordingly if you want to put it somewhere else.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo mkdir -p /etc/webapps/helloworld
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, inside of this directory, we are going to put our Flask app. It seems odd, but we are going to create another folder called &lt;code&gt;helloworld&lt;/code&gt;. Then inside of that, we are going put the webapp inside of that dir in the file &lt;code&gt;__init__.py&lt;/code&gt;. We will also create the &lt;code&gt;static&lt;/code&gt; folder for static files like images and css stylesheets.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /etc/webapps/helloworld
+sudo mkdir helloworld
+sudo mkdir helloworld/static
+sudo touch helloworld/__init__.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Open this file and include:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;landing&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Hello, world!&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This allows us to import &lt;code&gt;helloworld&lt;/code&gt; as a module. In &lt;code&gt;/etc/webapps/helloworld&lt;/code&gt; create a file called &lt;code&gt;runserver.py&lt;/code&gt;. In this we put:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;helloworld&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;0.0.0.0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;if __name__ == '__main__'&lt;/code&gt; is extremely important, because we only want this part to run if we run the script ourselves (rather than through a uWSGI process.). By manually setting the host and port like this, we should be able to run this and be able to access it through the built in development server. From &lt;code&gt;/srv/webapps/helloworld&lt;/code&gt; run:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source /env/bin/activate
+sudo python runserver.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, by going to &lt;code&gt;aws-ip-address&lt;/code&gt; in your browser, you should see "Hello, world!".  If you get an error that the address is already in use, nginx is probably already running and you can kill it with &lt;code&gt;sudo killall nginx&lt;/code&gt;. If the page seems to hang and never loads, check your AWS security groups to make sure you have port 80 (HTTP) open. When you're done, deactivate the virtual environment:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Congrats! You have a Flask app running. Now, let's getting running with nginx and uWSGI so it can handle a bit more traffic.&lt;/p&gt;
+&lt;h2&gt;Setting up nginx and uWSGI&lt;/h2&gt;
+&lt;p&gt;First, let's add some permissions for our uwsgi user.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo usermod -a -G nginx uwsgi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;adds the user &lt;code&gt;uwsgi&lt;/code&gt; to the group &lt;code&gt;nginx&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo chown -R uwsgi:nginx /srv/webapps/helloworld
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;changes the owner of the directory to &lt;code&gt;uwsgi:nginx&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo chmod -R g+w /srv/webapps/helloworld
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;give the group owner write capabilities to so that uWSGI can write the compiled python files.&lt;/p&gt;
+&lt;p&gt;nginx uses &lt;code&gt;.conf&lt;/code&gt; files to set it's configuration options. We first remove the default configuration file:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo rm /etc/nginx/conf.d/default.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you don't have this file, you may be running a different version on nginx. Now create &lt;code&gt;/etc/nginx/conf.d/helloworld.conf&lt;/code&gt; and include the following:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;listen&lt;/span&gt;       &lt;span class="err"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;server_name&lt;/span&gt;  &lt;span class="err"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="err"&gt;location&lt;/span&gt; &lt;span class="err"&gt;/static&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;alias&lt;/span&gt; &lt;span class="err"&gt;/srv/webapps/helloworld/helloworld/static&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="nt"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;include&lt;/span&gt; &lt;span class="err"&gt;uwsgi_params&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;uwsgi_pass&lt;/span&gt; &lt;span class="n"&gt;unix&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;uwsgi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;uwsgi_param&lt;/span&gt; &lt;span class="err"&gt;UWSGI_CHDIR&lt;/span&gt; &lt;span class="err"&gt;/srv/webapps/helloworld&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;uwsgi_param&lt;/span&gt; &lt;span class="err"&gt;UWSGI_PYHOME&lt;/span&gt; &lt;span class="err"&gt;/srv/webapps/helloworld/env&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;uwsgi_param&lt;/span&gt; &lt;span class="err"&gt;UWSGI_MODULE&lt;/span&gt; &lt;span class="err"&gt;helloworld&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;uwsgi_param&lt;/span&gt; &lt;span class="err"&gt;UWSGI_CALLABLE&lt;/span&gt; &lt;span class="err"&gt;app&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And there you go! Flask with a real deployment option. That said, I should say that I am not a deployment expert, and much of this here is exactly from a &lt;a href="http://blog.kramerapps.com/post/22551999777/flask-uwsgi-nginx-ubuntu"&gt;blog by Conrad Kramer&lt;/a&gt; with a few changes. Any suggestions on how to make this process easier or better, links to other tutorials, or anything of the like, please let me know at erik(dot)taubeneck(at)gmail.com.&lt;/p&gt;</content></entry></feed>

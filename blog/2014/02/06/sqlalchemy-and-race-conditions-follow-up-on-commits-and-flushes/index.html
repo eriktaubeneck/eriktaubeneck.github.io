@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>SQLAlchemy and Race Conditions: Follow Up on Commits and Flushes | skien.cc</title>
+	<meta name="description" content="In an earlier post, I talked about my adventures in creating a get_one_or_create() function for SQLAlchemy to use with Flask and Postgres. There was an excellent question asked in the comments about weather session.flush() could be used on line 13 instead of session.commit(). I didn't fully understand the …">
+	<meta name="author" content="Erik Taubeneck">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="SQLAlchemy and Race Conditions: Follow Up on Commits and Flushes">
+	<meta property="og:description" content="In an earlier post, I talked about my adventures in creating a get_one_or_create() function for SQLAlchemy to use with Flask and Postgres. There was an excellent question asked in the comments about weather session.flush() could be used on line 13 instead of session.commit(). I didn't fully understand the …">
+	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up-on-commits-and-flushes/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?2af86252" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">skien.cc</a></div>
+			<div id="bio">a mathematician, economist, and statistician by schooling, data scientist/python hacker by trade, and a homebrewer by night, skien.cc |skīəns| is my blog aimed to track explorations in all of the above.</div>
+
+
+			<div id="social">
+				<a href="http://github.com/eriktaubeneck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.facebook.com/erik.taubeneck" title="Facebook" class="icon fa fa-facebook"></a>
+				<a href="https://www.instagram.com/taubeneck/" title="Instagram" class="icon fa fa-instagram"></a>
+				<a href="http://twitter.com/taubeneck" title="Twitter" class="icon fa fa-twitter"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up-on-commits-and-flushes/" title="Permalink to SQLAlchemy and Race Conditions: Follow Up on Commits and Flushes">SQLAlchemy and Race Conditions: Follow Up on Commits and Flushes</a></h1>
+	<time class="date" datetime="2014-02-06 12:30:13-05:00">2014-02-06</time>
+	<div class="content">
+		<p>In an <a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/">earlier post</a>, I talked about my adventures in creating a <code>get_one_or_create()</code> function for SQLAlchemy to use with Flask and Postgres.</p>
+<p>There was an <a href="http://skien.cc/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing/#comment-1202518666">excellent question</a> asked in the comments about weather <code>session.flush()</code> could be used on line 13 instead of <code>session.commit()</code>. I didn't fully understand the answer, but explained that I had landed on this for safety of efficiency. The author of SQLAlchemy also echoed that it's not a simple answer. I spent some time with a small test app on Heroku to figure out how this all works, and what the best approach really was.</p>
+<!-- more -->
+
+<p>For quick reference, the solution I landed on was:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_one_or_create</span><span class="p">(</span><span class="n">session</span><span class="p">,</span>
+                      <span class="n">model</span><span class="p">,</span>
+                      <span class="n">create_method</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                      <span class="n">create_method_kwargs</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                      <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">(),</span> <span class="bp">True</span>
+    <span class="k">except</span> <span class="n">NoResultFound</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">create_method_kwargs</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="n">created</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">create_method</span><span class="p">,</span> <span class="n">model</span><span class="p">)(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">created</span><span class="p">)</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">created</span><span class="p">,</span> <span class="bp">False</span>
+        <span class="k">except</span> <span class="n">IntegrityError</span><span class="p">:</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">(),</span> <span class="bp">True</span>
+</pre></div>
+
+
+<p><strong>Important Note:</strong> The app that I used for testing can be referenced in <a href="https://github.com/eriktaubeneck/heroku-test">this repo on GitHub</a>, and I am using Python 2.7.4, with Flask 0.10.1, Flask-SQLAlchemy 1.0, SQLAlchemy 0.9.2, and Postgres 9.3.2 running on Heroku. Many of the ways in which SQLAlchemy works rely heavily on the configuration, so if you are using a different se up, I urge you to take this with a grain of salt and as useful ideas for testing your own setup.</p>
+<h2><code>session.commit()</code> vs <code>session.flush()</code></h2>
+<p>At the surface, the difference between these two operations is fairly straight forward.</p>
+<p>A call to <code>session.commit()</code> takes any new objects or changes to existing objects in the <code>session</code> and attempts to write them to the database. If a new object has a key or other attribute that the database creates, that is created during the write and in turn populated on the object in the session.</p>
+<p>A call to <code>session.flush()</code> however, <em>only</em> populates our objects, but does not write to the datastore yet. (I've italicized <em>only</em> because I am about to show that it actually does more than that.)</p>
+<p>So what happens if I have an object with a unique constraint on an attribute, and in two different sessions/processes/Heroku dynos create the object with the same value for that attribute, and then try call <code>session.flush()</code>? Since neither value has been written to the database, we don't expect an <code>IntegrityError</code>. But we also ideally wouldn't want this to roll by without issue. So what does happen?</p>
+<p>I created a <a href="https://github.com/eriktaubeneck/heroku-test">small test Flask app</a> and deployed it to Heroku. I then spun up two sessions of iPython, also on Heroku, imported our <code>Game</code> object and attempted to violate our unique constraint on <code>provider_game_id</code>. Check out what happened:</p>
+<p><img src="/images/heroku-testing.gif"></p>
+<p>Notice how the first call to <code>session.flush()</code> (on the left) works just fine. But then the second call (on the right) hangs - note this is a completely different Heroku dyno. The only connection these two have are the Postgres database. So (at least with Postgres), <code>session.flush()</code> is able to use Postgres to <em>stage</em> our value, but not write it yet. That's pretty rad.</p>
+<h2>Changing <code>get_one_or_create()</code></h2>
+<p>This will work with the <code>get_one_or_create()</code> function above by replacing line 13 (as suggested in the comment) as so</p>
+<div class="codehilite"><pre><span></span>def get_one_or_create(session,
+                      model,
+                      create_method=&#39;&#39;,
+                      create_method_kwargs=None,
+                      **kwargs):
+    try:
+        return session.query(model).filter_by(**kwargs).one(), True
+    except NoResultFound:
+        kwargs.update(create_method_kwargs or {})
+        created = getattr(model, create_method, model)(**kwargs)
+        try:
+            session.add(created)
+            session.flush()
+            return created, False
+        except IntegrityError:
+            session.rollback()
+            return session.query(model).filter_by(**kwargs).one(), True
+</pre></div>
+
+
+<p>In this case, if one process creates an object, and a second process attempts to create the same object (i.e. overlapping in a unique constraint), the second process will stall at the <code>session.flush()</code>. If the first process eventually calls <code>session.commit()</code>, the second process will raise the <code>IntegrityError</code>, as expected, and then be able to actually query the object. If, instead, it dies or or whatever other reason doesn't call <code>session.commit()</code> but it's session clears, then the second session will resume and return the newly created object.</p>
+<p>My original fear was that the <code>session.flush()</code> could pass in both cases before the <code>session.commit()</code> was called, and then when the second <code>session.commit()</code> (or a <code>session.flush()</code>) the <code>IntegrityError</code> would raise out of the context of the <code>get_one_or_create()</code> and we wouldn't (easily) know which object to get instead of create. This isn't the case.</p>
+<p>There is likely interesting economics in the balance between batching your commits (less frequent large commits are generally more efficient than frequent small commits) and the probability of a process stalling on the <code>session.flush()</code>  (and hence the expected loss of computation from that stalling). Generally, though, I would opt towards committing whenever a new object is created. There are some times, however, that you may want slightly more delicate control, which makes the above approach superior to the originally proposed solution.</p>
+<p>Consider a new object <code>GameStat</code>, which for every <code>Game</code> this object <em>must</em> exist (it's a pretty contrived example, but in other situations this relation can come up). When doing web programming (or really any program), you should assume that at any point any process could die. If the <code>GameStat</code> object <em>must</em> exist for every <code>Game</code>, then we can delay our call to <code>session.commit()</code> until both objects are been initialized. In this relatively small amount of time, it's unlikely that we will get an overlap, but if we do, the call to <code>session.flush()</code> shouldn't stall the process for very long.</p>
+<p><strong>UPDATE:</strong> I've updated using a <code>{}</code> as a default value in the function as this is typical Python gotcha. Thanks for the <a href="http://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up/#comment-1371570667">comment</a>, Nigel! If your curious about this gotcha, check out this <a href="http://stackoverflow.com/questions/5712904/empty-dictionary-as-default-value-for-keyword-argument-in-python-function-dicti">StackOverflow question</a> and <a href="http://pythonconquerstheuniverse.wordpress.com/category/python-gotchas/">this blog post</a>.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2014/04/09/unpythonic-python/" id="next-neighbour">&laquo; Unpythonic Python</a>
+		<a href="/blog/2014/01/31/adding-unique-constraints-after-the-fact-in-sqlalchemy/" id="prev-neighbour">Adding Unique Constraints After the Fact in SQLAlchemy &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up-on-commits-and-flushes/';
+		this.page.identifier = 'blog/2014/02/06/sqlalchemy-and-race-conditions-follow-up-on-commits-and-flushes/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

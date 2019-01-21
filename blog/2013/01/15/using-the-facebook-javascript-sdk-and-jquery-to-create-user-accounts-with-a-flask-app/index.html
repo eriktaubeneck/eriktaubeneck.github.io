@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Using the Facebook Javascript SDK and jQuery to Create User Accounts with a Flask App | skien.cc</title>
+	<meta name="description" content="Before we get started, the full code is available on GitHub. Getting Started with developers.facebook.com To work with any of the Facebook APIs, you need to be a Facebook developer. Just go to developers.facebook.com and sign up with your Facebook account. Once you're signed in, click …">
+	<meta name="author" content="Erik Taubeneck">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="Using the Facebook Javascript SDK and jQuery to Create User Accounts with a Flask App">
+	<meta property="og:description" content="Before we get started, the full code is available on GitHub. Getting Started with developers.facebook.com To work with any of the Facebook APIs, you need to be a Facebook developer. Just go to developers.facebook.com and sign up with your Facebook account. Once you're signed in, click …">
+	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2013/01/15/using-the-facebook-javascript-sdk-and-jquery-to-create-user-accounts-with-a-flask-app/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?2af86252" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">skien.cc</a></div>
+			<div id="bio">a mathematician, economist, and statistician by schooling, data scientist/python hacker by trade, and a homebrewer by night, skien.cc |skīəns| is my blog aimed to track explorations in all of the above.</div>
+
+
+			<div id="social">
+				<a href="http://github.com/eriktaubeneck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.facebook.com/erik.taubeneck" title="Facebook" class="icon fa fa-facebook"></a>
+				<a href="https://www.instagram.com/taubeneck/" title="Instagram" class="icon fa fa-instagram"></a>
+				<a href="http://twitter.com/taubeneck" title="Twitter" class="icon fa fa-twitter"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2013/01/15/using-the-facebook-javascript-sdk-and-jquery-to-create-user-accounts-with-a-flask-app/" title="Permalink to Using the Facebook Javascript SDK and jQuery to Create User Accounts with a Flask App">Using the Facebook Javascript SDK and jQuery to Create User Accounts with a Flask App</a></h1>
+	<time class="date" datetime="2013-01-15 11:51:00-05:00">2013-01-15</time>
+	<div class="content">
+		<p>Before we get started, the full code is available on <a href="https://github.com/eriktaubeneck/flask_facebook_login">GitHub</a>.</p>
+<h2>Getting Started with <a href="https://developers.facebook.com/">developers.facebook.com</a></h2>
+<p>To work with any of the Facebook APIs, you need to be a Facebook developer. Just go to <a href="https://developers.facebook.com/">developers.facebook.com</a> and sign up with your Facebook account. Once you're signed in, click on Apps and create a new app. In order to actually communicate with the app, you will need to register the app with a domain name where the app will live. One option for this is to use (heroku)[http://www.heroku.com/], although I used AWS on a subdomain of my existing domain. The repo in it's current state isn't set up for heroku, and may require a few changes to run there.</p>
+<h2>Using the Facebook JavaScript SDK</h2>
+<p>I should first point out that Facebook has <a href="https://developers.facebook.com/docs/howtos/login/getting-started/">fantastic documentation</a> for using this SDK. This section is mostly the same as the their content, with a few Flask specific things.</p>
+<!-- more -->
+
+<p>We start by inserting the JavaScript SDK initialization snippet after the opening of the <code>&lt;body&gt;</code> tag in <code>layout.html</code> and <code>index.html</code>. I put</p>
+<div class="codehilite"><pre><span></span>&amp;lt;div id=&quot;fb-root&quot;&amp;gt;&amp;lt;/div&amp;gt;
+</pre></div>
+
+
+<p>in <code>layout.html</code> and then</p>
+<div class="codehilite"><pre><span></span>&amp;lt;script&amp;gt;
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : &#39;YOUR_APP_ID&#39;, // App ID
+      channelUrl : &#39;//WWW.YOUR_DOMAIN.COM/channel.html&#39;, // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+    // Additional init code here
+  };
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = &#39;facebook-jssdk&#39;, ref = d.getElementsByTagName(&#39;script&#39;)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(&#39;script&#39;); js.id = id; js.async = true;
+     js.src = &quot;//connect.facebook.net/en_US/all.js&quot;;
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+&amp;lt;/script&amp;gt;
+</pre></div>
+
+
+<p>in a block called <code>facebook_js</code> in <code>index.html</code>, which extends <code>layout.hmtl</code>. I imagine some of the logic that we are going to build out will vary from page to page, hence making it specific to the <code>index.html</code> page, rather than in ever page that extends <code>layout.html</code>.</p>
+<p>You will need to make two changes specific to your app: the <code>appId</code> and <code>channelUrl</code>. I hard coded the <code>channelUrl</code> to an absolute url, <code>http://my.app.com/channel</code> (but there are probably better ways to do this). I also added a route in the flask app. In <code>__init__.py</code>, add</p>
+<div class="codehilite"><pre><span></span>@app.route(&#39;/channel&#39;)
+def channel():
+  return render_template(&#39;channel.html&#39;)
+</pre></div>
+
+
+<p>and in <code>templates/</code> add a file called <code>channel.html</code> with just</p>
+<div class="codehilite"><pre><span></span>&amp;lt;script src=&quot;//connect.facebook.net/en_US/all.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+</pre></div>
+
+
+<p>in it.  Now we are set up to interface with Facebook. We now will need to check if the user is logged into Facebook and has authorized our app. In the above code block <code>facebook_js</code>, add the following within the <code>window.fbAsyncInit</code> function declaration (where we have <code>// Additional init code here</code>):</p>
+<div class="codehilite"><pre><span></span>FB.getLoginStatus(function(response) {
+  if (response.status === &#39;connected&#39;) {
+    // connected
+  } else if (response.status === &#39;not_authorized&#39;) {
+    // not_authorized
+  } else {
+    // not_logged_in
+  }
+ });
+</pre></div>
+
+
+<p>Right now, this code doesn't actually do anything, but we can now define different actions depending upon three cases: users is logged in to Facebook and has authorized your app, user is logged in to Facebook but not authorized your app, or user is not logged in to Facebook (and hence authorization is unknown).</p>
+<h2>Six Cases</h2>
+<p>At this point we will introduce the concept of the app user as well. The idea here is that we will want to store the <code>facebook_id</code> server side so that we can poll their account info with another part of the application (or another process altogether). After we create or get the user, we will store the user object in the <code>session</code> variable. Now, when a user comes to our site, this will double the number of possible cases to 6:</p>
+<ol>
+<li>App user is logged in AND user is logged into Facebook and has authorized your app</li>
+<li>App user is logged in AND user is logged into Facebook but not authorized your app</li>
+<li>App user is logged in AND user is not logged into Facebook (and hence authorization is unknown)</li>
+<li>App user is not logged in AND user is logged into Facebook and has authorized your app</li>
+<li>App user is not logged in AND user is logged into Facebook but not authorized your app</li>
+<li>App user is not logged in AND user is not logged into Facebook (and hence authorization is unknown)</li>
+</ol>
+<p>To handle these cases, we will render the JavaScript in the template differently depending upon if the user object exists:</p>
+<div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">FB.getLoginStatus(function(response) {</span>
+<span class="x">  if (response.status === &#39;connected&#39;) {</span>
+<span class="x">   //user logged in and connected to facebook. case 1.</span>
+<span class="x">   console.log(&#39;user logged in and connected to facebook&#39;)</span>
+<span class="x">  } else if (response.status === &#39;not_authorized&#39;) {</span>
+<span class="x">   //user logged in but app not_authorized on facebook. case 2.</span>
+<span class="x">   console.log(&#39;user logged in but app not_authorized on facebook&#39;)</span>
+<span class="x">  } else {</span>
+<span class="x">   //user logged in but app not_logged_in to facebook. case 3.</span>
+<span class="x">   console.log(&#39;user logged in but app not_logged_in to facebook&#39;)</span>
+<span class="x">  }</span>
+<span class="x">});</span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">FB.getLoginStatus(function(response) {</span>
+<span class="x">  if (response.status === &#39;connected&#39;) {</span>
+<span class="x">    // user not logged in but connected to facebook. case 4.</span>
+<span class="x">    console.log(&#39;user not logged in but connected to facebook&#39;)</span>
+<span class="x">  } else if (response.status === &#39;not_authorized&#39;) {</span>
+<span class="x">    // user not logged in but app not_authorized on facebook. case 5.</span>
+<span class="x">    console.log(&#39;user not logged in but app not_authorized on facebook&#39;)</span>
+<span class="x">  } else {</span>
+<span class="x">    // user not logged in and not_logged_in to facebook. case 6.</span>
+<span class="x">    console.log(&#39;user not logged in and not_logged_in to facebook&#39;)</span>
+<span class="x">  }</span>
+<span class="x">});</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p>Again, this code doesn't actually do anything, but just sets us up to define what happens in each of these cases. To handle most of these cases, I used modals, provided by <a href="http://foundation.zurb.com/docs/reveal.php">Foundation 3</a>. Foundation is much like Twitter Bootstrap, but I found it to be more awesome. (I just came upon it, you'll note that my <a href="http://skien.cc/fractal_game/random">Fractal Stock Game</a> was built with Twitter Bootstrap).</p>
+<p>So now let's go through these case by case. In our first case, if the user is logged in on our site, as well as Facebook and authorized our app, we really don't need to do anything. This is what we want. So we don't need to do anything here. The next two cases assume that the user already exists on the app side, and has either removed the access to the Facebook app, or is not currently logged into Facebook. The fourth case assumes the user has authorized our app, is currently logged into Facebook, but not our app. We will come back to these cases.</p>
+<p>Let's skip to the case where the user is a new user and has yet to authorize our app. We will either get case 5 or 6, depending upon if the user is currently signed into Facebook. Either way, we will want to prompt the user to login to Facebook (if needed) and authorize our app. This is done by calling the following function from the Facebook JavaScript SDK:</p>
+<div class="codehilite"><pre><span></span>FB.login(function(response) {
+    if (response.authResponse) {
+        // connected
+        console.log(&#39;login successful&#39;)
+    } else {
+        // cancelled
+        console.log(&#39;login failed &#39;)
+    }
+});
+</pre></div>
+
+
+<p>Now, this produces a pop-up from Facebook to allow the user to login (if needed) and then authorize the app. Most browsers will block popups like this if they are generated directly upon the page load, so it's better to attach this call to a user action, like clicking a button. So in the body of <code>index.html</code>, I created a modal with the following:</p>
+<div class="codehilite"><pre><span></span>&amp;lt;div id=&quot;login_modal&quot; class=&quot;reveal-modal&quot;&amp;gt;
+  &amp;lt;h2&amp;gt; Welcome to creeper! &amp;lt;/h2&amp;gt;
+  &amp;lt;p&amp;gt;
+    Creeper requires you to login through your Facebook account.
+  &amp;lt;/p&amp;gt;
+    &amp;lt;a href=&quot;#&quot; id=&quot;facebook_login&quot; class=&quot;button&quot;&amp;gt; Get started. Login with Facebook. &amp;lt;/a&amp;gt;
+  &amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+</pre></div>
+
+
+<p>We want this modal to appear in cases 5 and 6, and we want to attach the <code>FB.login()</code> function to the button in the modal. To accomplish the first, we add following to cases 5 and 6 in the <code>FB.getLoginStatus()</code> functions:</p>
+<div class="codehilite"><pre><span></span>$(&quot;#login_modal&quot;).reveal();
+</pre></div>
+
+
+<p>It's important to note that the following is called before this chunk of Facebook JavaScript as this action above requires jQuery:</p>
+<div class="codehilite"><pre><span></span><span class="x">&amp;lt;script src=</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s2">&quot;static&quot;</span><span class="o">,</span> <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;javascripts/jquery.js&quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&amp;gt;&amp;lt;/script&amp;gt;</span>
+<span class="x">&amp;lt;script src=</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s2">&quot;static&quot;</span><span class="o">,</span> <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;javascripts/foundation.min.js&quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&amp;gt;&amp;lt;/script&amp;gt;</span>
+<span class="x">&amp;lt;script src=</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s2">&quot;static&quot;</span><span class="o">,</span> <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;javascripts/app.js&quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&amp;gt;&amp;lt;/script&amp;gt;</span>
+</pre></div>
+
+
+<p>Now, we can attach the <code>FB.login()</code> function to the button in the modal using jQuery as well:</p>
+<div class="codehilite"><pre><span></span>$(function(){
+  $(&#39;a#facebook_login&#39;).bind(&#39;click&#39;, function () {
+      FB.login(function(response) {
+          if (response.authResponse) {
+              // connected
+              console.log(&#39;login successful&#39;)
+          } else {
+              // cancelled
+              console.log(&#39;login failed &#39;)
+          }
+      });
+      return false;
+    });
+  });
+</pre></div>
+
+
+<p>To deal with cases 2 and 3, we include the following 2 modals:</p>
+<div class="codehilite"><pre><span></span>&amp;lt;div id=&quot;user_no_facebook_auth_modal&quot; class=&quot;reveal-modal&quot;&amp;gt;
+  &amp;lt;h2&amp;gt; Whoops! &amp;lt;/h2&amp;gt;
+  &amp;lt;p&amp;gt;
+    It seems that creeper isn&#39;t authorized on your Facebook account anymore.
+  &amp;lt;/p&amp;gt;
+    &amp;lt;a href=&quot;#&quot; id=&quot;facebook_login&quot; class=&quot;button&quot;&amp;gt; Reconnect to Facebook. &amp;lt;/a&amp;gt;
+  &amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;div id=&quot;user_no_facebook_login_modal&quot; class=&quot;reveal-modal&quot;&amp;gt;
+  &amp;lt;h2&amp;gt; Whoops! &amp;lt;/h2&amp;gt;
+  &amp;lt;p&amp;gt;
+    It seems that you aren&#39;t logged into Facebook currently. Creeper works closely with
+    your Facebook account.
+  &amp;lt;/p&amp;gt;
+    &amp;lt;a href=&quot;#&quot; id=&quot;facebook_login&quot; class=&quot;button&quot;&amp;gt; Login to Facebook. &amp;lt;/a&amp;gt;
+  &amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+</pre></div>
+
+
+<p>and attach to case 2 with:</p>
+<div class="codehilite"><pre><span></span>$(&quot;#user_no_facebook_auth_modal&quot;).reveal();
+</pre></div>
+
+
+<p>and attach to case 3 with:</p>
+<div class="codehilite"><pre><span></span>$(&quot;#user_no_facebook_login_modal&quot;).reveal();
+</pre></div>
+
+
+<p>Since the <code>&lt;a&gt;</code> tags all have <code>id="facebook_login"</code>, so the <code>FB.login</code> function is attached to these buttons as well automatically.</p>
+<p>The final case, case 4, is fairly simple. The user is logged into Facebook and authorized our app, so we just need to get that user object.</p>
+<h2>Creating and Getting the App User Object</h2>
+<p>So far we've only considered if the user object exists, but we haven't talked about creating and fetching it from the Flask app. Luckily we can pass data from the JavaScript response to the Flask app using jQuery. To do this, we make a JavaScript function <code>get_user()</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">get_user() {</span>
+    <span class="nx">FB</span><span class="p">.</span><span class="nx">api</span><span class="p">(</span><span class="s1">&#39;/me&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="nx">$SCRIPT_ROOT</span> <span class="o">+</span> <span class="s1">&#39;/_get_facebook_login&#39;</span><span class="p">,</span>
+                <span class="p">{</span> <span class="nx">facebook_id</span>: <span class="kt">response.id</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">response.name</span> <span class="p">},</span>
+                <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+                  <span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+                <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>In a basic set up, <code>$SCRITP_ROOT</code> will be an empty string, however the <a href="http://flask.pocoo.org/docs/patterns/jquery/">Flask docs</a> recommends using it and setting it to:</p>
+<div class="codehilite"><pre><span></span><span class="x">&amp;lt;script type=text/javascript&amp;gt;</span>
+<span class="x">  $SCRIPT_ROOT = </span><span class="cp">{{</span> <span class="nv">request.script_root</span><span class="o">|</span><span class="nf">tojson</span><span class="o">|</span><span class="nf">safe</span> <span class="cp">}}</span><span class="x">;</span>
+<span class="x">&amp;lt;/script&amp;gt;</span>
+</pre></div>
+
+
+<p>This must be set before it's reference, obviously.</p>
+<p>The <code>$.getJSON()</code> function takes a url, an object, <em>data</em>, and a function, <em>func</em>. The function makes a GET request to the url with the contents of the data object as query parameters. Once it gets a response, it calls <em>func</em> with the response value as an argument.</p>
+<p>Now, on the Flask app, we render <code>index.html</code> at <code>/</code> with:</p>
+<div class="codehilite"><pre><span></span>@app.route(&#39;/&#39;)
+def landing():
+  return render_template(&#39;index.html&#39;, user=session.get(&#39;user&#39;, None))
+</pre></div>
+
+
+<p>This is going to pass a <code>user=None</code> until the user is set. So let's create the user.  First, let's define the <code>Users</code> class:</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Users</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">Model</span><span class="p">)</span><span class="o">:</span>
+  <span class="nx">id</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">Integer</span><span class="p">,</span> <span class="nx">primary_key</span><span class="o">=</span><span class="nx">True</span><span class="p">)</span>
+  <span class="nx">facebook_id</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">Integer</span><span class="p">)</span>
+  <span class="nx">name</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Column</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+
+  <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span><span class="nx">facebook_id</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">facebook_id</span> <span class="o">=</span> <span class="nx">facebook_id</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
+</pre></div>
+
+
+<p>I put this in a separate <code>models.py</code>, but it can also go in <code>__init__.py</code> after the app is defined. Now, at <code>/_get_facebook_login</code> we attach:</p>
+<div class="codehilite"><pre><span></span>@app.route(&#39;/_get_facebook_login&#39;)
+def get_facebook_login():
+  facebook_id = request.args.get(&#39;facebook_id&#39;, False, type=int)
+  name = request.args.get(&#39;name&#39;, &#39;&#39;, type=str)
+  if facebook_id:
+    user = Users.query.filter_by(facebook_id=facebook_id).first()
+    if not user:
+      user = Users(facebook_id,name)
+      db.session.add(user)
+      db.session.commit()
+    session[&#39;user&#39;] = user
+  return jsonify(result=1)
+</pre></div>
+
+
+<p>This function looks for <code>facebook_id</code> and <code>name</code> from the request sent by <code>$.getJSON()</code> function. If we don't get the <code>facebook_id</code> then it skips getting the user and just returns <code>{"result":"1"}</code>. If we do, we first try to get a user from our database with that <code>facebook_id</code>, and if there is none, we create the user and commit it to the database. Either way, we add the user to the session. We could return a different value showing we now have the user, but we don't do anything with that data in the JavaScript. Now that the session has a user object, by returning a result, <em>func</em> in <code>$.getJSON()</code> gets called. This triggers <code>location.reload(true);</code>, which reloads the page.</p>
+<p>The final thing we need to do is drop in <code>get_user()</code> in a few places. In the end, the <code>FB.login()</code> call will look like:</p>
+<div class="codehilite"><pre><span></span>$(function(){
+  $(&#39;a#facebook_login&#39;).bind(&#39;click&#39;, function () {
+    FB.login(function(response) {
+      if (response.authResponse) {
+        // connected
+        console.log(&#39;login successful&#39;)
+        get_user()
+      } else {
+        // cancelled
+        console.log(&#39;login failed &#39;)
+      }
+    });
+return false;
+  });
+});
+</pre></div>
+
+
+<p>and our <code>FB.getLoginStatus()</code> call will look like:</p>
+<div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">   FB.getLoginStatus(function(response) {</span>
+<span class="x">     if (response.status === &#39;connected&#39;) {</span>
+<span class="x">       //user logged in and connected to facebook</span>
+<span class="x">       console.log(&#39;user logged in and connected to facebook&#39;)</span>
+<span class="x">     } else if (response.status === &#39;not_authorized&#39;) {</span>
+<span class="x">       //user logged in but app not_authorized on facebook</span>
+<span class="x">       console.log(&#39;user logged in but app not_authorized on facebook&#39;)</span>
+<span class="x">       $(&quot;#user_no_facebook_auth_modal&quot;).reveal();</span>
+<span class="x">     } else {</span>
+<span class="x">       //user logged in but app not_logged_in to facebook</span>
+<span class="x">       console.log(&#39;user logged in but app not_logged_in to facebook&#39;)</span>
+<span class="x">       $(&quot;#user_no_facebook_login_modal&quot;).reveal();</span>
+<span class="x">     }</span>
+<span class="x">    });</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  FB.getLoginStatus(function(response) {</span>
+<span class="x">    if (response.status === &#39;connected&#39;) {</span>
+<span class="x">      // connected</span>
+<span class="x">      console.log(&#39;connected&#39;)</span>
+<span class="x">      $(&quot;#no_user_facebook_modal&quot;).reveal()</span>
+<span class="x">      get_user()</span>
+<span class="x">    } else if (response.status === &#39;not_authorized&#39;) {</span>
+<span class="x">      // not_authorized</span>
+<span class="x">      console.log(&#39;not authorized&#39;)</span>
+<span class="x">      $(&quot;#login_modal&quot;).reveal();</span>
+<span class="x">    } else {</span>
+<span class="x">      // not_logged_in</span>
+<span class="x">      console.log(&#39;not logged in&#39;)</span>
+<span class="x">      $(&quot;#login_modal&quot;).reveal();</span>
+<span class="x">    }</span>
+<span class="x">   });</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p>And that's about it. The full code is available on <a href="https://github.com/eriktaubeneck/flask_facebook_login">GitHub</a>, so fork me!</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2013/03/19/print-can-be-deceiving/" id="next-neighbour">&laquo; print can be deceiving</a>
+		<a href="/blog/2013/01/07/using-flask-with-nginx-and-uwsgi/" id="prev-neighbour">Using Flask with nginx and uWSGI &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2013/01/15/using-the-facebook-javascript-sdk-and-jquery-to-create-user-accounts-with-a-flask-app/';
+		this.page.identifier = 'blog/2013/01/15/using-the-facebook-javascript-sdk-and-jquery-to-create-user-accounts-with-a-flask-app/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

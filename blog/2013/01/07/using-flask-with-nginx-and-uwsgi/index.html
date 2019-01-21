@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Using Flask with nginx and uWSGI | skien.cc</title>
+	<meta name="description" content="Starting with AWS I'm using Amazon Web Services for hosting my application. It has all sorts of fantastic capabilities, but for small stuff all I'm really using it for is to run a Ubuntu 12.04 Server. (AMI: ubuntu/images/ebs/ubuntu-precise-12.04-amd64-server-20121001 (ami-3d4ff254)). This is on the free tier …">
+	<meta name="author" content="Erik Taubeneck">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="Using Flask with nginx and uWSGI">
+	<meta property="og:description" content="Starting with AWS I'm using Amazon Web Services for hosting my application. It has all sorts of fantastic capabilities, but for small stuff all I'm really using it for is to run a Ubuntu 12.04 Server. (AMI: ubuntu/images/ebs/ubuntu-precise-12.04-amd64-server-20121001 (ami-3d4ff254)). This is on the free tier …">
+	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2013/01/07/using-flask-with-nginx-and-uwsgi/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?2af86252" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">skien.cc</a></div>
+			<div id="bio">a mathematician, economist, and statistician by schooling, data scientist/python hacker by trade, and a homebrewer by night, skien.cc |skīəns| is my blog aimed to track explorations in all of the above.</div>
+
+
+			<div id="social">
+				<a href="http://github.com/eriktaubeneck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.facebook.com/erik.taubeneck" title="Facebook" class="icon fa fa-facebook"></a>
+				<a href="https://www.instagram.com/taubeneck/" title="Instagram" class="icon fa fa-instagram"></a>
+				<a href="http://twitter.com/taubeneck" title="Twitter" class="icon fa fa-twitter"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2013/01/07/using-flask-with-nginx-and-uwsgi/" title="Permalink to Using Flask with nginx and uWSGI">Using Flask with nginx and uWSGI</a></h1>
+	<time class="date" datetime="2013-01-07 11:49:00-05:00">2013-01-07</time>
+	<div class="content">
+		<h2>Starting with AWS</h2>
+<p>I'm using <a href="http://aws.amazon.com">Amazon Web Services</a> for hosting my application. It has all sorts of fantastic capabilities, but for small stuff all I'm really using it for is to run a Ubuntu 12.04 Server. (AMI: ubuntu/images/ebs/ubuntu-precise-12.04-amd64-server-20121001 (ami-3d4ff254)). This is on the free tier, so if you're a new account, you can run one of these for free for a year. If not, running it full time will cost you about $15/month. Attach that thing to a elastic IP (they're free as long as you're using it) and connect with SSH.</p>
+<div class="codehilite"><pre><span></span>ssh -i key.pem ubuntu@aws-ip-address
+</pre></div>
+
+
+<p>One of the first things I do is add my public key to <code>~/.ssh/authorized_keys</code> on the server so that I can connect without the <code>-i key.pem</code>.</p>
+<!-- more -->
+
+<h2>Installing nginx (engine-x)</h2>
+<p>First, add the correct repo so that you can install the correct version. Create a file <code>/etc/apt/sources.list.d/nginx-lucid.list</code> and add the following:</p>
+<div class="codehilite"><pre><span></span><span class="k">deb</span> <span class="s">http://nginx.org/packages/ubuntu/</span> <span class="kp">lucid</span> <span class="kp">nginx</span>
+<span class="k">deb-src</span> <span class="s">http://nginx.org/packages/ubuntu/</span> <span class="kp">lucid</span> <span class="kp">nginx</span>
+</pre></div>
+
+
+<p>We will also add the gpg key to to the apt keyring. From your home directory, run:</p>
+<div class="codehilite"><pre><span></span>wget http://nginx.org/keys/nginx_signing.key
+sudo apt-key add nginx_signing.key
+rm nginx_signing.key
+</pre></div>
+
+
+<p>Now we can install nginx with:</p>
+<div class="codehilite"><pre><span></span>sudo apt-get update
+sudo apt-get install nginx
+</pre></div>
+
+
+<h2>Installing uWSGI</h2>
+<p>First, we need to install pip, then we can use pip to install uISGI.</p>
+<div class="codehilite"><pre><span></span>sudo apt-get install python-dev build-essential python-pip
+sudo pip install uwsgi
+</pre></div>
+
+
+<p>We are going to want to un uWSGI in the background, so we will create a uwsgi user:</p>
+<div class="codehilite"><pre><span></span>sudo useradd -c &#39;uwsgi user,,,&#39; -g nginx -d /nonexistent -s /bin/false uwsgi
+</pre></div>
+
+
+<p>Now, create the file <code>/etc/init/uwsgi.conf</code> and put the following in it:</p>
+<div class="codehilite"><pre><span></span>description &quot;uWSGI&quot;
+start on runlevel [2345]
+stop on runlevel [06]
+
+respawn
+
+exec uwsgi --master --processes 4 --die-on-term --uid uwsgi --gid nginx --socket /tmp/uwsgi.sock --chmod-socket 660 --no-site --vhost --logto /var/log/uwsgi.log
+</pre></div>
+
+
+<h2>Flask Configuration</h2>
+<p>We need to set up a Python virtual environment so that we can point uWSGI to the correct python interpreter. If you plan on ever using MySQL with Flask, then you'll need to use the <code>--system-site-packages</code> option for your virtual environment. For some reason, I was unable to install python-mysqldb so that the virtual environment could use it without this option.</p>
+<div class="codehilite"><pre><span></span>sudo pip install virtualenv
+sudo virtualenv --system-site-packages /srv/webapps/helloworld/env
+source /srv/webapps/helloworld/env/bin/activate
+</pre></div>
+
+
+<p>You are now using the virtual environment. To install Flask, simply run:</p>
+<div class="codehilite"><pre><span></span>sudo pip install flask
+</pre></div>
+
+
+<p>Now, we can deactivate the virtual environment with:</p>
+<div class="codehilite"><pre><span></span>deactivate
+</pre></div>
+
+
+<p>For right now, I'm just going to set up the hello world Flask app. Going to <code>aws-ip-address</code> should simply produce "Hello, world!". We are going to store this in <code>/srv/webapps/helloworld</code>. It can really go wherever you want, so adjust accordingly if you want to put it somewhere else.</p>
+<div class="codehilite"><pre><span></span>sudo mkdir -p /etc/webapps/helloworld
+</pre></div>
+
+
+<p>Now, inside of this directory, we are going to put our Flask app. It seems odd, but we are going to create another folder called <code>helloworld</code>. Then inside of that, we are going put the webapp inside of that dir in the file <code>__init__.py</code>. We will also create the <code>static</code> folder for static files like images and css stylesheets.</p>
+<div class="codehilite"><pre><span></span>cd /etc/webapps/helloworld
+sudo mkdir helloworld
+sudo mkdir helloworld/static
+sudo touch helloworld/__init__.py
+</pre></div>
+
+
+<p>Open this file and include:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">landing</span><span class="p">():</span>
+  <span class="k">return</span> <span class="s1">&#39;Hello, world!&#39;</span>
+</pre></div>
+
+
+<p>This allows us to import <code>helloworld</code> as a module. In <code>/etc/webapps/helloworld</code> create a file called <code>runserver.py</code>. In this we put:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">helloworld</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+  <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The <code>if __name__ == '__main__'</code> is extremely important, because we only want this part to run if we run the script ourselves (rather than through a uWSGI process.). By manually setting the host and port like this, we should be able to run this and be able to access it through the built in development server. From <code>/srv/webapps/helloworld</code> run:</p>
+<div class="codehilite"><pre><span></span>source /env/bin/activate
+sudo python runserver.py
+</pre></div>
+
+
+<p>Now, by going to <code>aws-ip-address</code> in your browser, you should see "Hello, world!".  If you get an error that the address is already in use, nginx is probably already running and you can kill it with <code>sudo killall nginx</code>. If the page seems to hang and never loads, check your AWS security groups to make sure you have port 80 (HTTP) open. When you're done, deactivate the virtual environment:</p>
+<div class="codehilite"><pre><span></span>deactivate
+</pre></div>
+
+
+<p>Congrats! You have a Flask app running. Now, let's getting running with nginx and uWSGI so it can handle a bit more traffic.</p>
+<h2>Setting up nginx and uWSGI</h2>
+<p>First, let's add some permissions for our uwsgi user.</p>
+<div class="codehilite"><pre><span></span>sudo usermod -a -G nginx uwsgi
+</pre></div>
+
+
+<p>adds the user <code>uwsgi</code> to the group <code>nginx</code>.</p>
+<div class="codehilite"><pre><span></span>sudo chown -R uwsgi:nginx /srv/webapps/helloworld
+</pre></div>
+
+
+<p>changes the owner of the directory to <code>uwsgi:nginx</code>.</p>
+<div class="codehilite"><pre><span></span>sudo chmod -R g+w /srv/webapps/helloworld
+</pre></div>
+
+
+<p>give the group owner write capabilities to so that uWSGI can write the compiled python files.</p>
+<p>nginx uses <code>.conf</code> files to set it's configuration options. We first remove the default configuration file:</p>
+<div class="codehilite"><pre><span></span>sudo rm /etc/nginx/conf.d/default.conf
+</pre></div>
+
+
+<p>If you don't have this file, you may be running a different version on nginx. Now create <code>/etc/nginx/conf.d/helloworld.conf</code> and include the following:</p>
+<div class="codehilite"><pre><span></span><span class="nt">server</span> <span class="p">{</span>
+    <span class="err">listen</span>       <span class="err">80</span><span class="p">;</span>
+    <span class="err">server_name</span>  <span class="err">localhost</span><span class="p">;</span>
+
+    <span class="err">location</span> <span class="err">/static</span> <span class="err">{</span>
+        <span class="err">alias</span> <span class="err">/srv/webapps/helloworld/helloworld/static</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
+        <span class="err">include</span> <span class="err">uwsgi_params</span><span class="p">;</span>
+        <span class="err">uwsgi_pass</span> <span class="n">unix</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">uwsgi</span><span class="o">.</span><span class="n">sock</span><span class="p">;</span>
+        <span class="err">uwsgi_param</span> <span class="err">UWSGI_CHDIR</span> <span class="err">/srv/webapps/helloworld</span><span class="p">;</span>
+        <span class="err">uwsgi_param</span> <span class="err">UWSGI_PYHOME</span> <span class="err">/srv/webapps/helloworld/env</span><span class="p">;</span>
+        <span class="err">uwsgi_param</span> <span class="err">UWSGI_MODULE</span> <span class="err">helloworld</span><span class="p">;</span>
+        <span class="err">uwsgi_param</span> <span class="err">UWSGI_CALLABLE</span> <span class="err">app</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>And there you go! Flask with a real deployment option. That said, I should say that I am not a deployment expert, and much of this here is exactly from a <a href="http://blog.kramerapps.com/post/22551999777/flask-uwsgi-nginx-ubuntu">blog by Conrad Kramer</a> with a few changes. Any suggestions on how to make this process easier or better, links to other tutorials, or anything of the like, please let me know at erik(dot)taubeneck(at)gmail.com.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2013/01/15/using-the-facebook-javascript-sdk-and-jquery-to-create-user-accounts-with-a-flask-app/" id="next-neighbour">&laquo; Using the Facebook Javascript SDK and jQuery to Create User Accounts with a Flask App</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2013/01/07/using-flask-with-nginx-and-uwsgi/';
+		this.page.identifier = 'blog/2013/01/07/using-flask-with-nginx-and-uwsgi/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Flask-Twitter-OEmbedder and Flask Extension Testing | skien.cc</title>
+	<meta name="description" content="Flask Python Testing Flask-Twitter-OEmbedder The Twitter API V1.1 provides an endpoint for easily embedding tweets into your webpages. However, Twitter rate limits this endpoint and requires authorization. Flask Twitter OEmbedder gets your Twitter credentials from your app.config and exposes the oembed_tweet function to the Jinja templates. Flask Twitter …">
+	<meta name="author" content="Erik Taubeneck">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="Flask-Twitter-OEmbedder and Flask Extension Testing">
+	<meta property="og:description" content="Flask Python Testing Flask-Twitter-OEmbedder The Twitter API V1.1 provides an endpoint for easily embedding tweets into your webpages. However, Twitter rate limits this endpoint and requires authorization. Flask Twitter OEmbedder gets your Twitter credentials from your app.config and exposes the oembed_tweet function to the Jinja templates. Flask Twitter …">
+	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2013/06/26/flask-twitter-oembedder-and-flask-extension-testing/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?2af86252" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">skien.cc</a></div>
+			<div id="bio">a mathematician, economist, and statistician by schooling, data scientist/python hacker by trade, and a homebrewer by night, skien.cc |skīəns| is my blog aimed to track explorations in all of the above.</div>
+
+
+			<div id="social">
+				<a href="http://github.com/eriktaubeneck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.facebook.com/erik.taubeneck" title="Facebook" class="icon fa fa-facebook"></a>
+				<a href="https://www.instagram.com/taubeneck/" title="Instagram" class="icon fa fa-instagram"></a>
+				<a href="http://twitter.com/taubeneck" title="Twitter" class="icon fa fa-twitter"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2013/06/26/flask-twitter-oembedder-and-flask-extension-testing/" title="Permalink to Flask-Twitter-OEmbedder and Flask Extension Testing">Flask-Twitter-OEmbedder and Flask Extension Testing</a></h1>
+	<time class="date" datetime="2013-06-26 15:37:00-04:00">2013-06-26</time>
+	<div class="content">
+		<ul>
+<li>Flask</li>
+<li>Python</li>
+<li>Testing</li>
+</ul>
+<hr />
+<h2>Flask-Twitter-OEmbedder</h2>
+<p>The Twitter API V1.1 provides an endpoint for easily <a href="https://dev.twitter.com/docs/api/1.1/get/statuses/oembed">embedding tweets</a> into your webpages. However, Twitter rate limits this endpoint and requires authorization. Flask Twitter OEmbedder gets your Twitter credentials from your <code>app.config</code> and exposes the <code>oembed_tweet</code> function to the Jinja templates. Flask Twitter OEmbedder also manages the caching of the tweets, given an arbitrary cache using Flask-Cache.</p>
+<p>You can check it out and fork it on <a href="https://github.com/eriktaubeneck/flask-twitter-oembedder">GitHub</a>. Feature requests, issues, and anything else are encouraged! This is very much alpha and I plan to continue working on it.</p>
+<h2>Flask Extension Testing</h2>
+<p><a href="https://github.com/eriktaubeneck/flask-twitter-oembedder">Flask-Twitter-OEmbedder</a> was the first Flask extension I have written (and really the first proper Python package I've ever written). This summer I am lucky enough to be participating in <a href="https://www.hackerschool.com/">Hacker School</a> and one of my goals for the batch was to be able to write unit tests for my code that I develop. Since this was my first proper package, I figured it was a great place to start.</p>
+<!-- more -->
+
+<p>Testing in the abstract seems reflexive and redundent; I wrote code specifically to perform <code>x</code>, why would I write more code to make sure that it does <code>x</code>? This was a particularly difficult mental block for me, especially coming to development from mathematics. However, as your code base grows and relies on more and more abstraction, when something breaks, testing helps you find exactly what you broke and where to fix it. It's not uncommon for libraries and extensions to change their API's at times, in which case it may not even be code that you wrote to do <code>x</code>, and now it does <code>y</code>. Luckily earlier this year, I attended PyCon and saw <a href="http://pyvideo.org/video/1674/getting-started-with-automated-testing">this</a> great presentation on getting starting with automated testing Python.</p>
+<p>After getting past my mental testing block, I was faced with a few other challanges with getting testing working with my Flask extension. I had broken my extension into a handful of base states which I wanted to test:</p>
+<ul>
+<li>the <code>oembed_tweet()</code> function is avaliable in the Jinja templates</li>
+<li>the <code>oembed_tweet()</code> function properly embeds a tweet when given a valid tweet id</li>
+<li>the <code>oembed_tweet()</code> function fails properly (depending on the <code>app.debug</code> and local <code>debug</code> state) when given an invalid tweet id</li>
+</ul>
+<p>Each of these presented their own challanges. The first challange however, was just approaching the problem at hand. The testing documentation for Flask is all based for testing Flask apps, not Flask extensions. However, it quickly became clear that it was sufficent to use <a href="http://pythonhosted.org/Flask-Testing/">Flask-Testing</a> to create a "dummy" app which would utilize my extension and be able to test if it worked properly.  Unfortunetly, Flask-Testing doesn't have a method like <code>assertExists</code>, so I ended up testing</p>
+<div class="codehilite"><pre><span></span> assert type(self.get_context_variable(&#39;oembed_tweet&#39;)) is types.FunctionType
+</pre></div>
+
+
+<p>The next challange was being able to run the tests offline. In general, unit tests shouldn't care if external API's are working or not. It is certainly useful and appropriate in some cases to write tests that to check for this, but for this test we just want to know if our code is working as expected, assuming that Twitter's API is working correctly.We(I paired with one of the awesome Hacker School facilitators, <a href="https://github.com/zachallaun">Zach Allaun</a>) started with <a href="https://github.com/kevin1024/vcrpy">vcrpy</a>, which is a port of the Ruby <a href="https://github.com/vcr/vcr">vcr</a> gem, however this didn't work quite right. We then moved onto <a href="https://github.com/uber/cassette">cassette</a> but it unfortunetly didn't play nice with HTTPS. Finally we landed on <a href="https://github.com/gabrielfalcao/HTTPretty">HTTPretty</a> which did exactly what we needed. We grabbed the actual response from Twitter and dumped it into a JSON, then HTTPretty blocks any out going requests to specific urls and returns the content of the JSON as if the request had gone through normally. It can be used as followed:</p>
+<div class="codehilite"><pre><span></span>@httpretty.activate
+def test_oembed_tweet_valid_id_debug_off(self):
+    with open(&#39;tests/data/99530515043983360.json&#39;) as f:
+        httpretty.register_uri(httpretty.GET, &#39;https://api.twitter.com/1.1/statuses/oembed.json?id=99530515043983360&#39;,
+            body = f.read())
+    response = self.client.get(&#39;/&#39;)
+    oembed_tweet = self.get_context_variable(&#39;oembed_tweet&#39;)
+    valid = oembed_tweet(&#39;99530515043983360&#39;)
+    assert type(valid) is Markup
+</pre></div>
+
+
+<p>In this example, the <code>oembed_tweet</code> fuction makes a GET request using the <code>requests</code> package to the <code>uri</code> that we specified in the <code>httpretty.register_uri()</code> call, and the response is what we specified as the <code>body</code> in the same function.</p>
+<p>One final interesting case is when we wanted to test what happens when we want to test how Flask-Twitter-OEmbedder handles an error from the Twitter API. In a development setting, we likely want this to actually raise an exception so that we can investigate what is causing the error (this could be a number of things: incorrect tweet id, Twitter API outage, deleted tweet, etc), but in production we would likely want it to fail gracefully and just return an empty string. Testing for an exception is fairly straight forward:</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="o">:</span>
+    <span class="n">invalid</span> <span class="o">=</span> <span class="n">oembed_tweet</span><span class="o">(</span><span class="s1">&#39;abc&#39;</span><span class="o">)</span>
+<span class="n">except</span> <span class="n">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="o">:</span>
+    <span class="n">assert</span> <span class="n">type</span><span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="k">is</span> <span class="n">KeyError</span>
+</pre></div>
+
+
+<p>There is one little trick here, however, that is easy to overlook. We are expecting the second line to fail, and then we are asserting that the failure is the type that we expect. However, what if the second line doesn't fail? In the context of the test, we would classify this as a failure, since the failure on line 2 is what we want. But in the code above, if line 2 doesn't fail for some reason, the <code>assert</code> will never happen and the test will pass. We can fix this by adding one line after line 2:</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="o">:</span>
+    <span class="n">invalid</span> <span class="o">=</span> <span class="n">oembed_tweet</span><span class="o">(</span><span class="s1">&#39;abc&#39;</span><span class="o">)</span>
+    <span class="n">assert</span> <span class="n">False</span>
+<span class="n">except</span> <span class="n">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="o">:</span>
+    <span class="n">assert</span> <span class="n">type</span><span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="k">is</span> <span class="n">KeyError</span>
+</pre></div>
+
+
+<p>The addition of <code>assert False</code> will force the <code>try</code> clause to fail, even if line 2 doesn't fail as expected, and since <code>assert False</code> raises an <code>Assertion Error</code>, line 5 will fail properly.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2014/01/15/sqlalchemy-and-race-conditions-implementing-get_one_or_create/" id="next-neighbour">&laquo; SQLAlchemy and Race Conditions: Implementing `get_one_or_create()`</a>
+		<a href="/blog/2013/05/21/unlocking-technology/" id="prev-neighbour">Unlocking Technology &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2013/06/26/flask-twitter-oembedder-and-flask-extension-testing/';
+		this.page.identifier = 'blog/2013/06/26/flask-twitter-oembedder-and-flask-extension-testing/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>

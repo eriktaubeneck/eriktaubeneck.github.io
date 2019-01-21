@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>print can be deceiving | skien.cc</title>
+	<meta name="description" content="This is more of a short musing than a blog post, but maybe some insight that can help a beginner. This is written specifically with respect to Python, but I think some of the basic ideas translate to other object oriented languages. when print was your best friend When someone …">
+	<meta name="author" content="Erik Taubeneck">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="print can be deceiving">
+	<meta property="og:description" content="This is more of a short musing than a blog post, but maybe some insight that can help a beginner. This is written specifically with respect to Python, but I think some of the basic ideas translate to other object oriented languages. when print was your best friend When someone …">
+	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2013/03/19/print-can-be-deceiving/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?2af86252" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">skien.cc</a></div>
+			<div id="bio">a mathematician, economist, and statistician by schooling, data scientist/python hacker by trade, and a homebrewer by night, skien.cc |skīəns| is my blog aimed to track explorations in all of the above.</div>
+
+
+			<div id="social">
+				<a href="http://github.com/eriktaubeneck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.facebook.com/erik.taubeneck" title="Facebook" class="icon fa fa-facebook"></a>
+				<a href="https://www.instagram.com/taubeneck/" title="Instagram" class="icon fa fa-instagram"></a>
+				<a href="http://twitter.com/taubeneck" title="Twitter" class="icon fa fa-twitter"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2013/03/19/print-can-be-deceiving/" title="Permalink to print can be deceiving">print can be deceiving</a></h1>
+	<time class="date" datetime="2013-03-19 11:42:00-04:00">2013-03-19</time>
+	<div class="content">
+		<p>This is more of a short musing than a blog post, but maybe some insight that can help a beginner. This is written specifically with respect to Python, but I think some of the basic ideas translate to other object oriented languages.</p>
+<h2>when <code>print</code> was your best friend</h2>
+<p>When someone is new to Python, and more so when new to programming in general, <code>print</code> is your best friend. Learning a new language is done by comparing what you expect happen and what actually happen. The prototypical example in any language is</p>
+<div class="codehilite"><pre><span></span>print &#39;Hello World!&#39;
+</pre></div>
+
+
+<p>and a new comer to Python going through something like <a href="http://learnpythonthehardway.org/">Learn Python the Hard Way</a> (LPTHW) will spend a number of lessons where a script ends with a <code>print</code> statement revealing the <em>answer</em>. This is notable because in a production system, <code>print</code> isn't used much at all, unless something goes wrong.</p>
+<!-- more -->
+
+<h2>when <code>print</code> isn't used</h2>
+<p>There are varying types of "systems" you can build in Python: (in rough order of rising complexity) scripts, packages, applications, web services/apis. This list is certainly not exhaustive, but except for the most basic scripts that calculate something like a summary statistic, <code>print</code> is rarely used.</p>
+<p>Most python "systems" (or really in any language) are used to deal with data structures that are rarely reduced down to one dimension. For example, <a href="http://projecteuler.net/problem=1">Project Euler, Problem 1</a> challenges you to find the sum of all the multiples of 3 or 5 below 1000. Python accomplishes this in 1 step:</p>
+<div class="codehilite"><pre><span></span>print sum([x for x in range(1000) if x % 3 == 0 or x % 5 == 0])
+</pre></div>
+
+
+<p>In this case, we are looking for the <em>answer</em> to the problem. However, most "systems" aren't designed to answer a problem, but to <em>solve</em> it. A python module typically defines certain models and methods for manipulating those methods. A web application models objects like users and is able to pass objects specific to that user to the browser. A web scrapper loads external webpages, allowing you to collect relevant data from the page. You are unlikely to use <code>print</code> to handle that data. More likely you will store it to a database or a flat file.</p>
+<h2>when <code>print</code> can be deceiving</h2>
+<p>You will never stop using <code>print</code>, it just will stop to be the intention of your programs. However, when ever working with a new module or framework, often times you are back to Hello World. By now you are able to read the docs and write a small program without any issue. But as you start to explore the more subtle features, often the docs will simply imply the correct implementation.</p>
+<p><code>print</code> will again be your best friend when you mess something up and you're trying to figure out where you went wrong. However, <code>print</code> can often hide important things when you are debugging. For example, in an interactive python session:</p>
+<div class="codehilite"><pre><span></span>&amp;gt;&amp;gt;&amp;gt; print 2
+2
+&amp;gt;&amp;gt;&amp;gt; print &#39;2&#39;
+2
+</pre></div>
+
+
+<p><code>print</code> isn't going let you know if the object you are printing here is a <code>int</code> or a <code>str</code>. Even more insidious, it could be a custom class with an attribute <code>val = 2</code> with it's <code>__repr__</code> method defined as <code>print self.val</code>. This is roughly the problem I recently ran into.</p>
+<p>I was working with the <a href="https://github.com/bear/python-twitter">python-twitter</a> module and trying to deal with different twitter errors differently. The pseudo-code to figure out the errors:</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="o">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">twitter_api</span><span class="o">.</span><span class="na">call</span><span class="o">()</span>
+<span class="n">except</span> <span class="n">TwitterError</span> <span class="k">as</span> <span class="n">error</span><span class="o">:</span>
+  <span class="n">print</span> <span class="n">error</span>
+</pre></div>
+
+
+<p>The result I got here in one case was <code>[{'message':'error code 1'}]</code> and in the other <code>error code 2</code>. Now this is kind of a pain in the ass, and really the result of python-twitter handling different errors with different methods (probably an issue worth fixing), but it's solvable with</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="o">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">twitter_api</span><span class="o">.</span><span class="na">call</span><span class="o">()</span>
+<span class="n">except</span><span class="o">:</span>
+  <span class="k">if</span> <span class="n">type</span><span class="o">(</span><span class="n">error</span><span class="o">)</span> <span class="o">==</span> <span class="n">list</span> <span class="n">and</span> <span class="n">error</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="s1">&#39;message&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;error code 1&#39;</span><span class="o">:</span>
+    <span class="err">#</span><span class="k">do</span> <span class="n">whatever</span> <span class="n">you</span> <span class="n">need</span> <span class="k">for</span> <span class="n">error</span> <span class="n">message</span> <span class="mi">1</span>
+  <span class="n">elif</span> <span class="n">error</span> <span class="o">==</span> <span class="s1">&#39;error code 2&#39;</span><span class="o">:</span>
+    <span class="err">#</span><span class="k">do</span> <span class="n">whatever</span> <span class="n">you</span> <span class="n">need</span> <span class="k">for</span> <span class="n">error</span> <span class="n">message</span> <span class="mi">2</span>
+  <span class="k">else</span><span class="o">:</span>
+    <span class="n">raise</span> <span class="err">#</span><span class="n">Errors</span> <span class="n">should</span> <span class="n">never</span> <span class="n">pass</span> <span class="n">silently</span><span class="o">.</span>
+</pre></div>
+
+
+<p>The problem here is that error is not a <code>str</code> but a instance of the <code>TwitterError</code> class, which has an attribute <code>message</code> that is printed when <code>print</code> is called on the object. This is expect behavior, and quite obviously implied by <code>TwitterError as error</code>. But easy enough to miss. A find and replace of <code>error</code> to <code>error.message</code> on the above code fixes it.</p>
+<p>One really handy way to help with these types of situations is running <code>python -i your_script.py</code>. This will open up an interactive session after the script exits upon an error or on completion. In this case, I was able observe the <code>error</code> variable after the <code>TwitterError</code> was raised when I thought that it would be captured. So remember, <code>print</code> doesn't always give you the full picture.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2013/05/21/unlocking-technology/" id="next-neighbour">&laquo; Unlocking Technology</a>
+		<a href="/blog/2013/01/15/using-the-facebook-javascript-sdk-and-jquery-to-create-user-accounts-with-a-flask-app/" id="prev-neighbour">Using the Facebook Javascript SDK and jQuery to Create User Accounts with a Flask App &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2013/03/19/print-can-be-deceiving/';
+		this.page.identifier = 'blog/2013/03/19/print-can-be-deceiving/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+
+</body>
+</html>
