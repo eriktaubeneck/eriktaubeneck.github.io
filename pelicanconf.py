@@ -64,6 +64,7 @@ PLUGINS = [
     'liquid_tags.img',
     'liquid_tags.video',
     'liquid_tags.include_code',
+    'pelican_jsmath',
     # 'liquid_tags.notebook',
 ]
 
