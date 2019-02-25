@@ -99,7 +99,7 @@ print(dl+"-"+profile)')
 
 Here's what it looks like calling it a few times:
 
-<video width="100%" height="100%" loop autoplay>
+<video width="100%" height="100%" loop autoplay muted>
 <source src="/images/iterm.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
 </video>
 
