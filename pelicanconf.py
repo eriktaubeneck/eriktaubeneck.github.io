@@ -10,7 +10,11 @@ ICONS_PATH = 'images/icons'
 STATIC_PATHS = [
     'images',
     'images/icons',
+    'extra/CNAME',
 ]
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+}
 
 PATH = 'content'
 
