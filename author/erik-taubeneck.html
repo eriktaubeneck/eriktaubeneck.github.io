@@ -47,6 +47,11 @@
 	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
 	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
 
+        <!-- KaTeX -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.css" integrity="sha384-VEnyslhHLHiYPca9KFkBB3CMeslnM9CzwjxsEbZTeA21JBm7tdLwKoZmCt3cZTYD" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.js" integrity="sha384-O4hpKqcplNCe+jLuBVEXC10Rn1QEqAmX98lKAIFBEDxZI0a+6Z2w2n8AEtQbR4CD" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/contrib/auto-render.min.js" integrity="sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc" crossorigin="anonymous"></script>
+
 	<!--[if lt IE 9]>
 	<script src="/theme/js/html5shiv.min.js"></script>
 	<script src="/theme/js/respond.min.js"></script>
@@ -72,7 +77,12 @@
 		</aside>
 
 		<article>
-		<h1 class="title"><a href="blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/" title="Behind the Scenes of the Startup Podcast">Behind the Scenes of the Startup Podcast</a></h1>
+		<h1 class="title"><a href="blog/2019/02/24/iterm-profiles/" title="iTerm Profiles">iTerm Profiles</a></h1>
+		<time class="date" datetime="2019-02-24 00:00:00-05:00">2019-02-24</time>
+		<div class="content summary">
+			<p>Hacking on iTerm 2 I wanted a small weekend project to hack on today, so I decided to hack a little on iTerm. First, I wanted to make it easier to switch between light and dark profiles. Switching profiles in iTerm requires a bunch of clicks, and I hate using&nbsp;&#8230;</p>
+		</div>
+<br>		<h1 class="title"><a href="blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/" title="Behind the Scenes of the Startup Podcast">Behind the Scenes of the Startup Podcast</a></h1>
 		<time class="date" datetime="2014-11-10 12:00:00-08:00">2014-11-10</time>
 		<div class="content summary">
 			<p>I'm a huge fan of podcasts: I never miss an episode of Marketplace; I am near giddy when a new episode of Radiolab is released; I credit Planet Money with preparing me for a successful first interview out of college at Freddie Mac. The hottest new podcast is undoubtedly Startup&nbsp;&#8230;</p>
@@ -87,11 +97,6 @@
 		<div class="content summary">
 			<p>In an earlier post, I talked about my adventures in creating a get_one_or_create() function for SQLAlchemy to use with Flask and Postgres. There was an excellent question asked in the comments about weather session.flush() could be used on line 13 instead of session.commit(). I didn't fully understand the&nbsp;&#8230;</p>
 		</div>
-<br>		<h1 class="title"><a href="blog/2014/01/31/adding-unique-constraints-after-the-fact-in-sqlalchemy/" title="Adding Unique Constraints After the Fact in SQLAlchemy">Adding Unique Constraints After the Fact in SQLAlchemy</a></h1>
-		<time class="date" datetime="2014-01-31 16:40:00-05:00">2014-01-31</time>
-		<div class="content summary">
-			<p>In a previous post, I wrote about writing a get_one_or_create() function for SQLAlchemy. Turns out that I had inadvertently created a race condition while horizontally scaling on Heroku. That post explains, in detail, the solution I came up with for moving forward, however I still had duplicate objects in my&nbsp;&#8230;</p>
-		</div>
 	<div id="view-archives"><a href="/archive/">Older Posts &raquo;</a></div>
 			<hr>
 		</article>
@@ -102,5 +107,7 @@
 	</div>
 
 
+
+        <script>renderMathInElement(document.body);</script>
 </body>
 </html>

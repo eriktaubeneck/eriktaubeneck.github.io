@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>iTerm Profiles | skien.cc</title>
+	<meta name="description" content="Hacking on iTerm 2 I wanted a small weekend project to hack on today, so I decided to hack a little on iTerm. First, I wanted to make it easier to switch between light and dark profiles. Switching profiles in iTerm requires a bunch of clicks, and I hate using …">
+	<meta name="author" content="Erik Taubeneck">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="iTerm Profiles">
+	<meta property="og:description" content="Hacking on iTerm 2 I wanted a small weekend project to hack on today, so I decided to hack a little on iTerm. First, I wanted to make it easier to switch between light and dark profiles. Switching profiles in iTerm requires a bunch of clicks, and I hate using …">
+	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2019/02/24/iterm-profiles/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css?0be367cb" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196">
+
+	<meta name="theme-color" content="">
+
+	<meta name="msapplication-TileColor" content="">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+        <!-- KaTeX -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.css" integrity="sha384-VEnyslhHLHiYPca9KFkBB3CMeslnM9CzwjxsEbZTeA21JBm7tdLwKoZmCt3cZTYD" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.js" integrity="sha384-O4hpKqcplNCe+jLuBVEXC10Rn1QEqAmX98lKAIFBEDxZI0a+6Z2w2n8AEtQbR4CD" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/contrib/auto-render.min.js" integrity="sha384-IiI65aU9ZYub2MY9zhtKd1H2ps7xxf+eb2YFG9lX6uRqpXCvBTOidPRCXCrQ++Uc" crossorigin="anonymous"></script>
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">skien.cc</a></div>
+			<div id="bio">a mathematician, economist, and statistician by schooling, data scientist/python hacker by trade, and a homebrewer by night, skien.cc |skīəns| is my blog aimed to track explorations in all of the above.</div>
+
+
+			<div id="social">
+				<a href="http://github.com/eriktaubeneck" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.facebook.com/erik.taubeneck" title="Facebook" class="icon fa fa-facebook"></a>
+				<a href="https://www.instagram.com/taubeneck/" title="Instagram" class="icon fa fa-instagram"></a>
+				<a href="http://twitter.com/taubeneck" title="Twitter" class="icon fa fa-twitter"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/blog/2019/02/24/iterm-profiles/" title="Permalink to iTerm Profiles">iTerm Profiles</a></h1>
+	<time class="date" datetime="2019-02-24 00:00:00-05:00">2019-02-24</time>
+	<div class="content">
+		<h2>Hacking on iTerm 2</h2>
+<p>I wanted a small weekend project to hack on today, so I decided to hack a little on iTerm. First, I wanted to make it easier to switch between light and dark profiles. Switching profiles in iTerm requires a bunch of clicks, and I hate using my mouse.</p>
+<!-- more -->
+
+<p>So, I set out to build a few features:
+- A bash function to switch between light and dark profiles
+- Automatically select a specific profile when I connect to a remote server
+- Randomly select a profile when opening a new tab (to more visual context for different mental context)</p>
+<p>Granted - this isn't for everyone. Many people find backgrounds in their terminal to be distracting, and use their prompt to make these distinctions. But, I love having background images and the more visual cues, the better.</p>
+<h2>Control iTerm Profiles from bash</h2>
+<p>iTerm has a special escape sequence it can catch to switch profiles:</p>
+<div class="codehilite"><pre><span></span>echo -e &quot;\033]50;SetProfile=MyAwesomeProfile\a&quot;
+</pre></div>
+
+
+<p>iTerm also sets an environmental variable, <code>ITERM_PROFILE</code>, but running the above doesn't update it. So here is a simple bash function to change the current iTerm session's profile:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">iterm</span><span class="o">-</span><span class="nx">profile() {</span>
+  <span class="nx">echo</span> <span class="o">-</span><span class="nx">e</span> <span class="s2">&quot;\033]50;SetProfile=$1\a&quot;</span>
+  <span class="nx">ITERM_PROFILE</span><span class="o">=</span><span class="nx">$1</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>Switching between light and dark</h2>
+<p>iTerm doesn't have an easy way to change settings of a profile, so to accomplish this I just created a light and dark version of all my profiles, i.e. <code>Dark-1</code> and <code>Light-1</code>. Assuming that the current profile has a respective opposite version, here's a function to switch between the two:</p>
+<div class="codehilite"><pre><span></span><span class="n">function</span> <span class="n">flip</span><span class="o">-</span><span class="n">iterm</span><span class="o">-</span><span class="n">profile</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span> <span class="err">$</span><span class="p">(</span>
+  <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">dl</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">dl</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Dark&quot;</span><span class="p">:</span> <span class="s2">&quot;Light&quot;</span><span class="p">,</span> <span class="s2">&quot;Light&quot;</span><span class="p">:</span> <span class="s2">&quot;Dark&quot;</span><span class="p">}[</span><span class="n">dl</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dl</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">profile</span><span class="p">)</span>
+  <span class="s1">&#39; $ITERM_PROFILE)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>Change Profile for remote connection</h2>
+<p>I use <a href="https://mistertea.github.io/EternalTerminal/">Eternal Terminal</a> for my remote connections. It keeps your connection alive, between network changes (similar to <a href="https://mosh.org/">Mosh</a>), but also allows for port forwarding, which I use with sshx in my emacs session. One downside of Eternal Terminal, though, is that it won't read <code>LocalForward</code> settings from your ssh config. I also have it connect directly to my already running tmux session on my remote session. This ends up in a fairly complicated connection command, which I had aliased:</p>
+<div class="codehilite"><pre><span></span>alias up=&#39;et -c=&quot;tmux a&quot; -x -t=&quot;10022:22&quot; devserver&#39;
+</pre></div>
+
+
+<p>To add in the profile changing, I created two profiles, <code>Dark-Devserver</code> and <code>Light-Devserver</code>, and I changed the alias to a function:</p>
+<div class="codehilite"><pre><span></span><span class="n">function</span> <span class="n">up</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">PREVIOUS_PROFILE</span><span class="o">=</span><span class="err">$</span><span class="n">ITERM_PROFILE</span>
+  <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span> <span class="err">$</span><span class="p">(</span>
+  <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">dl</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dl</span><span class="o">+</span><span class="s2">&quot;-Devserver&quot;</span><span class="p">)</span>
+  <span class="s1">&#39; $ITERM_PROFILE)</span>
+  <span class="n">et</span> <span class="o">-</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;tmux a&quot;</span> <span class="o">-</span><span class="n">x</span> <span class="o">-</span><span class="n">t</span><span class="o">=</span><span class="s2">&quot;10022:22&quot;</span> <span class="n">devserver</span><span class="o">.</span><span class="n">et</span><span class="p">:</span><span class="mi">8080</span>
+  <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span> <span class="err">$</span><span class="n">PREVIOUS_PROFILE</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The <code>et</code> command could easily be swapped for a <code>ssh</code> or <code>mosh</code> command. The only extra piece here is that I maintain the dark/light setting from the existing profile.</p>
+<p>This can also be accomplished with <a href="https://iterm2.com/documentation-automatic-profile-switching.html">Automatic Profile Switching</a> in iTerm, but it wouldn't maintain the light/dark setting. You could also include similar code in your bash profile on the server, but that was complicated by my connecting directly to a running tmux session.</p>
+<h2>Random Profile on Launch</h2>
+<p>This one only works because I created six pairs of profiles named <code>Light-&lt;n&gt;</code> and <code>Dark-&lt;n&gt;</code>. I then (somewhat arbitrarily) decided to set the profile to <code>Light</code> between 6am and 3pm, and <code>Dark</code> otherwise. Additionally, a random choice doesn't guarantee a unique profile, but it's simple enough to call the function again if you're unsatisfied.</p>
+<div class="codehilite"><pre><span></span><span class="n">function</span> <span class="n">random</span><span class="o">-</span><span class="n">iterm</span><span class="o">-</span><span class="n">profile</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1"># pick random profile (of the 6)</span>
+  <span class="c1"># Light between 6am and 3pm, otherwise Dark</span>
+  <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span> <span class="err">$</span><span class="p">(</span>
+  <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">dl</span> <span class="o">=</span> <span class="s2">&quot;Light&quot;</span> <span class="k">if</span> <span class="mi">6</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">15</span> <span class="k">else</span> <span class="s2">&quot;Dark&quot;</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dl</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">profile</span><span class="p">)</span><span class="s1">&#39;)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Here's what it looks like calling it a few times:</p>
+<video width="100%" height="100%" loop autoplay>
+<source src="/images/iterm.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
+</video>
+
+<h2>Wrap it all up</h2>
+<p>If you want to copy and paste directly in your bash profile, here you go. You'll need the following iTerm profiles defined:</p>
+<ul>
+<li>Light-1</li>
+<li>Light-2</li>
+<li>Light-3</li>
+<li>Light-4</li>
+<li>Light-5</li>
+<li>Light-6</li>
+<li>Light-Devserver</li>
+<li>Dark-1</li>
+<li>Dark-2</li>
+<li>Dark-3</li>
+<li>Dark-4</li>
+<li>Dark-5</li>
+<li>Dark-6</li>
+<li>Dark-Devserver</li>
+</ul>
+<p>and you'll need to change the <code>et</code> command to something that makes sense for you.</p>
+<div class="codehilite"><pre><span></span><span class="n">function</span> <span class="n">up</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">PREVIOUS_PROFILE</span><span class="o">=</span><span class="err">$</span><span class="n">ITERM_PROFILE</span>
+  <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span> <span class="err">$</span><span class="p">(</span>
+  <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">dl</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dl</span><span class="o">+</span><span class="s2">&quot;-Devserver&quot;</span><span class="p">)</span>
+  <span class="s1">&#39; $ITERM_PROFILE)</span>
+  <span class="n">et</span> <span class="o">-</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;tmux a&quot;</span> <span class="o">-</span><span class="n">x</span> <span class="o">-</span><span class="n">t</span><span class="o">=</span><span class="s2">&quot;10022:22&quot;</span> <span class="n">devserver</span>
+  <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span> <span class="err">$</span><span class="n">PREVIOUS_PROFILE</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">]50;SetProfile=$1</span><span class="se">\a</span><span class="s2">&quot;</span>
+  <span class="n">ITERM_PROFILE</span><span class="o">=</span><span class="err">$</span><span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="n">flip</span><span class="o">-</span><span class="n">iterm</span><span class="o">-</span><span class="n">profile</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span> <span class="err">$</span><span class="p">(</span>
+  <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">dl</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">dl</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Dark&quot;</span><span class="p">:</span> <span class="s2">&quot;Light&quot;</span><span class="p">,</span> <span class="s2">&quot;Light&quot;</span><span class="p">:</span> <span class="s2">&quot;Dark&quot;</span><span class="p">}[</span><span class="n">dl</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dl</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">profile</span><span class="p">)</span>
+  <span class="s1">&#39; $ITERM_PROFILE)</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="n">random</span><span class="o">-</span><span class="n">iterm</span><span class="o">-</span><span class="n">profile</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1"># pick random profile (of the 6)</span>
+  <span class="c1"># Light between 6am and 3pm, otherwise Dark</span>
+  <span class="n">iterm</span><span class="o">-</span><span class="n">profile</span> <span class="err">$</span><span class="p">(</span>
+  <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">dl</span> <span class="o">=</span> <span class="s2">&quot;Light&quot;</span> <span class="k">if</span> <span class="mi">6</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">15</span> <span class="k">else</span> <span class="s2">&quot;Dark&quot;</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dl</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">profile</span><span class="p">)</span><span class="s1">&#39;)</span>
+<span class="p">}</span>
+
+<span class="n">random</span><span class="o">-</span><span class="n">iterm</span><span class="o">-</span><span class="n">profile</span>
+</pre></div>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/" id="prev-neighbour">Behind the Scenes of the Startup Podcast &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2019/02/24/iterm-profiles/';
+		this.page.identifier = 'blog/2019/02/24/iterm-profiles/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+
+
+        <script>renderMathInElement(document.body);</script>
+</body>
+</html>

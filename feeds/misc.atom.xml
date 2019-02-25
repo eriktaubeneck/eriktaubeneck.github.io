@@ -1,5 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>skien.cc - misc</title><link href="https://skien.cc/" rel="alternate"></link><link href="https://skien.cc/feeds/misc.atom.xml" rel="self"></link><id>https://skien.cc/</id><updated>2014-11-10T12:00:00-08:00</updated><entry><title>Behind the Scenes of the Startup Podcast</title><link href="https://skien.cc/blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/" rel="alternate"></link><published>2014-11-10T12:00:00-08:00</published><updated>2014-11-10T12:00:00-08:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2014-11-10:/blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/</id><summary type="html">&lt;p&gt;I'm a huge fan of podcasts: I never miss an episode of &lt;a href="http://www.marketplace.org/"&gt;Marketplace&lt;/a&gt;; I am near giddy when a new episode of &lt;a href="http://www.radiolab.org/"&gt;Radiolab&lt;/a&gt; is released; I credit &lt;a href="http://www.npr.org/blogs/money/"&gt;Planet Money&lt;/a&gt; with preparing me for a successful first interview out of college at Freddie Mac. The hottest new podcast is undoubtedly &lt;a href="http://www.hearstartup.com"&gt;Startup …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm a huge fan of podcasts: I never miss an episode of &lt;a href="http://www.marketplace.org/"&gt;Marketplace&lt;/a&gt;; I am near giddy when a new episode of &lt;a href="http://www.radiolab.org/"&gt;Radiolab&lt;/a&gt; is released; I credit &lt;a href="http://www.npr.org/blogs/money/"&gt;Planet Money&lt;/a&gt; with preparing me for a successful first interview out of college at Freddie Mac. The hottest new podcast is undoubtedly &lt;a href="http://www.hearstartup.com"&gt;Startup&lt;/a&gt; (&lt;a href="http://serialpodcast.org/"&gt;Serial&lt;/a&gt; is a close second.) Created and narrated by Alex Blumberg (of Planet Money and &lt;a href="http://www.thisamericanlife.org/"&gt;This American Life&lt;/a&gt;), it tracks Alex and his cofounder Matt Lieber on their journey to launch Gimlet Media, a podcasting company.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>skien.cc - misc</title><link href="https://skien.cc/" rel="alternate"></link><link href="https://skien.cc/feeds/misc.atom.xml" rel="self"></link><id>https://skien.cc/</id><updated>2019-02-24T00:00:00-05:00</updated><entry><title>iTerm Profiles</title><link href="https://skien.cc/blog/2019/02/24/iterm-profiles/" rel="alternate"></link><published>2019-02-24T00:00:00-05:00</published><updated>2019-02-24T00:00:00-05:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2019-02-24:/blog/2019/02/24/iterm-profiles/</id><summary type="html">&lt;h2&gt;Hacking on iTerm 2&lt;/h2&gt;
+&lt;p&gt;I wanted a small weekend project to hack on today, so I decided to hack a little on iTerm. First, I wanted to make it easier to switch between light and dark profiles. Switching profiles in iTerm requires a bunch of clicks, and I hate using …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Hacking on iTerm 2&lt;/h2&gt;
+&lt;p&gt;I wanted a small weekend project to hack on today, so I decided to hack a little on iTerm. First, I wanted to make it easier to switch between light and dark profiles. Switching profiles in iTerm requires a bunch of clicks, and I hate using my mouse.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;So, I set out to build a few features:
+- A bash function to switch between light and dark profiles
+- Automatically select a specific profile when I connect to a remote server
+- Randomly select a profile when opening a new tab (to more visual context for different mental context)&lt;/p&gt;
+&lt;p&gt;Granted - this isn't for everyone. Many people find backgrounds in their terminal to be distracting, and use their prompt to make these distinctions. But, I love having background images and the more visual cues, the better.&lt;/p&gt;
+&lt;h2&gt;Control iTerm Profiles from bash&lt;/h2&gt;
+&lt;p&gt;iTerm has a special escape sequence it can catch to switch profiles:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo -e &amp;quot;\033]50;SetProfile=MyAwesomeProfile\a&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;iTerm also sets an environmental variable, &lt;code&gt;ITERM_PROFILE&lt;/code&gt;, but running the above doesn't update it. So here is a simple bash function to change the current iTerm session's profile:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;profile() {&lt;/span&gt;
+  &lt;span class="nx"&gt;echo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\033]50;SetProfile=$1\a&amp;quot;&lt;/span&gt;
+  &lt;span class="nx"&gt;ITERM_PROFILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;$1&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Switching between light and dark&lt;/h2&gt;
+&lt;p&gt;iTerm doesn't have an easy way to change settings of a profile, so to accomplish this I just created a light and dark version of all my profiles, i.e. &lt;code&gt;Dark-1&lt;/code&gt; and &lt;code&gt;Light-1&lt;/code&gt;. Assuming that the current profile has a respective opposite version, here's a function to switch between the two:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;flip&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;dl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Dark&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Light&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Light&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Dark&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}[&lt;/span&gt;&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="s1"&gt;&amp;#39; $ITERM_PROFILE)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Change Profile for remote connection&lt;/h2&gt;
+&lt;p&gt;I use &lt;a href="https://mistertea.github.io/EternalTerminal/"&gt;Eternal Terminal&lt;/a&gt; for my remote connections. It keeps your connection alive, between network changes (similar to &lt;a href="https://mosh.org/"&gt;Mosh&lt;/a&gt;), but also allows for port forwarding, which I use with sshx in my emacs session. One downside of Eternal Terminal, though, is that it won't read &lt;code&gt;LocalForward&lt;/code&gt; settings from your ssh config. I also have it connect directly to my already running tmux session on my remote session. This ends up in a fairly complicated connection command, which I had aliased:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;alias up=&amp;#39;et -c=&amp;quot;tmux a&amp;quot; -x -t=&amp;quot;10022:22&amp;quot; devserver&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To add in the profile changing, I created two profiles, &lt;code&gt;Dark-Devserver&lt;/code&gt; and &lt;code&gt;Light-Devserver&lt;/code&gt;, and I changed the alias to a function:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;PREVIOUS_PROFILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;ITERM_PROFILE&lt;/span&gt;
+  &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-Devserver&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="s1"&gt;&amp;#39; $ITERM_PROFILE)&lt;/span&gt;
+  &lt;span class="n"&gt;et&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tmux a&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;10022:22&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;devserver&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;et&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8080&lt;/span&gt;
+  &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PREVIOUS_PROFILE&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;et&lt;/code&gt; command could easily be swapped for a &lt;code&gt;ssh&lt;/code&gt; or &lt;code&gt;mosh&lt;/code&gt; command. The only extra piece here is that I maintain the dark/light setting from the existing profile.&lt;/p&gt;
+&lt;p&gt;This can also be accomplished with &lt;a href="https://iterm2.com/documentation-automatic-profile-switching.html"&gt;Automatic Profile Switching&lt;/a&gt; in iTerm, but it wouldn't maintain the light/dark setting. You could also include similar code in your bash profile on the server, but that was complicated by my connecting directly to a running tmux session.&lt;/p&gt;
+&lt;h2&gt;Random Profile on Launch&lt;/h2&gt;
+&lt;p&gt;This one only works because I created six pairs of profiles named &lt;code&gt;Light-&amp;lt;n&amp;gt;&lt;/code&gt; and &lt;code&gt;Dark-&amp;lt;n&amp;gt;&lt;/code&gt;. I then (somewhat arbitrarily) decided to set the profile to &lt;code&gt;Light&lt;/code&gt; between 6am and 3pm, and &lt;code&gt;Dark&lt;/code&gt; otherwise. Additionally, a random choice doesn't guarantee a unique profile, but it's simple enough to call the function again if you're unsatisfied.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="c1"&gt;# pick random profile (of the 6)&lt;/span&gt;
+  &lt;span class="c1"&gt;# Light between 6am and 3pm, otherwise Dark&lt;/span&gt;
+  &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;span class="n"&gt;dl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Light&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hour&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Dark&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here's what it looks like calling it a few times:&lt;/p&gt;
+&lt;video width="100%" height="100%" loop autoplay&gt;
+&lt;source src="/images/iterm.mp4" type="video/mp4; codecs=&amp;quot;avc1.42E01E, mp4a.40.2&amp;quot;"&gt;
+&lt;/video&gt;
+
+&lt;h2&gt;Wrap it all up&lt;/h2&gt;
+&lt;p&gt;If you want to copy and paste directly in your bash profile, here you go. You'll need the following iTerm profiles defined:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Light-1&lt;/li&gt;
+&lt;li&gt;Light-2&lt;/li&gt;
+&lt;li&gt;Light-3&lt;/li&gt;
+&lt;li&gt;Light-4&lt;/li&gt;
+&lt;li&gt;Light-5&lt;/li&gt;
+&lt;li&gt;Light-6&lt;/li&gt;
+&lt;li&gt;Light-Devserver&lt;/li&gt;
+&lt;li&gt;Dark-1&lt;/li&gt;
+&lt;li&gt;Dark-2&lt;/li&gt;
+&lt;li&gt;Dark-3&lt;/li&gt;
+&lt;li&gt;Dark-4&lt;/li&gt;
+&lt;li&gt;Dark-5&lt;/li&gt;
+&lt;li&gt;Dark-6&lt;/li&gt;
+&lt;li&gt;Dark-Devserver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;and you'll need to change the &lt;code&gt;et&lt;/code&gt; command to something that makes sense for you.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;PREVIOUS_PROFILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;ITERM_PROFILE&lt;/span&gt;
+  &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-Devserver&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="s1"&gt;&amp;#39; $ITERM_PROFILE)&lt;/span&gt;
+  &lt;span class="n"&gt;et&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tmux a&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;10022:22&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;devserver&lt;/span&gt;
+  &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PREVIOUS_PROFILE&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\033&lt;/span&gt;&lt;span class="s2"&gt;]50;SetProfile=$1&lt;/span&gt;&lt;span class="se"&gt;\a&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  &lt;span class="n"&gt;ITERM_PROFILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;flip&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;dl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Dark&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Light&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Light&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Dark&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}[&lt;/span&gt;&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="s1"&gt;&amp;#39; $ITERM_PROFILE)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="c1"&gt;# pick random profile (of the 6)&lt;/span&gt;
+  &lt;span class="c1"&gt;# Light between 6am and 3pm, otherwise Dark&lt;/span&gt;
+  &lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;span class="n"&gt;dl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Light&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hour&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Dark&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;iterm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>Behind the Scenes of the Startup Podcast</title><link href="https://skien.cc/blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/" rel="alternate"></link><published>2014-11-10T12:00:00-08:00</published><updated>2014-11-10T12:00:00-08:00</updated><author><name>Erik Taubeneck</name></author><id>tag:skien.cc,2014-11-10:/blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/</id><summary type="html">&lt;p&gt;I'm a huge fan of podcasts: I never miss an episode of &lt;a href="http://www.marketplace.org/"&gt;Marketplace&lt;/a&gt;; I am near giddy when a new episode of &lt;a href="http://www.radiolab.org/"&gt;Radiolab&lt;/a&gt; is released; I credit &lt;a href="http://www.npr.org/blogs/money/"&gt;Planet Money&lt;/a&gt; with preparing me for a successful first interview out of college at Freddie Mac. The hottest new podcast is undoubtedly &lt;a href="http://www.hearstartup.com"&gt;Startup …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm a huge fan of podcasts: I never miss an episode of &lt;a href="http://www.marketplace.org/"&gt;Marketplace&lt;/a&gt;; I am near giddy when a new episode of &lt;a href="http://www.radiolab.org/"&gt;Radiolab&lt;/a&gt; is released; I credit &lt;a href="http://www.npr.org/blogs/money/"&gt;Planet Money&lt;/a&gt; with preparing me for a successful first interview out of college at Freddie Mac. The hottest new podcast is undoubtedly &lt;a href="http://www.hearstartup.com"&gt;Startup&lt;/a&gt; (&lt;a href="http://serialpodcast.org/"&gt;Serial&lt;/a&gt; is a close second.) Created and narrated by Alex Blumberg (of Planet Money and &lt;a href="http://www.thisamericanlife.org/"&gt;This American Life&lt;/a&gt;), it tracks Alex and his cofounder Matt Lieber on their journey to launch Gimlet Media, a podcasting company.&lt;/p&gt;
 &lt;p&gt;This podcast offers a rare look into the startup/VC/Silicon Valley tech scene and the process of launching a company from the ground up. While popularity of this topic has certainly grown in recent years, rarely do we get to see such a raw and personal take on it. Certainly, any method of storytelling that condenses months of work into half hour pieces cannot escape an editorial aspect, but Alex manages to capture his story in an unsensational yet insightful way.&lt;/p&gt;
 &lt;!-- more --&gt;
 
