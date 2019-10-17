@@ -3,18 +3,22 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>skien.cc</title>
-	<meta name="description" content="">
+	<title>Fighting fraud using partially blind signatures | skien.cc</title>
+	<meta name="description" content="It's not often that I'm able to share my work publically, so it's personally quite exciting to have worked on this project and to see it published on the Facebook engineering blog: Fighting fraud using partially blind signatures. Historically, the primary tool for fighting fraud in ad tech was a …">
 	<meta name="author" content="Erik Taubeneck">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<!-- Open Graph -->
-	<meta property="og:title" content="skien.cc">
-	<meta property="og:description" content="">
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@taubeneck">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@taubeneck">
+	<meta property="og:title" content="Fighting fraud using partially blind signatures">
+	<meta property="og:description" content="It's not often that I'm able to share my work publically, so it's personally quite exciting to have worked on this project and to see it published on the Facebook engineering blog: Fighting fraud using partially blind signatures. Historically, the primary tool for fighting fraud in ad tech was a …">
 	<meta property="og:image" content="https://skien.cc/images/icons/avatar.png">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://skien.cc">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://skien.cc/blog/2019/10/17/fighting-fraud-using-partially-blind-signatures/">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css?565bd2c1" rel="stylesheet">
@@ -77,27 +81,36 @@
 		</aside>
 
 		<article>
-		<h1 class="title"><a href="blog/2019/10/17/fighting-fraud-using-partially-blind-signatures/" title="Fighting fraud using partially blind signatures">Fighting fraud using partially blind signatures</a></h1>
-		<time class="date" datetime="2019-10-17 09:45:00-04:00">2019-10-17</time>
-		<div class="content summary">
-			<p>It's not often that I'm able to share my work publically, so it's personally quite exciting to have worked on this project and to see it published on the Facebook engineering blog: Fighting fraud using partially blind signatures. Historically, the primary tool for fighting fraud in ad tech was a&nbsp;&#8230;</p>
-		</div>
-<br>		<h1 class="title"><a href="blog/2019/02/24/iterm-profiles/" title="iTerm Profiles">iTerm Profiles</a></h1>
-		<time class="date" datetime="2019-02-24 00:00:00-05:00">2019-02-24</time>
-		<div class="content summary">
-			<p>Hacking on iTerm 2 I wanted a small weekend project to hack on today, so I decided to hack a little on iTerm. First, I wanted to make it easier to switch between light and dark profiles. Switching profiles in iTerm requires a bunch of clicks, and I hate using&nbsp;&#8230;</p>
-		</div>
-<br>		<h1 class="title"><a href="blog/2014/11/10/behind-the-scenes-of-the-startup-podcast/" title="Behind the Scenes of the Startup Podcast">Behind the Scenes of the Startup Podcast</a></h1>
-		<time class="date" datetime="2014-11-10 12:00:00-08:00">2014-11-10</time>
-		<div class="content summary">
-			<p>I'm a huge fan of podcasts: I never miss an episode of Marketplace; I am near giddy when a new episode of Radiolab is released; I credit Planet Money with preparing me for a successful first interview out of college at Freddie Mac. The hottest new podcast is undoubtedly Startup&nbsp;&#8230;</p>
-		</div>
-<br>		<h1 class="title"><a href="blog/2014/04/09/unpythonic-python/" title="Unpythonic Python">Unpythonic Python</a></h1>
-		<time class="date" datetime="2014-04-09 03:09:54-04:00">2014-04-09</time>
-		<div class="content summary">
-			<p>FizzBuzz When I applied to Hacker School, one of the application question was FizzBuzz: Write a program that prints out the numbers 1 to 100 (inclusive). If the number is divisible by 3, print Fizz instead of the number. If it's divisible by 5, print Buzz. If it's divisible by&nbsp;&#8230;</p>
-		</div>
-	<div id="view-archives"><a href="/archive/">Older Posts &raquo;</a></div>
+	<h1 class="title"><a href="/blog/2019/10/17/fighting-fraud-using-partially-blind-signatures/" title="Permalink to Fighting fraud using partially blind signatures">Fighting fraud using partially blind signatures</a></h1>
+	<time class="date" datetime="2019-10-17 09:45:00-04:00">2019-10-17</time>
+	<div class="content">
+		<p>It's not often that I'm able to share my work publically, so it's personally quite exciting to have worked on this project and to see it published on the Facebook engineering blog: <a href="https://engineering.fb.com/security/partially-blind-signatures/">Fighting fraud using partially blind signatures</a>.</p>
+<p>Historically, the primary tool for fighting fraud in ad tech was a uniquely identifiable token. If a token you receive back matches a token you generated in the past, you can be almost certain it wasn't faked. However, these tokens enable individual tracking, and, other than blind trust, there is no way to prove that they aren't used that way.</p>
+<p>These tokens aren't the only solution, though. Through applied cryptography and some critical insights, we designed a protocol which removes this tracking ability, but maintains the ability to detect a fake token. For my fellow software engineers, we have a prototype up on <a href="https://github.com/siyengar/private-fraud-prevention">GitHub as well.</a></p>
+<p>This is just the tip of the iceberg when it comes to inventing new privacy preserving technology, and applying it to the digital ad ecosystem, and I'm humbled and proud to be a part of it.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2019/02/24/iterm-profiles/" id="prev-neighbour">iTerm Profiles &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script>
+	var disqus_config = function() {
+		this.page.url = 'https://skien.cc/blog/2019/10/17/fighting-fraud-using-partially-blind-signatures/';
+		this.page.identifier = 'blog/2019/10/17/fighting-fraud-using-partially-blind-signatures/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//skiencc.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+	</script>
 			<hr>
 		</article>
 
